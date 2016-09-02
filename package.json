@@ -1,0 +1,28 @@
+{
+    "name": "turtl-rdf-parser",
+    "version": "0.1.0",
+    "description": "antlr4 based JS trig parser",
+    "main": "index.js",
+    "dependencies": {
+        "antlr4": "^4.5.3",
+        "moment": "^2.14.1",
+        "node-uuid": "^1.4.7"
+    },
+    "devDependencies": {
+        "recursive-readdir": "^2.0.0",
+        "chai": "^3.5.0",
+        "mocha": "^3.0.2"
+    },
+    "scripts": {
+        "test": "./test.sh",
+        "profile": "./profile.sh"
+    },
+
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/cambridgesemantics/js-trig-parser.git"
+    },
+
+    "author": "Chris Borodic",
+    "license": "MIT"
+}

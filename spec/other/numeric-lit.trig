@@ -1,0 +1,7 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+<http://g.com> {
+  <http://g.com> <http://g.com> "1"^^xsd:int .
+  <http://g.com> <http://g.com> "9007199254740990"^^xsd:integer .
+  <http://g.com> <http://g.com> "1.1"^^xsd:decimal .
+  <http://g.com> <http://g.com> "9007199254740992"^^xsd:long .
+}

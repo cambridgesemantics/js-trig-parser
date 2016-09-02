@@ -1,0 +1,7 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+<http://g.com/> {
+  <http://g.com> <http://g.com> "true"^^xsd:boolean .
+  <http://g.com> <http://g.com> "false"^^xsd:boolean .
+  <http://g.com> <http://g.com> true .
+  <http://g.com> <http://g.com> false .
+}

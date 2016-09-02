@@ -1,0 +1,4 @@
+<http://g.com>{
+  <http://g.com> a "teststr" .
+  <http://g.com> a 'teststr' .
+}

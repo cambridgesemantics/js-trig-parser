@@ -1,0 +1,10 @@
+<http://g.com>{
+  <http://g.com> <http://g.com> "true"^^xsd:boolean .
+  <http://g.com> <http://g.com> "12-29-1979"^^xsd:date .
+  <http://g.com> <http://g.com> "2014-11-26T08:03:46.346Z"^^xsd:datetime .
+  <http://g.com> <http://g.com> "1"^^xsd:int .
+  <http://g.com> <http://g.com> "9007199254740990"^^xsd:integer .
+  <http://g.com> <http://g.com> "true"^^xsd:decimal .
+  <http://g.com> <http://g.com> "9007199254740992"^^xsd:long .
+  <http://g.com> <http://g.com> "http://flixray.com/movie_reviews/No-Country-for-Old-Men.html"^^xsd:anyURI .
+}

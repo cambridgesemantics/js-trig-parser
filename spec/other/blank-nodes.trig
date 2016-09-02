@@ -1,0 +1,4 @@
+<http://g.com/>{
+  _:blank_node a <http://g.com/> .
+  <http://g.com/> <http://g.com/> _:blank_node .
+}

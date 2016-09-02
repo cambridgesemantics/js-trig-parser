@@ -1,0 +1,3 @@
+<http://g.com/> {
+  _:blank_node_1 a "test" .
+}

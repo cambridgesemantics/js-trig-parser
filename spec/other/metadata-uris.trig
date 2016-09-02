@@ -1,0 +1,16 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ontologies: <http://cambridgesemantics.com/ontologies/> .
+@prefix ld: <http://cambridgesemantics.com/ontologies/2009/05/LinkedData#> .
+@prefix reg: <http://cambridgesemantics.com/registries/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix anzo: <http://openanzo.org/ontologies/2008/07/Anzo#> .
+
+<http://openanzo.org/metadataGraphs(http%3A%2F%2Fcambridgesemantics.com%2FdataSets%2FPendingChanges%2Fdataset)> {
+    <http://cambridgesemantics.com/dataSets/PendingChanges/dataset> anzo:canBeAddedToBy <http://openanzo.org/system/internal/sysadmin> ;
+        anzo:canBeReadBy <http://openanzo.org/Role/everyone> ;
+        anzo:canBeRemovedFromBy <http://openanzo.org/system/internal/sysadmin> .
+
+    <http://openanzo.org/metadataGraphs(http%3A%2F%2Fcambridgesemantics.com%2FdataSets%2FPendingChanges%2Fdataset)> anzo:canBeAddedToBy <http://openanzo.org/system/internal/sysadmin> ;
+        anzo:canBeReadBy <http://openanzo.org/Role/everyone> ;
+        anzo:canBeRemovedFromBy <http://openanzo.org/system/internal/sysadmin> .
+}

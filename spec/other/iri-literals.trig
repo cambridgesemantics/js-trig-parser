@@ -1,0 +1,17 @@
+@prefix anzo: <http://openanzo.org/ontologies/2008/07/Anzo#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ld: <http://cambridgesemantics.com/ontologies/2009/05/LinkedData#> .
+@prefix csonts: <http://cambridgesemantics.com/ontologies/2009/08/> .
+@prefix film: <http://cambridgesemantics.com/ontologies/2009/08/Film#> .
+
+<http://g.com>{
+  <http://g.com> film:gender "Female"^^xsd:string ;
+  <http://g.com> <http://g.com> "true"^^xsd:boolean ;
+  <http://g.com> <http://g.com> "1000"^^xsd:integer ;
+  <http://g.com> anzo:modified "2014-11-26T08:03:50.646Z"^^xsd:dateTime ;
+  <http://g.com> <http://g.com> "true"^^xsd:date .
+}

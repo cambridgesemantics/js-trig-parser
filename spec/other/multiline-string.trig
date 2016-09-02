@@ -1,0 +1,10 @@
+<http://g.com>{
+  <http://g.com> a """test
+str
+""" .
+<http://g.com> a '''test
+str
+''' .
+
+
+}

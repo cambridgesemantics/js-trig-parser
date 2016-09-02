@@ -1,0 +1,4 @@
+@prefix pre: <http://g.com/> .
+<http://g.com> {
+  <http://g.com> <http://g.com> "somecoolliteral"^^pre:fix .
+}
