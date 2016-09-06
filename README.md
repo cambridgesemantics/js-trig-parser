@@ -165,6 +165,8 @@ Raw result of running the ANTLR4 parser using the trigDoc rule on the provided t
 
 
 ##Tests
+
+For the profiler to work you need to install devutils(chromium nodejs debugging)
 ```
 npm test
 npm profile
