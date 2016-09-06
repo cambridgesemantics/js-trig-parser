@@ -40,7 +40,8 @@ Outputs the following trig document
 	iri: String,
 	uri: String,
 	pos: {line: int, column: int},
-	_graph: { ExpandedParseObject }
+	_graph: { ExpandedParseObject },
+    getStatements(): [triple]
 	
 }	
 ```

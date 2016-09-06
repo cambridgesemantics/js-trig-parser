@@ -1,4 +1,4 @@
-var fs = require('fs');
+
 var antlr4 = require('antlr4');
 var TRIGLexer = require('./antlr-trig/TRIGLexer.js').TRIGLexer;
 var TRIGParser = require('./antlr-trig/TRIGParser.js').TRIGParser;
@@ -11,6 +11,12 @@ var trimPrefixNameWhitespace = new RegExp('[A-Za-z0-9 ]*\\s*:', 'g');
 var removeWhitespace = new RegExp('\\s+:');
 var treeTransformHelpers = require('./tree-consumers/tree-transform-helpers.js');
 
+var fs;
+try {
+    fs = require('fs');
+} catch(e) {
+
+}
 
 var transformTreeAndGetRules = function(docStr, trig){
     var helpers = treeTransformHelpers(docStr, trig.parser);
@@ -97,17 +103,24 @@ function defaultTransformFromFile(fn, cb){
 
 
 
+var graphLoader = {
+    fromString: graphsFromString
+};
+var baseLoader = {
+    fromString: defaultTransform
+};
+var syntaxTreeLoader = {
+    fromString: parseTrig
+};
+
+if(fs){
+  graphLoader.fromFile = graphsFromFile;
+  baseLoader.fromFile = defaultTransformFromFile;
+  syntaxTreeLoader.fromFile = treeFromFile;
+}
+
 module.exports = {
-    graphLoader: {
-        fromFile: graphsFromFile,
-        fromString: graphsFromString
-    },
-    baseLoader: { //loads raw antlr4 results w/ type/position expansions
-      fromFile: defaultTransformFromFile,
-      fromString: defaultTransform
-    },
-    syntaxTreeLoader: {
-      fromFile: treeFromFile,
-      fromString: parseTrig
-    }
+    graphLoader: graphLoader,
+    baseLoader: baseLoader,
+    syntaxTreeLoader: syntaxTreeLoader
 };
