@@ -3,7 +3,13 @@ JS antlr4 based trig to graph/statements.
 
 
 
+##Install
 
+```
+npm i js-trig-parser
+```
+
+umd module included built with webpack
 ## Usage
 ##### Loaders have the following api's:
 ```
@@ -155,6 +161,13 @@ Raw result of running the ANTLR4 parser using the trigDoc rule on the provided t
 	tree: ANTLR parser trig doc/root rule,
 	parser: antlrParser
 }
+```
+
+
+##Tests
+```
+npm test
+npm profile
 ```
 
 

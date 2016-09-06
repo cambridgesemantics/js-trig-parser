@@ -1,5 +1,5 @@
 {
-  "name": "turtl-rdf-parser",
+  "name": "js-trig-parser",
   "version": "0.1.0",
   "description": "antlr4 based JS trig parser",
   "main": "index.js",
