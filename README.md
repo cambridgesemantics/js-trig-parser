@@ -13,8 +13,8 @@ umd module included built with webpack
 ## Usage
 ##### Loaders have the following api's:
 ```
-	loader.fromFile(filename) //nodejs env only
-	loader.fromString(trigStr)
+loader.fromFile(filename) //nodejs env only
+loader.fromString(trigStr)
 ```
 [Graph Loader](#graph-loader)
 
@@ -30,13 +30,13 @@ Outputs the following trig document
 ##### Trig Document
 ```
   {
-    prefixes: {prefixKey : prefix},
-    graphs: [graph],
-    macros: [macroResult],
-    errors: [errorResult],
-    allGraphs: this.graphs + [defaultGraph],
-    defaultGraph: { graph },
-    getStatements(): [triple]
+	prefixes: {prefixKey : prefix},
+	graphs: [graph],
+	macros: [macroResult],
+	errors: [errorResult],
+	allGraphs: this.graphs + [defaultGraph],
+	defaultGraph: { graph },
+	getStatements(): [triple]
   }
 ```
 ##### Graph
@@ -47,7 +47,7 @@ Outputs the following trig document
 	uri: String,
 	pos: {line: int, column: int},
 	_graph: { ExpandedParseObject },
-    getStatements(): [triple]
+	getStatements(): [triple]
 	
 }	
 ```
@@ -95,18 +95,18 @@ Terminals(Symbols/Literals)
 ```
 {
 	subject: String,//prefix expanded form/URI
-    predicate: String,
-    object: Value(String | Number | boolean),
-    
-    iriSubject: String, //original form found in the document
-    iriPredicate: String,
-    iriObject: String,
-    
-    _s: { ExpandedParseObject },
-    _p: { ExpandedParseObject },
-    _o: { ExpandedParseObject },
-    _g: { ExpandedParseObject },
-    graph: { graph }
+	predicate: String,
+	object: Value(String | Number | boolean),
+	
+	iriSubject: String, //original form found in the document
+	iriPredicate: String,
+	iriObject: String,
+	
+	_s: { ExpandedParseObject },
+	_p: { ExpandedParseObject },
+	_o: { ExpandedParseObject },
+	_g: { ExpandedParseObject },
+	graph: { graph }
 }
 ```
 
