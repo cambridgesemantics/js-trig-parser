@@ -221,7 +221,8 @@ module.exports = function(trig, parser, options){
 
   function handleObject(subject, predicate, obj, results){
     var object = obj.children[0];
-
+    if(!object || !object.type) return;
+    
 
     switch(object.type){
       //case 'iri' :
@@ -346,9 +347,9 @@ module.exports = function(trig, parser, options){
     return triplesBlock.reduce(function(allTriples, triples){
         var subject_BNodeProps = (triples.children[0]);
         var predicateObjectList =(triples.children[1]);
-
         switch(subject_BNodeProps.type){
           case 'subject':
+
             var newTriples = createTriples(subject_BNodeProps, predicateObjectList);
             allTriples = allTriples.concat(newTriples);
             break;
@@ -372,11 +373,9 @@ module.exports = function(trig, parser, options){
   }
 
   function _createGraph(uri, _triples, _graph){
-
     var triples = getAllTriples(_triples.filter(function(triple){
       return triple.type !== '\'.\'';
     }));
-
     return {
         iri: uri,
         uri: uri,

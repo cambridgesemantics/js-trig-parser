@@ -1,6 +1,6 @@
-var TrigGrammerListener = function(docStr, parser, onRule, onTerminal) {
+var DefaultTrigGrammerListener = function(docStr, trig, onRule, onTerminal) {
   this.docStr = docStr;
-  this.parser = parser;
+  this.parser = trig.parser;
 
   this.onRule = onRule;
   this.onTerminal = onTerminal;
@@ -8,19 +8,22 @@ var TrigGrammerListener = function(docStr, parser, onRule, onTerminal) {
   this.expressions = [];
   this.terminals = [];
   this.errors = [];
+  this.syntaxErrors = trig.syntaxErrors;
 };
 
-TrigGrammerListener.prototype.enterEveryRule = function(ctx){
+DefaultTrigGrammerListener.prototype.enterEveryRule = function(ctx){
   var result = (this.onRule && this.onRule(ctx)) || ctx;
   this.expressions.push(result);
 };
 
-TrigGrammerListener.prototype.visitTerminal = function(ctx){
+DefaultTrigGrammerListener.prototype.visitTerminal = function(ctx){
   var result = (this.onTerminal && this.onTerminal(ctx)) || ctx;
   this.terminals.push(result);
 };
-TrigGrammerListener.prototype.exitEveryRule = function(){};
-TrigGrammerListener.prototype.visitErrorNode = function(ctx){
+DefaultTrigGrammerListener.prototype.exitEveryRule = function(){};
+DefaultTrigGrammerListener.prototype.visitErrorNode = function(ctx){
   this.errors.push(ctx);
 };
-module.exports = TrigGrammerListener;
+
+
+module.exports = DefaultTrigGrammerListener;

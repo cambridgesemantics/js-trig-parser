@@ -20,14 +20,15 @@ try {
 
 var transformTreeAndGetRules = function(docStr, trig){
     var helpers = treeTransformHelpers(docStr, trig.parser);
-    var listener = new DefaultGrammerListener(docStr, trig.parser, function(rule){
-      return helpers.crateNode(rule);
+    var listener = new DefaultGrammerListener(docStr, trig, function(rule){
+      return helpers.createNode(rule);
     }, function(terminal){
-      return helpers.crateNode(terminal);
+      return helpers.createNode(terminal);
     });
 
     antlr4.tree.ParseTreeWalker.DEFAULT.walk(listener, trig.tree);
     return {
+      syntaxErrors: trig.syntaxErrors,
       errors: listener.errors,
       expressions: listener.expressions,
       terminals: listener.terminals
@@ -44,6 +45,16 @@ var replaceBadPrefixes = function(trigStr){
 };
 
 
+/**
+ * EBNF rule names to human readable names.
+ * @param  {[type]} msg [description]
+ * @return {[type]}     [description]
+ */
+function formatSyntaxErrorMessage(msg){
+  msg = msg.replace('PNAME_NS', 'Prefix Namespace Declaration');
+  return msg;
+}
+
 
 function parseTrig(data){
     data = replaceBadPrefixes(data);
@@ -51,10 +62,32 @@ function parseTrig(data){
     var lexer = new TRIGLexer(chars);
     var tokens  = new antlr4.CommonTokenStream(lexer);
     var parser = new TRIGParser(tokens);
+    var syntaxErrors = [];
+    parser.addErrorListener({
+      syntaxError: function(parser, offendingToken, line, column, msg, err){
+        syntaxErrors.push({
+          offendingToken: offendingToken,
+          line: line,
+          column: column,
+          msg: msg,
+          err: err
+        });
+      },
+      reportAttemptingFullContext: function(){
+        //required by parser
+      },
+      reportContextSensitivity: function(){
+        //required by parser
+      },
+      reportAmbiguity: function(){
+        //required by parser
+      }
+    });
     parser.buildParseTrees = true;
     return {
       tree: parser.trigDoc(),
-      parser: parser
+      parser: parser,
+      syntaxErrors: syntaxErrors
     };
 }
 
@@ -75,7 +108,7 @@ function graphsFromString(data){
     data = replaceBadPrefixes(data);
     var trig = parseTrig(data);
     var ruleHandler = createRuleHandler(data, trig.parser);
-    var trigListener = new TrigGrammerListener(data, trig.parser, ruleHandler);
+    var trigListener = new TrigGrammerListener(data, trig, ruleHandler);
     antlr4.tree.ParseTreeWalker.DEFAULT.walk(trigListener, trig.tree);
     return trigListener.getDocument();
 }

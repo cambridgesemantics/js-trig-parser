@@ -1,0 +1,2 @@
+@prefix rs: <http://abc> .
+@prefix rs <http://test> .

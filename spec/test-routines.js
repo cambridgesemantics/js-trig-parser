@@ -9,8 +9,8 @@ function tryLoadTrig(fn, cb) {
     trigLoaders.graphLoader.fromFile(fn, cb);
 }
 
-function tryLoadTrigDebug(fn, cb) {
-    trigLoaders.debugLoader.fromFile(fn, cb);
+function tryDefaultLoad(fn, cb) {
+    trigLoaders.baseLoader.fromFile(fn, cb);
 }
 
 function getTestFiles(dir) {
@@ -24,6 +24,6 @@ function getTestFiles(dir) {
 module.exports = {
   tryParseTrig: tryParseTrig,
   tryLoadTrig: tryLoadTrig,
-  tryLoadTrigDebug: tryLoadTrigDebug,
+  tryDefaultLoad: tryDefaultLoad,
   getTestFiles: getTestFiles
 };

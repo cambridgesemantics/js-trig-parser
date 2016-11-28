@@ -1,7 +1,7 @@
 
-var TrigGrammerListener = function(trigStr, parser, ruleHandler, options) {
+var TrigGrammerListener = function(trigStr, trig, ruleHandler, options) {
   this.trigStr = trigStr;
-  this.parser = parser;
+  this.parser = trig.parser;
   this.ruleHandler = ruleHandler;
   this.prefixMap = {};
   this.graphs = [];
@@ -9,6 +9,7 @@ var TrigGrammerListener = function(trigStr, parser, ruleHandler, options) {
   this.errors = [];
   this.defaultStmts = [];
   this.finalized = false;
+  this.syntaxErrors = trig.syntaxErrors;
   this.options = options || {
     allowEmptyDefaultGraph: false
   };
@@ -76,55 +77,68 @@ TrigGrammerListener.prototype.macro = function(ctx){
 };
 TrigGrammerListener.prototype.enterEveryRule = function(ctx){
   if(this.finalized) throw new Error("Listener fired after finalization.");
+
   var ruleName = this.parser.ruleNames[ctx.ruleIndex];
-  switch(ruleName){
-    case 'prefixID':
-      var prefix = this.ruleHandler.handlePrefixID(ctx);
-      this.addPrefix(prefix);
-      break;
 
-    case 'graph':
-      var iri = ctx.children.filter(function(child){
-        return this.parser.ruleNames[child.ruleIndex] === 'iri';
-      }.bind(this))[0];
-      var wrappedGraph = ctx.children.filter(function(child){
-        return this.parser.ruleNames[child.ruleIndex] === 'wrappedGraph';
-      }.bind(this))[0];
 
-      var rootTriplesBlock = wrappedGraph.children.filter(function(child){
-        return this.parser.ruleNames[child.ruleIndex] === 'triplesBlock';
-      }.bind(this))[0];
-
-      if(iri === undefined){
-        this.handleDefaultTriples(rootTriplesBlock);
+  try{
+    switch(ruleName){
+      case 'prefixID':
+        var prefix = this.ruleHandler.handlePrefixID(ctx);
+        this.addPrefix(prefix);
         break;
-      }
-      this.handleGraphTriples(rootTriplesBlock, iri, this.ruleHandler.createNode(ctx));
-      break;
-    //specific to CSI trig files
-    case 'triplesBlock':
-      var parentType = ctx.parser.ruleNames[ctx.parentCtx.ruleIndex];
-      if(parentType === 'trigDoc'){
-          this.handleDefaultTriples(ctx);
-      }
-      break;
-    case 'macro':
-      this.macros.push(this.ruleHandler.handleMacro(ctx));
-      break;
 
-    default:
-      break;
+      case 'graph':
+        var iri = ctx.children.filter(function(child){
+          return this.parser.ruleNames[child.ruleIndex] === 'iri';
+        }.bind(this))[0];
+        var wrappedGraph = ctx.children.filter(function(child){
+          return this.parser.ruleNames[child.ruleIndex] === 'wrappedGraph';
+        }.bind(this))[0];
 
+        var rootTriplesBlock = wrappedGraph.children.filter(function(child){
+          return this.parser.ruleNames[child.ruleIndex] === 'triplesBlock';
+        }.bind(this))[0];
+
+        if(iri === undefined){
+          this.handleDefaultTriples(rootTriplesBlock);
+          break;
+        }
+        this.handleGraphTriples(rootTriplesBlock, iri, this.ruleHandler.createNode(ctx));
+        break;
+      //specific to CSI trig files
+      case 'triplesBlock':
+        var parentType = ctx.parser.ruleNames[ctx.parentCtx.ruleIndex];
+        if(parentType === 'trigDoc'){
+            this.handleDefaultTriples(ctx);
+        }
+        break;
+      case 'macro':
+        this.macros.push(this.ruleHandler.handleMacro(ctx));
+        break;
+
+      default:
+        break;
+
+    }
+  }catch(e){
+    console.error(e)
   }
+
 };
 
 TrigGrammerListener.prototype.getDocument = function(){
+
+
   var graphs = this.graphs;
   var defaultGraph;
-  if(this.defaultStmts.length !== 0 || this.options.allowEmptyDefaultGraph){
 
-    defaultGraph = this.ruleHandler.createDefaultGraph(this.defaultStmts, this.parser.trigDoc());
+  if(this.defaultStmts.length !== 0 || this.options.allowEmptyDefaultGraph){
+    var trigDoc = this.parser.trigDoc();
+    defaultGraph = this.ruleHandler.createDefaultGraph(this.defaultStmts, trigDoc);
   }
+
+
   var allGraphs = defaultGraph ? [].concat.apply([], [graphs, [ defaultGraph ]]) : graphs;
   this.allGraphs = allGraphs;
   var result =  {
@@ -132,6 +146,7 @@ TrigGrammerListener.prototype.getDocument = function(){
     graphs: graphs,
     macros: this.macros,
     errors: this.errors,
+    syntaxErrors: this.syntaxErrors,
     allGraphs: this.allGraphs,
     defaultGraph: defaultGraph,
     getStatements: function(){
@@ -142,6 +157,8 @@ TrigGrammerListener.prototype.getDocument = function(){
       //return [].concat.apply([], [stmts, this.defaultGraph ? this.defaultGraph.getStatements() : []]);
     }
   };
+
+
   this.finalize();
   return result;
 };
