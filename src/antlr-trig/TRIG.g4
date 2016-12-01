@@ -25,7 +25,8 @@ wrappedGraph
 triplesBlock
    :  triples ('.' triplesBlock?)? ;
 
-
+triples2
+  : blankNodePropertyList predicateObjectList? '.' | collection predicateObjectList '.' ;
 
 directive
    : prefixID

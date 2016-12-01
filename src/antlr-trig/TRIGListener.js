@@ -56,6 +56,15 @@ TRIGListener.prototype.exitTriplesBlock = function(ctx) {
 };
 
 
+// Enter a parse tree produced by TRIGParser#triples2.
+TRIGListener.prototype.enterTriples2 = function(ctx) {
+};
+
+// Exit a parse tree produced by TRIGParser#triples2.
+TRIGListener.prototype.exitTriples2 = function(ctx) {
+};
+
+
 // Enter a parse tree produced by TRIGParser#directive.
 TRIGListener.prototype.enterDirective = function(ctx) {
 };
