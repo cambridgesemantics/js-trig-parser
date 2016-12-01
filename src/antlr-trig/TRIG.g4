@@ -10,17 +10,17 @@ trigDoc
 
 
 graph
-   : iri wrappedGraph 
+   : iri wrappedGraph
    | wrappedGraph
    ;
 
 macro
    : Macro ;
-   
+
 
 
 wrappedGraph
-   : '{' triplesBlock '}' ;
+   : '{' triplesBlock? '}' ;
 
 triplesBlock
    :  triples ('.' triplesBlock?)? ;
@@ -240,7 +240,7 @@ fragment LONG_STRING_CHAR
 fragment STRING_ESCAPE_SEQ
  : '\\' .
  ;
- 
+
 UCHAR
    : '\\u' HEX HEX HEX HEX | '\\U' HEX HEX HEX HEX HEX HEX HEX HEX
    ;
