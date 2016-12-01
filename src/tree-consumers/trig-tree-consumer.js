@@ -7,7 +7,7 @@ Rule handler based on following w3c specs:
 
 var uriUtils = require('../util/uri-utils.js');
 var strUtils = require('../util/str-utils.js');
-var uuid = require('node-uuid');
+var uuid = require('uuid');
 var moment = require('moment');
 var createTreeTransformHelpers = require('./tree-transform-helpers.js');
 
