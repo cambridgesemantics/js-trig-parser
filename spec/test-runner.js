@@ -77,7 +77,7 @@ describe('Trig File Tests - ', function() {
       });
 
       var fn = path.resolve('validation', 'broken-graph.trig');
-      it.only('Handles broken graphs', function(done){
+      it('Handles broken graphs', function(done){
         tryLoadTrig(fn, function(err, doc) {
 
 

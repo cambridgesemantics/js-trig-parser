@@ -12,11 +12,11 @@ function createPreprocessor(trig, parser){
         stop: rule.stop,
         type: ruleNames[rule.ruleIndex],
         token: trig.substring(rule.start.start, rule.stop.stop + 1),
-        children: rule.children ? rule.children.map(crateNode) : []
+        children: rule.children ? rule.children.map(createNode) : []
     };
   }
 
-  function crateNode(childResult){
+  function createNode(childResult){
     if(childResult.ruleIndex !== undefined)
       return createExpression(childResult);
     return createSymbol(childResult);
@@ -37,7 +37,7 @@ function createPreprocessor(trig, parser){
     };
   }
   return {
-    createNode: crateNode,
+    createNode: createNode,
     createExpression: createExpression,
     createSymbol: createSymbol
   };
