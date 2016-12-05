@@ -2,17 +2,22 @@ grammar TRIG;
 
 
 trigDoc
-   : (graph
-   | directive
-   | triplesBlock
+   : ( directive
+   | block
    | macro)*
    ;
 
+block
+  : triplesOrGraph | wrappedGraph | triples2 | 'GRAPH' labelOrSubject wrappedGraph ;
 
-graph
-   : iri wrappedGraph
-   | wrappedGraph
-   ;
+triplesOrGraph
+  : labelOrSubject (wrappedGraph | predicateObjectList '.') ;
+
+labelOrSubject
+    : iri | BlankNode ;
+
+
+
 
 macro
    : Macro ;
@@ -262,9 +267,6 @@ ANON
    ;
 
 
-SC
-   : [\W] +
-   ;
 
 
 PN_CHARS_BASE
@@ -280,9 +282,7 @@ PN_CHARS_U
 PN_CHARS
    : PN_CHARS_U | '-' | [0-9] | '\u00B7' | [\u0300-\u036F] | [\u203F-\u2040]
    ;
-PN_CHARS_W
-   : PN_CHARS_U | '-' | [0-9] | '\u00B7' | [\u0300-\u036F] | [\u203F-\u2040] | ' '
-   ;
+
 
 PN_LOCAL
    : (PN_CHARS_U | ':' | [0-9] | PLX) ((PN_CHARS | '.' | ':' | PLX)* (PN_CHARS | ':' | PLX))?

@@ -17,21 +17,42 @@ var TrigGrammerListener = function(trigStr, trig, ruleHandler, options) {
 
 
 
+TrigGrammerListener.prototype.handleDefaultTriples = function(subjectOrLabel, predicateObjectList){
+  if(!subjectOrLabel || !predicateObjectList) return;
+  var results = []
+  subjectOrLabel = this.ruleHandler.createNode(subjectOrLabel)
+  predicateObjectList = this.ruleHandler.createNode(predicateObjectList)
+  var results = this.ruleHandler.createTriples(subjectOrLabel, predicateObjectList, results);
+  this.defaultStmts = this.defaultStmts.concat(results);
 
-TrigGrammerListener.prototype.handleDefaultTriples = function(rootTriplesBlock){
-  var flattenedTriples = this.flattenTriplesBlock(rootTriplesBlock);
-  flattenedTriples.forEach(function(triplesBlock){
-    triplesBlock.children.forEach(function(potentialTriples){
-      var type = this.parser.ruleNames[potentialTriples.ruleIndex];
-      if(type !== 'triples') return;
-      this.defaultStmts.push(this.ruleHandler.createNode(potentialTriples));
-    }.bind(this));
-  }.bind(this));
 };
 TrigGrammerListener.prototype.handleGraphTriples = function(rootTriplesBlock, iri, graphToken){
+
+
     var flattenedTriples = this.flattenTriplesBlock(rootTriplesBlock);
-    var iriStr = this.ruleHandler.createNode(iri).token;
-    this.graphs.push(this.ruleHandler.handleGraph(flattenedTriples, iriStr, graphToken));
+
+    if(iri){
+      var iriStr = this.ruleHandler.createNode(iri).token;
+      this.graphs.push(this.ruleHandler.handleGraph(flattenedTriples, iriStr, graphToken));
+    }else{
+      flattenedTriples.forEach(function(triplesBlock){
+        triplesBlock.children.forEach(function(triples){
+          if(!triples.children && triples.symbol.type === 2){
+            //the type here is: triplesOrGraph which is strange...
+            return;
+          }
+          var s = this.ruleHandler.createNode(triples.children[0]);
+          var po = this.ruleHandler.createNode(triples.children[1]);
+          var results = this.ruleHandler.createTriples(s, po);
+          this.defaultStmts = this.defaultStmts.concat(results);
+        }.bind(this));
+      }.bind(this));
+
+
+
+
+    }
+
 };
 
 TrigGrammerListener.prototype.flattenTriplesBlock = function(triplesBlock, results){
@@ -75,38 +96,71 @@ TrigGrammerListener.prototype.triplesBlock = function(ctx){
 TrigGrammerListener.prototype.macro = function(ctx){
 
 };
+TrigGrammerListener.prototype.handleWrappedGraph = function(wrappedGraph, iri){
+  var rootTriplesBlock = wrappedGraph.children.find(function(child){
+    return this.parser.ruleNames[child.ruleIndex] === 'triplesBlock';
+  }.bind(this));
+  this.handleGraphTriples(rootTriplesBlock, iri, this.ruleHandler.createNode(wrappedGraph));
+
+}
+TrigGrammerListener.prototype.handleBlock = function(ctx){
+    var ruleName = this.parser.ruleNames[ctx.ruleIndex];
+
+    var labelOrSubject = ctx.children.filter(function(child){
+      return this.parser.ruleNames[child.ruleIndex] === 'labelOrSubject';
+    }.bind(this))[0]
+
+    if(labelOrSubject){
+        var iri = labelOrSubject.children.filter(function(child){
+          return this.parser.ruleNames[child.ruleIndex] === 'iri';
+        }.bind(this))[0];
+        var blank_node = labelOrSubject.children.filter(function(child){
+          return this.parser.ruleNames[child.ruleIndex] === 'BlankNode';
+        }.bind(this))[0];
+
+    }
+
+
+
+    var wrappedGraph = ctx.children.filter(function(child){
+      return this.parser.ruleNames[child.ruleIndex] === 'wrappedGraph';
+    }.bind(this))[0];
+
+    var predicateObjectList = ctx.children.find(function(child){
+      return this.parser.ruleNames[child.ruleIndex] === 'predicateObjectList';
+    }.bind(this));
+
+    if(wrappedGraph){
+      this.handleWrappedGraph(wrappedGraph, iri);
+    }
+    else if(labelOrSubject && predicateObjectList){
+      this.handleDefaultTriples(labelOrSubject, predicateObjectList);
+    }
+
+}
 TrigGrammerListener.prototype.enterEveryRule = function(ctx){
   if(this.finalized) throw new Error("Listener fired after finalization.");
-
   var ruleName = this.parser.ruleNames[ctx.ruleIndex];
 
 
   try{
     switch(ruleName){
+
       case 'prefixID':
         var prefix = this.ruleHandler.handlePrefixID(ctx);
         this.addPrefix(prefix);
         break;
 
-      case 'graph':
-        var iri = ctx.children.filter(function(child){
-          return this.parser.ruleNames[child.ruleIndex] === 'iri';
-        }.bind(this))[0];
-        var wrappedGraph = ctx.children.filter(function(child){
-          return this.parser.ruleNames[child.ruleIndex] === 'wrappedGraph';
-        }.bind(this))[0];
-
-        var rootTriplesBlock = wrappedGraph.children.filter(function(child){
-          return this.parser.ruleNames[child.ruleIndex] === 'triplesBlock';
-        }.bind(this))[0];
-
-        if(iri === undefined){
-          this.handleDefaultTriples(rootTriplesBlock);
-          break;
-        }
-        this.handleGraphTriples(rootTriplesBlock, iri, this.ruleHandler.createNode(ctx));
+      case 'block':
+        this.handleBlock(ctx.children[0]);
         break;
-      //specific to CSI trig files
+
+      case 'wrappedGraph':
+        if(this.parser.ruleNames[ctx.parentCtx.ruleIndex] === 'block'){
+          this.handleWrappedGraph(ctx);
+        }
+        break;
+
       case 'triplesBlock':
         var parentType = ctx.parser.ruleNames[ctx.parentCtx.ruleIndex];
         if(parentType === 'trigDoc'){
@@ -157,7 +211,6 @@ TrigGrammerListener.prototype.getDocument = function(){
       //return [].concat.apply([], [stmts, this.defaultGraph ? this.defaultGraph.getStatements() : []]);
     }
   };
-
 
   this.finalize();
   return result;

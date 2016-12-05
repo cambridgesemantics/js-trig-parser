@@ -85,7 +85,6 @@ module.exports = function(trig, parser, options){
 
   function handleObjectList(subject, predicate, objectList, results){
     return objectList.children.forEach(function(olItem){
-
       switch(olItem.type){
 
         case 'object':
@@ -102,7 +101,9 @@ module.exports = function(trig, parser, options){
 
   function handlePredicateObjectList(subject, predicateObjectList, results){
     var predicate;
+
     predicateObjectList.children.forEach(function(child){
+
       switch(child.type){
         case 'verb':
           predicate = child;
@@ -111,6 +112,7 @@ module.exports = function(trig, parser, options){
           handleObjectList(subject, predicate, child, results);
           break;
         default:
+
           break;
       }
     });
@@ -222,7 +224,7 @@ module.exports = function(trig, parser, options){
   function handleObject(subject, predicate, obj, results){
     var object = obj.children[0];
     if(!object || !object.type) return;
-    
+
 
     switch(object.type){
       //case 'iri' :
@@ -302,6 +304,9 @@ module.exports = function(trig, parser, options){
         if(this.predicate in bnodeMap){ this.predicate = bnodeMap[this.predicate];}
         if(this.object in bnodeMap){ this.object = bnodeMap[this.object];}
 
+      },
+      toString: function(){
+        return this.iriSubject + " " + this.iriPredicate + " " + this.iriObject;
       }
     };
   }
@@ -343,7 +348,6 @@ module.exports = function(trig, parser, options){
   }
 
   function getAllTriples(triplesBlock){
-
     return triplesBlock.reduce(function(allTriples, triples){
         var subject_BNodeProps = (triples.children[0]);
         var predicateObjectList =(triples.children[1]);
@@ -372,10 +376,12 @@ module.exports = function(trig, parser, options){
     return _createGraph(DEFAULT_GRAPH_URI, stmts, createNode(trigDoc));
   }
 
-  function _createGraph(uri, _triples, _graph){
-    var triples = getAllTriples(_triples.filter(function(triple){
-      return triple.type !== '\'.\'';
-    }));
+  function _createGraph(uri, triples, _graph){
+
+
+
+
+
     return {
         iri: uri,
         uri: uri,
@@ -475,6 +481,11 @@ module.exports = function(trig, parser, options){
     triplesBlocks.forEach(function(triplesBlock){
       triples = triples.concat(triplesBlock.children.map(createNode));
     });
+
+    var triples = triples.filter(function(triple){
+      return triple.type !== '\'.\'';
+    });
+    triples = getAllTriples(triples);
     return _createGraph(_uri, triples, graphNode);
 
   }
@@ -483,7 +494,7 @@ module.exports = function(trig, parser, options){
 
 
   return {
-
+    handlePredicateObjectList: handlePredicateObjectList,
     handlePrefixID: function(ruleMatch){
       var prefix = ruleMatch.children.map(createSymbol);
       var nameSym = prefix[1];
@@ -494,6 +505,8 @@ module.exports = function(trig, parser, options){
         pos: nameSym.pos
       };
     },
+    getAllTriples: getAllTriples,
+    createTriples: createTriples,
     handleGraph: function(triplesBlock, iri, graphToken){
       return createGraph(triplesBlock, iri, graphToken);
     },

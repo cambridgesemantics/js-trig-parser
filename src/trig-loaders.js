@@ -96,7 +96,8 @@ function graphsFromFile(fn, cb){
     fs.readFile(fn, 'utf-8', function(err, content){
         if(err) cb(err);
         try{
-          cb(null, graphsFromString(content));
+          var result = graphsFromString(content);
+          cb(null, result);
         }
         catch(e){
           cb(e);

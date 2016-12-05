@@ -20,12 +20,30 @@ TRIGListener.prototype.exitTrigDoc = function(ctx) {
 };
 
 
-// Enter a parse tree produced by TRIGParser#graph.
-TRIGListener.prototype.enterGraph = function(ctx) {
+// Enter a parse tree produced by TRIGParser#block.
+TRIGListener.prototype.enterBlock = function(ctx) {
 };
 
-// Exit a parse tree produced by TRIGParser#graph.
-TRIGListener.prototype.exitGraph = function(ctx) {
+// Exit a parse tree produced by TRIGParser#block.
+TRIGListener.prototype.exitBlock = function(ctx) {
+};
+
+
+// Enter a parse tree produced by TRIGParser#triplesOrGraph.
+TRIGListener.prototype.enterTriplesOrGraph = function(ctx) {
+};
+
+// Exit a parse tree produced by TRIGParser#triplesOrGraph.
+TRIGListener.prototype.exitTriplesOrGraph = function(ctx) {
+};
+
+
+// Enter a parse tree produced by TRIGParser#labelOrSubject.
+TRIGListener.prototype.enterLabelOrSubject = function(ctx) {
+};
+
+// Exit a parse tree produced by TRIGParser#labelOrSubject.
+TRIGListener.prototype.exitLabelOrSubject = function(ctx) {
 };
 
 
