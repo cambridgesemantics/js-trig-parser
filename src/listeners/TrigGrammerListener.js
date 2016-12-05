@@ -10,6 +10,7 @@ var TrigGrammerListener = function(trigStr, trig, ruleHandler, options) {
   this.defaultStmts = [];
   this.finalized = false;
   this.syntaxErrors = trig.syntaxErrors;
+  this.analysisErrors = [];
   this.options = options || {
     allowEmptyDefaultGraph: false
   };
@@ -211,6 +212,7 @@ TrigGrammerListener.prototype.getDocument = function(){
     syntaxErrors: this.syntaxErrors,
     allGraphs: this.allGraphs,
     defaultGraph: defaultGraph,
+    analysisErrors: this.analysisErrors,
     getStatements: function(){
       return allGraphs.reduce(function(acc, graph){
         acc = acc.concat(graph.getStatements());
@@ -219,7 +221,7 @@ TrigGrammerListener.prototype.getDocument = function(){
       //return [].concat.apply([], [stmts, this.defaultGraph ? this.defaultGraph.getStatements() : []]);
     }
   };
-  result.errors = result.errors.concat(this.finalize());
+  result.analysisErrors = result.analysisErrors.concat(this.finalize());
   return result;
 };
 
