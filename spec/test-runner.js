@@ -76,6 +76,13 @@ describe('Trig File Tests - ', function() {
         });
       });
 
+      var fn = path.resolve('validation', 'prefix-not-found.trig');
+      it('handles prefix not found', function(done){
+        tryLoadTrig(fn, function(err, doc) {
+          expect(doc.errors.length).equals(3);
+          done();
+        });
+      });
 
       it('Handles broken graphs', function(done){
         var fn = path.resolve('validation', 'broken-graph.trig');

@@ -70,10 +70,18 @@ TrigGrammerListener.prototype.flattenTriplesBlock = function(triplesBlock, resul
 
 // some code here
 TrigGrammerListener.prototype.finalize = function(){
-  this.finalized = true;
-  this.allGraphs.forEach(function(graph){
-    graph.finalize(this.prefixMap);
-  }.bind(this));
+  try{
+    this.finalized = true;
+    var errors = [];
+    this.allGraphs.forEach(function(graph){
+        errors = errors.concat(graph.finalize(this.prefixMap));
+    }.bind(this));
+    return errors;
+  }catch(e){
+    console.log(e);
+  }
+
+
 };
 
 TrigGrammerListener.prototype.addPrefix = function(prefix){
@@ -211,8 +219,7 @@ TrigGrammerListener.prototype.getDocument = function(){
       //return [].concat.apply([], [stmts, this.defaultGraph ? this.defaultGraph.getStatements() : []]);
     }
   };
-
-  this.finalize();
+  result.errors = result.errors.concat(this.finalize());
   return result;
 };
 

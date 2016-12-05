@@ -48,7 +48,6 @@ module.exports = function(trig, parser, options){
 
 
   function expandIRIString(str, prefixes, returnOnUnseen){
-
     var prefix = uriUtils.getPrefix(str)[0];
 
     if(!(prefix in prefixes)){
@@ -59,7 +58,7 @@ module.exports = function(trig, parser, options){
     return str.replace(new RegExp('^' + prefix), iri.token);
   }
 
-  function tryExpandIRI(_spo, prefixes){
+  function tryExpandIRI(_spo, prefixes, errors){
 
     switch(_spo.type){
       case 'IRIREF':
@@ -67,7 +66,18 @@ module.exports = function(trig, parser, options){
       case 'iri':
         return uriUtils.toURI(_spo.children[0].token);
       case 'prefixedname':
-        return expandIRIString(_spo.token, prefixes);
+        try{
+          return expandIRIString(_spo.token, prefixes);
+        }catch(e){
+          errors.push({
+            message: e.message,
+            line: _spo.pos.line,
+            column: _spo.pos.column,
+            start: _spo.start,
+            stop: _spo.stop
+          });
+        }
+
       case '\'a\'':
         return 'a';
       case 'rdfLiteral':
@@ -292,11 +302,12 @@ module.exports = function(trig, parser, options){
       //_g: null
 
       applyPrefixes: function(prefixes){
-        this.subject = tryExpandIRI(this._s, prefixes);
-        this.predicate = tryExpandIRI(this._p, prefixes);
-        this.object = tryExpandIRI(this._o, prefixes);
-
-        if(this._g) this.graph = tryExpandIRI(this._g, prefixes);
+        var errors = [];
+        this.subject = tryExpandIRI(this._s, prefixes, errors);
+        this.predicate = tryExpandIRI(this._p, prefixes, errors);
+        this.object = tryExpandIRI(this._o, prefixes, errors);
+        if(this._g) this.graph = tryExpandIRI(this._g, prefixes, errors);
+        return errors;
 
       },
       finalize: function(bnodeMap){
@@ -378,24 +389,22 @@ module.exports = function(trig, parser, options){
 
   function _createGraph(uri, triples, _graph){
 
-
-
-
-
     return {
         iri: uri,
         uri: uri,
         _graph: _graph,
-        pos: (_graph && _graph.pos) || {line: 0, column: 0},
+        //pos: (_graph && _graph.pos) || {line: 0, column: 0},
 
         finalize: function(prefixes){
+          var errors = [];
 
           this._assignGraph();
-          this.applyPrefixes(prefixes);
+          errors = errors.concat(this.applyPrefixes(prefixes));
           this._expandBnodes();
-          this._convertLiterals(prefixes);
+          errors = errors.concat(this._convertLiterals(prefixes));
           this.finalized = true;
 
+          return errors;
         },
 
         getStatements: function(){
@@ -403,20 +412,39 @@ module.exports = function(trig, parser, options){
         },
 
         applyPrefixes: function(prefixes){
+          var errors = [];
           triples.forEach(function(triple){
-            triple.applyPrefixes(prefixes);
+            var e1 = triple.applyPrefixes(prefixes);
+            errors = errors.concat(triple.applyPrefixes(prefixes));
           });
-          if(uriUtils.isURI(this.uri)) return;
-          this.uri = expandIRIString(this.uri, prefixes);
+          if(uriUtils.isURI(this.uri)) return errors;
+          try{
+              this.uri = expandIRIString(this.uri, prefixes);
+          }catch(e){
+            errors.push(e);
+          }
+          return errors;
         },
         _convertLiterals: function(prefixes){
+          var errors = [];
           triples.forEach(function(stmt){
             if(!stmt.object.literalState) return;
             switch(stmt.object.literalState){
 
               case LITERAL_STATES.UNPROCESSED_IRI_LITERAL:
                 stmt._o = stmt.object;
-                stmt.object.type = expandIRIString(stmt.object.iriLiteralType, prefixes, true);
+                try{
+                  stmt.object.type = expandIRIString(stmt.object.iriLiteralType, prefixes, true);
+                }catch(e){
+                  errors.push({
+                    message: e.message,
+                    line: stmt.object.pos.line,
+                    column: stmt.object.pos.column,
+                    start: stmt.object.start,
+                    stop: stmt.object.stop
+                  });
+                }
+
                 stmt.object = handleIRILiteralValue(stmt.object, prefixes);
                 stmt.expObject = stmt.object;
 
@@ -436,6 +464,7 @@ module.exports = function(trig, parser, options){
 
 
           });
+          return errors;
         },
         _assignGraph: function(){
           if(this.finalized) throw new Error('Graph finalized');
