@@ -36,6 +36,17 @@ module.exports = function(trig, parser, options){
   var createNode = transformHelpers.createNode;
 
 
+  function createErrorFromNode(node, message, len){
+    return {
+      message: message,
+      line: node.pos.line,
+      column: node.pos.column,
+      start: node.start,
+      stop: node.stop,
+      len: len
+    };
+  }
+
 
   function createLiteral(_spo, value){
     return {
@@ -48,11 +59,21 @@ module.exports = function(trig, parser, options){
 
 
   function expandIRIString(str, prefixes, returnOnUnseen){
-    var prefix = uriUtils.getPrefix(str)[0];
+    var prefixMatches = uriUtils.getPrefix(str);
+    if(prefixMatches == null || prefixMatches.length == 0){
+      var error = new Error("No prefix found for: " + str);
+      error.type =  'noPrefixFound';
+      error.len = str.length;
+      throw error;
+    }
 
+    var prefix = prefixMatches[0];
     if(!(prefix in prefixes)){
       if(returnOnUnseen) return uriUtils.toURI(str);
-      throw new Error('Prefix not declared: ' + prefix);
+      var error = new Error('Prefix not declared: ' + prefix);
+      error.type = 'prefixNotDeclared';
+      error.len = prefix.length;
+      throw error;
     }
     var iri = prefixes[prefix];
     return str.replace(new RegExp('^' + prefix), iri.token);
@@ -64,18 +85,20 @@ module.exports = function(trig, parser, options){
       case 'IRIREF':
           return uriUtils.toURI(_spo.token);
       case 'iri':
+        var iriResult = uriUtils.toURI(_spo.children[0].token);
         return uriUtils.toURI(_spo.children[0].token);
       case 'prefixedname':
         try{
           return expandIRIString(_spo.token, prefixes);
         }catch(e){
-          errors.push({
-            message: e.message,
-            line: _spo.pos.line,
-            column: _spo.pos.column,
-            start: _spo.start,
-            stop: _spo.stop
-          });
+          if(e.type === 'prefixNotDeclared'){
+            errors.push(createErrorFromNode(_spo, e.message, e.len));
+
+          }else if(e.type === 'noPrefixFound'){
+            var token = _spo.children[0].token;
+            errors.push(createErrorFromNode(token, e.message, e.len));
+          }
+
         }
 
       case '\'a\'':
@@ -384,13 +407,13 @@ module.exports = function(trig, parser, options){
 
 
   function createDefaultGraph(stmts, trigDoc){
-    return _createGraph(DEFAULT_GRAPH_URI, stmts, createNode(trigDoc));
+    return _createGraph(DEFAULT_GRAPH_URI, stmts, createNode(trigDoc), DEFAULT_GRAPH_URI);
   }
 
-  function _createGraph(uri, triples, _graph){
-
+  function _createGraph(uri, triples, _graph, iri){
     return {
-        iri: uri,
+        _iri: iri,
+        iri: iri.token,
         uri: uri,
         _graph: _graph,
         //pos: (_graph && _graph.pos) || {line: 0, column: 0},
@@ -421,7 +444,9 @@ module.exports = function(trig, parser, options){
           try{
               this.uri = expandIRIString(this.uri, prefixes);
           }catch(e){
-            errors.push(e);
+              if(e.type === 'invalidIri'){
+                errors.push(createErrorFromNode(this._iri, e.message, this.iri.len));
+              }
           }
           return errors;
         },
@@ -436,13 +461,17 @@ module.exports = function(trig, parser, options){
                 try{
                   stmt.object.type = expandIRIString(stmt.object.iriLiteralType, prefixes, true);
                 }catch(e){
-                  errors.push({
-                    message: e.message,
-                    line: stmt.object.pos.line,
-                    column: stmt.object.pos.column,
-                    start: stmt.object.start,
-                    stop: stmt.object.stop
-                  });
+                  if(e.type ==='invalidIri'){
+                    errors.push({
+                      message: e.message,
+                      line: stmt.object._source.children[2].pos.line,
+                      column: stmt.object._source.children[2].pos.column,
+                      start: stmt.object._source.children[2].start,
+                      stop: stmt.object._source.children[2].stop,
+                      len: e.len
+                    });
+                  }
+
                 }
 
                 stmt.object = handleIRILiteralValue(stmt.object, prefixes);
@@ -505,7 +534,9 @@ module.exports = function(trig, parser, options){
   }
 
   function createGraph(triplesBlocks, iri, graphNode){
-    var _uri = uriUtils.isIRI(iri) ? uriUtils.toURI(iri) : iri;
+    iri = createNode(iri);
+    var _iri = iri.token;
+    var _uri = uriUtils.isIRI(_iri) ? uriUtils.toURI(_iri) : _iri;
     var triples = [];
     triplesBlocks.forEach(function(triplesBlock){
       triples = triples.concat(triplesBlock.children.map(createNode));
@@ -515,7 +546,8 @@ module.exports = function(trig, parser, options){
       return triple.type !== '\'.\'';
     });
     triples = getAllTriples(triples);
-    return _createGraph(_uri, triples, graphNode);
+
+    return _createGraph(_uri, triples, graphNode, iri);
 
   }
 

@@ -63,7 +63,7 @@ function parseTrig(data){
     var tokens  = new antlr4.CommonTokenStream(lexer);
     var parser = new TRIGParser(tokens);
     var syntaxErrors = [];
-    parser.addErrorListener({
+    var e_listener = {
       syntaxError: function(parser, offendingToken, line, column, msg, err){
         syntaxErrors.push({
           offendingToken: offendingToken,
@@ -74,15 +74,17 @@ function parseTrig(data){
         });
       },
       reportAttemptingFullContext: function(){
-        //required by parser
+
       },
       reportContextSensitivity: function(){
-        //required by parser
+
       },
       reportAmbiguity: function(){
-        //required by parser
+        
       }
-    });
+    };
+    lexer.addErrorListener(e_listener);
+    parser.addErrorListener(e_listener);
     parser.buildParseTrees = true;
     return {
       tree: parser.trigDoc(),

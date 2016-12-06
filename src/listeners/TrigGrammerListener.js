@@ -33,8 +33,7 @@ TrigGrammerListener.prototype.handleGraphTriples = function(rootTriplesBlock, ir
     var flattenedTriples = this.flattenTriplesBlock(rootTriplesBlock);
 
     if(iri){
-      var iriStr = this.ruleHandler.createNode(iri).token;
-      this.graphs.push(this.ruleHandler.handleGraph(flattenedTriples, iriStr, graphToken));
+      this.graphs.push(this.ruleHandler.handleGraph(flattenedTriples, iri, graphToken));
     }else{
       flattenedTriples.forEach(function(triplesBlock){
         triplesBlock.children.forEach(function(triples){
@@ -79,7 +78,7 @@ TrigGrammerListener.prototype.finalize = function(){
     }.bind(this));
     return errors;
   }catch(e){
-    console.log(e);
+    console.error(e);
   }
 
 
@@ -113,8 +112,9 @@ TrigGrammerListener.prototype.handleWrappedGraph = function(wrappedGraph, iri){
 
 }
 TrigGrammerListener.prototype.handleBlock = function(ctx){
-    var ruleName = this.parser.ruleNames[ctx.ruleIndex];
 
+    var ruleName = this.parser.ruleNames[ctx.ruleIndex];
+    if(!ruleName) return;
     var labelOrSubject = ctx.children.filter(function(child){
       return this.parser.ruleNames[child.ruleIndex] === 'labelOrSubject';
     }.bind(this))[0]
@@ -151,7 +151,6 @@ TrigGrammerListener.prototype.enterEveryRule = function(ctx){
   if(this.finalized) throw new Error("Listener fired after finalization.");
   var ruleName = this.parser.ruleNames[ctx.ruleIndex];
 
-
   try{
     switch(ruleName){
 
@@ -185,8 +184,9 @@ TrigGrammerListener.prototype.enterEveryRule = function(ctx){
 
     }
   }catch(e){
-    console.error(e)
+    console.error(e);
   }
+
 
 };
 
