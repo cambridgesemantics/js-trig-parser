@@ -4,7 +4,6 @@ Rule handler based on following w3c specs:
   TRIG: https://www.w3.org/TR/trig/
 */
 
-
 var uriUtils = require('../util/uri-utils.js');
 var strUtils = require('../util/str-utils.js');
 var uuid = require('uuid');
@@ -13,30 +12,22 @@ var createTreeTransformHelpers = require('./tree-transform-helpers.js');
 
 var DEFAULT_GRAPH_URI = 'https://www.w3.org/TR/trig/defaultGraph';
 var LITERAL_STATES = {
-  'UNPROCESSED_IRI_LITERAL' : 'UNPROCESSED_IRI_LITERAL',
-  'UNPROCESSED_LITERAL' : 'UNPROCESSED_LITERAL'
+  'UNPROCESSED_IRI_LITERAL': 'UNPROCESSED_IRI_LITERAL',
+  'UNPROCESSED_LITERAL': 'UNPROCESSED_LITERAL'
 };
 
 var replaceExpandedXSD = new RegExp('^http://www.w3.org/2001/XMLSchema#');
 
-
-
-module.exports = function(trig, parser, options){
+module.exports = function (trig, parser, options) {
   options = options || {};
   DEFAULT_GRAPH_URI = DEFAULT_GRAPH_URI || options.defaultGraphURI;
-
-  var symbols = parser.symbolicNames;
-  var ruleNames = parser.ruleNames;
-  var literals = parser.literalNames;
 
   var transformHelpers = createTreeTransformHelpers(trig, parser);
 
   var createSymbol = transformHelpers.createSymbol;
   var createExpression = transformHelpers.createExpression;
   var createNode = transformHelpers.createNode;
-
-
-  function createErrorFromNode(node, message, len){
+  function createErrorFromNode (node, message, len) {
     return {
       message: message,
       line: node.pos.line,
@@ -47,8 +38,7 @@ module.exports = function(trig, parser, options){
     };
   }
 
-
-  function createLiteral(_spo, value){
+  function createLiteral (_spo, value) {
     return {
       literalState: LITERAL_STATES.UNPROCESSED_LITERAL,
       type: _spo.type,
@@ -57,20 +47,19 @@ module.exports = function(trig, parser, options){
     };
   }
 
-
-  function expandIRIString(str, prefixes, returnOnUnseen){
+  function expandIRIString (str, prefixes, returnOnUnseen) {
     var prefixMatches = uriUtils.getPrefix(str);
-    if(prefixMatches == null || prefixMatches.length == 0){
-      var error = new Error("No prefix found for: " + str);
-      error.type =  'noPrefixFound';
+    if (prefixMatches === null || prefixMatches.length === 0) {
+      var error = new Error('No prefix found for: ' + str);
+      error.type = 'noPrefixFound';
       error.len = str.length;
       throw error;
     }
 
     var prefix = prefixMatches[0];
-    if(!(prefix in prefixes)){
-      if(returnOnUnseen) return uriUtils.toURI(str);
-      var error = new Error('Prefix not declared: ' + prefix);
+    if (!(prefix in prefixes)) {
+      if (returnOnUnseen) return uriUtils.toURI(str);
+      error = new Error('Prefix not declared: ' + prefix);
       error.type = 'prefixNotDeclared';
       error.len = prefix.length;
       throw error;
@@ -79,22 +68,22 @@ module.exports = function(trig, parser, options){
     return str.replace(new RegExp('^' + prefix), iri.token);
   }
 
-  function tryExpandIRI(_spo, prefixes, errors){
+  function tryExpandIRI (_spo, prefixes, errors) {
 
-    switch(_spo.type){
+     switch (_spo.type) {
       case 'IRIREF':
           return uriUtils.toURI(_spo.token);
       case 'iri':
         var iriResult = uriUtils.toURI(_spo.children[0].token);
         return uriUtils.toURI(_spo.children[0].token);
       case 'prefixedname':
-        try{
+        try {
           return expandIRIString(_spo.token, prefixes);
-        }catch(e){
-          if(e.type === 'prefixNotDeclared'){
+        } catch (e) {
+          if (e.type === 'prefixNotDeclared') {
             errors.push(createErrorFromNode(_spo, e.message, e.len));
 
-          }else if(e.type === 'noPrefixFound'){
+          }else if (e.type === 'noPrefixFound') {
             var token = _spo.children[0].token;
             errors.push(createErrorFromNode(token, e.message, e.len));
           }
@@ -556,10 +545,16 @@ module.exports = function(trig, parser, options){
 
   return {
     handlePredicateObjectList: handlePredicateObjectList,
-    handlePrefixID: function(ruleMatch){
+    handlePrefixID: function(ruleMatch, errors){
       var prefix = ruleMatch.children.map(createSymbol);
       var nameSym = prefix[1];
       var valSym = prefix[2];
+      if(!uriUtils.isIRI(valSym.token) && errors){
+
+        errors.push(createErrorFromNode(valSym,
+           "Not a valid uri: " + valSym.token, valSym.token.length))
+        return null;
+      }
       return {
         name: nameSym.token,
         token: uriUtils.toURI(valSym.token),

@@ -47,10 +47,6 @@ TrigGrammerListener.prototype.handleGraphTriples = function(rootTriplesBlock, ir
           this.defaultStmts = this.defaultStmts.concat(results);
         }.bind(this));
       }.bind(this));
-
-
-
-
     }
 
 };
@@ -90,19 +86,14 @@ TrigGrammerListener.prototype.addPrefix = function(prefix){
 };
 
 TrigGrammerListener.prototype.prefixId = function(ctx){
-
 };
 TrigGrammerListener.prototype.prefixID = function(ctx){
-
 };
 TrigGrammerListener.prototype.graph = function(ctx){
-
 };
 TrigGrammerListener.prototype.triplesBlock = function(ctx){
-
 };
 TrigGrammerListener.prototype.macro = function(ctx){
-
 };
 TrigGrammerListener.prototype.handleWrappedGraph = function(wrappedGraph, iri){
   var rootTriplesBlock = wrappedGraph.children.find(function(child){
@@ -129,8 +120,6 @@ TrigGrammerListener.prototype.handleBlock = function(ctx){
 
     }
 
-
-
     var wrappedGraph = ctx.children.filter(function(child){
       return this.parser.ruleNames[child.ruleIndex] === 'wrappedGraph';
     }.bind(this))[0];
@@ -155,8 +144,9 @@ TrigGrammerListener.prototype.enterEveryRule = function(ctx){
     switch(ruleName){
 
       case 'prefixID':
-        var prefix = this.ruleHandler.handlePrefixID(ctx);
-        this.addPrefix(prefix);
+        var prefix = this.ruleHandler.handlePrefixID(ctx, this.analysisErrors);
+        if(prefix)
+          this.addPrefix(prefix);
         break;
 
       case 'block':
