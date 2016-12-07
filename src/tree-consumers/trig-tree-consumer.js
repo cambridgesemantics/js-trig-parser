@@ -541,8 +541,6 @@ module.exports = function (trig, parser, options) {
   }
 
 
-
-
   return {
     handlePredicateObjectList: handlePredicateObjectList,
     handlePrefixID: function(ruleMatch, errors){
@@ -550,12 +548,14 @@ module.exports = function (trig, parser, options) {
       var nameSym = prefix[1];
       var valSym = prefix[2];
       if(!uriUtils.isIRI(valSym.token) && errors){
-
         errors.push(createErrorFromNode(valSym,
            "Not a valid uri: " + valSym.token, valSym.token.length))
         return null;
       }
+
       return {
+        name_symbol: nameSym,
+        value_symbol: valSym,
         name: nameSym.token,
         token: uriUtils.toURI(valSym.token),
         pos: nameSym.pos
@@ -572,6 +572,7 @@ module.exports = function (trig, parser, options) {
     handleMacro: function(ruleMatch){
       return createExpression(ruleMatch);
     },
+    createErrorFromNode: createErrorFromNode,
     createDefaultGraph: createDefaultGraph,
     createNode: createNode
   };

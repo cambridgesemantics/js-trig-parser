@@ -76,13 +76,13 @@ TrigGrammerListener.prototype.finalize = function(){
   }catch(e){
     console.error(e);
   }
-
-
 };
 
 TrigGrammerListener.prototype.addPrefix = function(prefix){
   if(this.finalized) throw new Error("Listener fired after finalization.");
+
   this.prefixMap[prefix.name] = prefix;
+
 };
 
 TrigGrammerListener.prototype.prefixId = function(ctx){
@@ -145,8 +145,16 @@ TrigGrammerListener.prototype.enterEveryRule = function(ctx){
 
       case 'prefixID':
         var prefix = this.ruleHandler.handlePrefixID(ctx, this.analysisErrors);
-        if(prefix)
-          this.addPrefix(prefix);
+        if(prefix){
+          if(prefix.name in this.prefixMap){
+            var e = this.ruleHandler.createErrorFromNode(prefix.name_symbol,
+               "Prefix already declared: " + prefix.name, prefix.name.length);
+            this.analysisErrors.push(e);
+          }else{
+            this.addPrefix(prefix, ctx);
+          }
+        }
+
         break;
 
       case 'block':
@@ -174,12 +182,15 @@ TrigGrammerListener.prototype.enterEveryRule = function(ctx){
 
     }
   }catch(e){
+    this.handleError(e)
     console.error(e);
   }
 
 
 };
+TrigGrammerListener.prototype.handleError = function(){
 
+}
 TrigGrammerListener.prototype.getDocument = function(){
 
 

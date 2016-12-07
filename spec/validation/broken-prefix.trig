@@ -1,0 +1,5 @@
+@prefix rdf: <broken> .
+@prefix rdf: <broken>
+@prefix rdf: <broken> .
+prefix broken2: <http://a> .
+@prefix broken: asdasd .

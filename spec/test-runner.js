@@ -87,15 +87,30 @@ describe('Trig File Tests - ', function() {
       it('Handles broken graphs', function(done){
         var fn = path.resolve('validation', 'broken-graph.trig');
         tryLoadTrig(fn, function(err, doc) {
-          //1 good statement AFTER errors
-          //seems to be broken after changing trig parser to match spec
-          //probably need some somewhat complex recovery logic
-          //expect(doc.getStatements().length).equals(1);
-          //console.log(doc.allGraphs[0].getStatements().length);
-          //console.log(doc.allGraphs[1].getStatements().length);
+          expect(doc.errors.length).equals(2)
+          expect(doc.syntaxErrors.length).equals(5)
+          expect(doc.analysisErrors.length).equals(0)
           done();
         });
       });
+
+      it("Handles broken prefixes", function(done){
+        var fn = path.resolve('validation', 'broken-prefix.trig');
+        tryLoadTrig(fn, function(err, doc) {
+          console.log(doc.errors);
+          console.log(doc.syntaxErrors);
+          console.log(doc.analysisErrors);
+          done();
+        });
+      })
+
+      it.only("warns duplicate prefixes", function(done){
+        var fn = path.resolve('validation', 'duplicate-prefix.trig');
+        tryLoadTrig(fn, function(err, doc) {
+          console.log(doc.analysisErrors);
+          done();
+        });
+      })
 
     });
   });

@@ -5,10 +5,9 @@
 <http://badgraph.com/>{
   <http://badgraph.com/> <http://badgraph.com/> .
 
-  <http://badgraph.com/>{
-    <http://badgraph.com/> <http://badgraph.com/> .
+<http://badgraph.com/>{
+  <http://badgraph.com/> <http://badgraph.com/> .
 
-
-  <http://goodgraph.com/>{
-    <http://goodgraph.com/> <http://goodgraph.com/> <http://goodgraph.com/> .
-  }
+<http://goodgraph.com/>{
+  <http://goodgraph.com/> <http://goodgraph.com/> <http://goodgraph.com/> .
+}
