@@ -94,7 +94,7 @@ describe('Trig File Tests - ', function() {
         });
       });
 
-      it("Handles broken prefixes", function(done){
+      it("Handles broken prefixes (validation)", function(done){
         var fn = path.resolve('validation', 'broken-prefix.trig');
         tryLoadTrig(fn, function(err, doc) {
           console.log(doc.errors);
@@ -104,10 +104,17 @@ describe('Trig File Tests - ', function() {
         });
       })
 
-      it.only("warns duplicate prefixes", function(done){
+      it("warns duplicate prefixes", function(done){
         var fn = path.resolve('validation', 'duplicate-prefix.trig');
         tryLoadTrig(fn, function(err, doc) {
           console.log(doc.analysisErrors);
+          done();
+        });
+      })
+      it("warns unused prefix", function(done){
+        var fn = path.resolve('validation', 'unused-prefix.trig');
+        tryLoadTrig(fn, function(err, doc) {
+          expect(doc.analysisErrors.length).equals(1)
           done();
         });
       })
@@ -149,13 +156,13 @@ describe('Trig File Tests - ', function() {
         });
       });
 
-      it('Handles broken prefixes', function(done) {
+      it('Handles broken prefixes(parse)', function(done) {
         //var path = path.resolve('other', 'blank-node.trig');
         var fn = path.resolve('other', 'broken-prefix.trig');
         tryLoadTrig(fn, function(err, doc) {
           if (err) throw err;
-          expect(doc.prefixes['rdf:'].name).equals('rdf:');
-          expect(doc.prefixes['rdf:'].token).equals('http://www.w3.org/1999/02/22-rdf-syntax-ns');
+          expect(doc.prefixes.prefixes['rdf:'].name).equals('rdf:');
+          expect(doc.prefixes.prefixes['rdf:'].token).equals('http://www.w3.org/1999/02/22-rdf-syntax-ns');
           done();
         });
       });
@@ -319,7 +326,7 @@ describe('Trig File Tests - ', function() {
         tryLoadTrig(path.resolve('other', 'unknown-iri-literal.trig'), function(err, doc) {
           if (err) throw err;
           expect(doc.getStatements()[0].object).equals('somecoolliteral');
-          var iriType = doc.getStatements()[0]._o.type;
+          var iriType = doc.getStatements()[0].iriObject.type
           expect(iriType).equals('http://g.com/fix');
           done();
         });

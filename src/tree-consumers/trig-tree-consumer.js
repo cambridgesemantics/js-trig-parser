@@ -87,7 +87,6 @@ module.exports = function (trig, parser, options) {
             var token = _spo.children[0].token;
             errors.push(createErrorFromNode(token, e.message, e.len));
           }
-
         }
 
       case '\'a\'':
@@ -99,11 +98,7 @@ module.exports = function (trig, parser, options) {
       default:
         return _spo;
     }
-
   }
-
-
-
 
   function handleObjectList(subject, predicate, objectList, results){
     return objectList.children.forEach(function(olItem){
@@ -276,7 +271,7 @@ module.exports = function (trig, parser, options) {
   }
 
 
-    function flattenSPO(spo){
+  function flattenSPO(spo){
     if(spo.type === '\'a\''){
       return spo;
     }
@@ -319,6 +314,7 @@ module.exports = function (trig, parser, options) {
         this.predicate = tryExpandIRI(this._p, prefixes, errors);
         this.object = tryExpandIRI(this._o, prefixes, errors);
         if(this._g) this.graph = tryExpandIRI(this._g, prefixes, errors);
+
         return errors;
 
       },
@@ -376,7 +372,6 @@ module.exports = function (trig, parser, options) {
         var predicateObjectList =(triples.children[1]);
         switch(subject_BNodeProps.type){
           case 'subject':
-
             var newTriples = createTriples(subject_BNodeProps, predicateObjectList);
             allTriples = allTriples.concat(newTriples);
             break;
@@ -407,7 +402,8 @@ module.exports = function (trig, parser, options) {
         _graph: _graph,
         //pos: (_graph && _graph.pos) || {line: 0, column: 0},
 
-        finalize: function(prefixes){
+        finalize: function(prefixMap){
+          var prefixes = prefixMap.prefixes
           var errors = [];
 
           this._assignGraph();
@@ -440,6 +436,7 @@ module.exports = function (trig, parser, options) {
           return errors;
         },
         _convertLiterals: function(prefixes){
+
           var errors = [];
           triples.forEach(function(stmt){
             if(!stmt.object.literalState) return;
@@ -470,6 +467,7 @@ module.exports = function (trig, parser, options) {
                 break;
 
               case LITERAL_STATES.UNPROCESSED_LITERAL:
+
                 stmt._o = stmt.object;
                 stmt.object = stmt.object.value;
                 stmt.expObject = stmt.object;

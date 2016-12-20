@@ -3,7 +3,25 @@ var TrigGrammerListener = function(trigStr, trig, ruleHandler, options) {
   this.trigStr = trigStr;
   this.parser = trig.parser;
   this.ruleHandler = ruleHandler;
-  this.prefixMap = {};
+  this.prefixMap = { prefixes: {}};
+  this.prefixSymbolMap = { };
+  var prefixUsageMap = {};
+  this.prefixMap.get = function(prefixName){
+    if(!(prefixName in prefixMap.prefixes)) return undefined;
+    var count = prefixUsageMap[prefixName] || 0;
+    prefixUsageMap[prefixName] = count + 1;
+    return this.prefixMap.prefixes[prefixName];
+  }.bind(this)
+  this.prefixMap.getUnusedAsError = function(prefixName){
+    return Object.keys(this.prefixMap.prefixes).filter(function(prefix){
+      return !prefixUsageMap[prefix]
+    }.bind(this)).map(function(prefix){
+      prefix = this.prefixMap.prefixes[prefix]
+      return this.ruleHandler.createErrorFromNode(prefix.name_symbol,
+         "Unused prefix: " + prefix.name, prefix.name.length);
+    }.bind(this))
+  }.bind(this)
+
   this.graphs = [];
   this.macros = [];
   this.errors = [];
@@ -49,7 +67,7 @@ TrigGrammerListener.prototype.handleGraphTriples = function(rootTriplesBlock, ir
       }.bind(this));
     }
 
-};
+}
 
 TrigGrammerListener.prototype.flattenTriplesBlock = function(triplesBlock, results){
   results = results || [ triplesBlock ];
@@ -64,7 +82,6 @@ TrigGrammerListener.prototype.flattenTriplesBlock = function(triplesBlock, resul
   return results;
 };
 
-// some code here
 TrigGrammerListener.prototype.finalize = function(){
   try{
     this.finalized = true;
@@ -72,29 +89,22 @@ TrigGrammerListener.prototype.finalize = function(){
     this.allGraphs.forEach(function(graph){
         errors = errors.concat(graph.finalize(this.prefixMap));
     }.bind(this));
+    var unusedPrefixes = this.prefixMap.getUnusedAsError()
+    errors = errors.concat(unusedPrefixes)
     return errors;
   }catch(e){
+    console.error("Error finalizing trig doc")
     console.error(e);
   }
 };
 
-TrigGrammerListener.prototype.addPrefix = function(prefix){
+TrigGrammerListener.prototype.addPrefix = function(prefix, ctx){
   if(this.finalized) throw new Error("Listener fired after finalization.");
+  this.prefixMap.prefixes[prefix.name] = prefix;
+  this.prefixSymbolMap[prefix.name] = ctx;
 
-  this.prefixMap[prefix.name] = prefix;
-
 };
 
-TrigGrammerListener.prototype.prefixId = function(ctx){
-};
-TrigGrammerListener.prototype.prefixID = function(ctx){
-};
-TrigGrammerListener.prototype.graph = function(ctx){
-};
-TrigGrammerListener.prototype.triplesBlock = function(ctx){
-};
-TrigGrammerListener.prototype.macro = function(ctx){
-};
 TrigGrammerListener.prototype.handleWrappedGraph = function(wrappedGraph, iri){
   var rootTriplesBlock = wrappedGraph.children.find(function(child){
     return this.parser.ruleNames[child.ruleIndex] === 'triplesBlock';
@@ -102,6 +112,7 @@ TrigGrammerListener.prototype.handleWrappedGraph = function(wrappedGraph, iri){
   this.handleGraphTriples(rootTriplesBlock, iri, this.ruleHandler.createNode(wrappedGraph));
 
 }
+
 TrigGrammerListener.prototype.handleBlock = function(ctx){
 
     var ruleName = this.parser.ruleNames[ctx.ruleIndex];
@@ -188,9 +199,7 @@ TrigGrammerListener.prototype.enterEveryRule = function(ctx){
 
 
 };
-TrigGrammerListener.prototype.handleError = function(){
-
-}
+TrigGrammerListener.prototype.handleError = function(){}
 TrigGrammerListener.prototype.getDocument = function(){
 
 
@@ -223,9 +232,14 @@ TrigGrammerListener.prototype.getDocument = function(){
     }
   };
   result.analysisErrors = result.analysisErrors.concat(this.finalize());
+
   return result;
 };
-
+TrigGrammerListener.prototype.prefixId = function(ctx){};
+TrigGrammerListener.prototype.prefixID = function(ctx){};
+TrigGrammerListener.prototype.graph = function(ctx){};
+TrigGrammerListener.prototype.triplesBlock = function(ctx){};
+TrigGrammerListener.prototype.macro = function(ctx){};
 TrigGrammerListener.prototype.visitTerminal = function(){};
 TrigGrammerListener.prototype.exitEveryRule = function(){};
 TrigGrammerListener.prototype.exitRule = function(){};

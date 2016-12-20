@@ -1,0 +1,4 @@
+<http://g> a "a"^^xsd:int
+<http://g> a "1.1"^^xsd:int
+<http://g> a "a"^^xsd:float
+<http://g> a "a"^^xsd:float
