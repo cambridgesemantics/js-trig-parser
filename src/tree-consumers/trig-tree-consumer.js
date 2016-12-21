@@ -47,7 +47,7 @@ module.exports = function (trig, parser, options) {
     };
   }
 
-  function expandIRIString (str, prefixes, returnOnUnseen) {
+  function expandIRIString (str, prefixMap, returnOnUnseen) {
     var prefixMatches = uriUtils.getPrefix(str);
     if (prefixMatches === null || prefixMatches.length === 0) {
       var error = new Error('No prefix found for: ' + str);
@@ -57,18 +57,18 @@ module.exports = function (trig, parser, options) {
     }
 
     var prefix = prefixMatches[0];
-    if (!(prefix in prefixes)) {
+    if (!prefixMap.get(prefix)) {
       if (returnOnUnseen) return uriUtils.toURI(str);
       error = new Error('Prefix not declared: ' + prefix);
       error.type = 'prefixNotDeclared';
       error.len = prefix.length;
       throw error;
     }
-    var iri = prefixes[prefix];
+    var iri = prefixMap.get(prefix);
     return str.replace(new RegExp('^' + prefix), iri.token);
   }
 
-  function tryExpandIRI (_spo, prefixes, errors) {
+  function tryExpandIRI (_spo, prefixMap, errors) {
 
      switch (_spo.type) {
       case 'IRIREF':
@@ -78,7 +78,7 @@ module.exports = function (trig, parser, options) {
         return uriUtils.toURI(_spo.children[0].token);
       case 'prefixedname':
         try {
-          return expandIRIString(_spo.token, prefixes);
+          return expandIRIString(_spo.token, prefixMap);
         } catch (e) {
           if (e.type === 'prefixNotDeclared') {
             errors.push(createErrorFromNode(_spo, e.message, e.len));
@@ -139,7 +139,7 @@ module.exports = function (trig, parser, options) {
 
 
 
-  function handleIRILiteralValue(iriLiteralObject){
+  function handleIRILiteralValue(iriLiteralObject, prefixMap){
     //Need to properly use prefixes in IRI Expansion
     var type = iriLiteralObject.type;
     var str = iriLiteralObject.value;
@@ -308,12 +308,12 @@ module.exports = function (trig, parser, options) {
       _o: o,
       //_g: null
 
-      applyPrefixes: function(prefixes){
+      applyPrefixes: function(prefixMap){
         var errors = [];
-        this.subject = tryExpandIRI(this._s, prefixes, errors);
-        this.predicate = tryExpandIRI(this._p, prefixes, errors);
-        this.object = tryExpandIRI(this._o, prefixes, errors);
-        if(this._g) this.graph = tryExpandIRI(this._g, prefixes, errors);
+        this.subject = tryExpandIRI(this._s, prefixMap, errors);
+        this.predicate = tryExpandIRI(this._p, prefixMap, errors);
+        this.object = tryExpandIRI(this._o, prefixMap, errors);
+        if(this._g) this.graph = tryExpandIRI(this._g, prefixMap, errors);
 
         return errors;
 
@@ -403,13 +403,12 @@ module.exports = function (trig, parser, options) {
         //pos: (_graph && _graph.pos) || {line: 0, column: 0},
 
         finalize: function(prefixMap){
-          var prefixes = prefixMap.prefixes
           var errors = [];
 
           this._assignGraph();
-          errors = errors.concat(this.applyPrefixes(prefixes));
+          errors = errors.concat(this.applyPrefixes(prefixMap));
           this._expandBnodes();
-          errors = errors.concat(this._convertLiterals(prefixes));
+          errors = errors.concat(this._convertLiterals(prefixMap));
           this.finalized = true;
 
           return errors;
@@ -419,15 +418,15 @@ module.exports = function (trig, parser, options) {
           return triples;
         },
 
-        applyPrefixes: function(prefixes){
+        applyPrefixes: function(prefixMap){
           var errors = [];
           triples.forEach(function(triple){
-            var e1 = triple.applyPrefixes(prefixes);
-            errors = errors.concat(triple.applyPrefixes(prefixes));
+            var e1 = triple.applyPrefixes(prefixMap);
+            errors = errors.concat(triple.applyPrefixes(prefixMap));
           });
           if(uriUtils.isURI(this.uri)) return errors;
           try{
-              this.uri = expandIRIString(this.uri, prefixes);
+              this.uri = expandIRIString(this.uri, prefixMap);
           }catch(e){
               if(e.type === 'invalidIri'){
                 errors.push(createErrorFromNode(this._iri, e.message, this.iri.len));
@@ -435,7 +434,7 @@ module.exports = function (trig, parser, options) {
           }
           return errors;
         },
-        _convertLiterals: function(prefixes){
+        _convertLiterals: function(prefixMap){
 
           var errors = [];
           triples.forEach(function(stmt){
@@ -445,7 +444,7 @@ module.exports = function (trig, parser, options) {
               case LITERAL_STATES.UNPROCESSED_IRI_LITERAL:
                 stmt._o = stmt.object;
                 try{
-                  stmt.object.type = expandIRIString(stmt.object.iriLiteralType, prefixes, true);
+                  stmt.object.type = expandIRIString(stmt.object.iriLiteralType, prefixMap, true);
                 }catch(e){
                   if(e.type ==='invalidIri'){
                     errors.push({
@@ -460,7 +459,7 @@ module.exports = function (trig, parser, options) {
 
                 }
 
-                stmt.object = handleIRILiteralValue(stmt.object, prefixes);
+                stmt.object = handleIRILiteralValue(stmt.object, prefixMap);
                 stmt.expObject = stmt.object;
 
                 delete stmt._o['literalState'];

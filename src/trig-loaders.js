@@ -80,7 +80,7 @@ function parseTrig(data){
 
       },
       reportAmbiguity: function(){
-        
+
       }
     };
     lexer.addErrorListener(e_listener);

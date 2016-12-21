@@ -3,20 +3,25 @@ var TrigGrammerListener = function(trigStr, trig, ruleHandler, options) {
   this.trigStr = trigStr;
   this.parser = trig.parser;
   this.ruleHandler = ruleHandler;
-  this.prefixMap = { prefixes: {}};
+  this.prefixMap = { _prefixes: {}};
   this.prefixSymbolMap = { };
   var prefixUsageMap = {};
   this.prefixMap.get = function(prefixName){
-    if(!(prefixName in prefixMap.prefixes)) return undefined;
+    if(!(prefixName in this.prefixMap._prefixes)) return undefined;
     var count = prefixUsageMap[prefixName] || 0;
     prefixUsageMap[prefixName] = count + 1;
-    return this.prefixMap.prefixes[prefixName];
+    return this.prefixMap._prefixes[prefixName];
+  }.bind(this)
+  this.prefixMap.put = function(prefix, ctx){
+    if(this.finalized) throw new Error("Listener fired after finalization.");
+    this.prefixMap._prefixes[prefix.name] = prefix;
+    this.prefixSymbolMap[prefix.name] = ctx;
   }.bind(this)
   this.prefixMap.getUnusedAsError = function(prefixName){
-    return Object.keys(this.prefixMap.prefixes).filter(function(prefix){
+    return Object.keys(this.prefixMap._prefixes).filter(function(prefix){
       return !prefixUsageMap[prefix]
     }.bind(this)).map(function(prefix){
-      prefix = this.prefixMap.prefixes[prefix]
+      prefix = this.prefixMap._prefixes[prefix]
       return this.ruleHandler.createErrorFromNode(prefix.name_symbol,
          "Unused prefix: " + prefix.name, prefix.name.length);
     }.bind(this))
@@ -98,13 +103,6 @@ TrigGrammerListener.prototype.finalize = function(){
   }
 };
 
-TrigGrammerListener.prototype.addPrefix = function(prefix, ctx){
-  if(this.finalized) throw new Error("Listener fired after finalization.");
-  this.prefixMap.prefixes[prefix.name] = prefix;
-  this.prefixSymbolMap[prefix.name] = ctx;
-
-};
-
 TrigGrammerListener.prototype.handleWrappedGraph = function(wrappedGraph, iri){
   var rootTriplesBlock = wrappedGraph.children.find(function(child){
     return this.parser.ruleNames[child.ruleIndex] === 'triplesBlock';
@@ -162,7 +160,7 @@ TrigGrammerListener.prototype.enterEveryRule = function(ctx){
                "Prefix already declared: " + prefix.name, prefix.name.length);
             this.analysisErrors.push(e);
           }else{
-            this.addPrefix(prefix, ctx);
+            this.prefixMap.put(prefix, ctx);
           }
         }
 

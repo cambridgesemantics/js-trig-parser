@@ -115,9 +115,21 @@ describe('Trig File Tests - ', function() {
         var fn = path.resolve('validation', 'unused-prefix.trig');
         tryLoadTrig(fn, function(err, doc) {
           expect(doc.analysisErrors.length).equals(1)
-          done();
+          done()
         });
       })
+
+      it("doesnt warn unused prefix", function(done){
+        var fn2 = path.resolve('validation', 'unused-prefix2.trig');
+        tryLoadTrig(fn2, function(err, doc2) {
+          console.log(arguments)
+          expect(doc2.analysisErrors.length).equals(0)
+          done();
+        });
+
+      })
+
+
 
     });
   });
@@ -161,8 +173,8 @@ describe('Trig File Tests - ', function() {
         var fn = path.resolve('other', 'broken-prefix.trig');
         tryLoadTrig(fn, function(err, doc) {
           if (err) throw err;
-          expect(doc.prefixes.prefixes['rdf:'].name).equals('rdf:');
-          expect(doc.prefixes.prefixes['rdf:'].token).equals('http://www.w3.org/1999/02/22-rdf-syntax-ns');
+          expect(doc.prefixes.get('rdf:').name).equals('rdf:');
+          expect(doc.prefixes.get('rdf:').token).equals('http://www.w3.org/1999/02/22-rdf-syntax-ns');
           done();
         });
       });
