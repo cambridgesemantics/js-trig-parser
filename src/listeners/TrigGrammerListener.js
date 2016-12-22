@@ -155,7 +155,7 @@ TrigGrammerListener.prototype.enterEveryRule = function(ctx){
       case 'prefixID':
         var prefix = this.ruleHandler.handlePrefixID(ctx, this.analysisErrors);
         if(prefix){
-          if(prefix.name in this.prefixMap){
+          if(this.prefixMap.get(prefix.name)){
             var e = this.ruleHandler.createErrorFromNode(prefix.name_symbol,
                "Prefix already declared: " + prefix.name, prefix.name.length);
             this.analysisErrors.push(e);
