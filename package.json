@@ -9,6 +9,7 @@
     "uuid": "^3.0.0"
   },
   "devDependencies": {
+    "antlr4": "^4.6.0",
     "chai": "^3.5.0",
     "mocha": "^3.0.2",
     "recursive-readdir": "^2.0.0",
