@@ -313,7 +313,6 @@ module.exports = function (trig, parser, options) {
         this.subject = tryExpandIRI(this._s, prefixMap, errors);
         this.predicate = tryExpandIRI(this._p, prefixMap, errors);
         this.object = tryExpandIRI(this._o, prefixMap, errors);
-        if(this._g) this.graph = tryExpandIRI(this._g, prefixMap, errors);
 
         return errors;
 
@@ -420,11 +419,6 @@ module.exports = function (trig, parser, options) {
 
         applyPrefixes: function(prefixMap){
           var errors = [];
-          triples.forEach(function(triple){
-            var e1 = triple.applyPrefixes(prefixMap);
-            errors = errors.concat(triple.applyPrefixes(prefixMap));
-          });
-          if(uriUtils.isURI(this.uri)) return errors;
           try{
               this.uri = expandIRIString(this.uri, prefixMap);
           }catch(e){
@@ -432,6 +426,16 @@ module.exports = function (trig, parser, options) {
                 errors.push(createErrorFromNode(this._iri, e.message, this.iri.len));
               }
           }
+
+          triples.forEach(function(triple){
+            var e1 = triple.applyPrefixes(prefixMap);
+            errors = errors.concat(triple.applyPrefixes(prefixMap));
+            triple.graph = this.uri;
+            triple._g = this._graph;
+            triple._graph = this;
+          }.bind(this));
+          if(uriUtils.isURI(this.uri)) return errors;
+
           return errors;
         },
         _convertLiterals: function(prefixMap){

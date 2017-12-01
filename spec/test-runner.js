@@ -211,7 +211,16 @@ describe('Trig File Tests - ', function() {
           done();
         });
       });
-
+      it.only("Properly creates graph values on statements", function(done){
+        var fn = path.resolve('other', 'strings.trig');
+          tryLoadTrig(fn, function(err, doc) {
+            if (err) throw err;
+            var stmts = doc.getStatements();
+            expect(stmts[0].graph).equals("http://g.com");
+            expect(stmts[1].graph).equals("http://g.com");
+            done();
+          });
+      }); 
       it('Properly expands nested triples blocks', function(done) {
         var fn = path.resolve('other', 'nested-triples-expand.trig');
         tryLoadTrig(fn, function(err, doc) {
@@ -358,6 +367,7 @@ describe('Trig File Tests - ', function() {
 
       });
 
+    
       it('Handles blankNode property Lists', function(done) {
         tryLoadTrig(path.resolve('other', 'blank-node-property-list.trig'), function(err, doc) {
           if (err) throw err;
