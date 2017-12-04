@@ -56,6 +56,8 @@ function formatSyntaxErrorMessage(msg){
 }
 
 
+
+
 function parseTrig(data){
     data = replaceBadPrefixes(data);
     var chars = new antlr4.InputStream(data);
@@ -74,13 +76,13 @@ function parseTrig(data){
         });
       },
       reportAttemptingFullContext: function(){
-
+        
       },
       reportContextSensitivity: function(){
-
+        
       },
       reportAmbiguity: function(){
-
+            
       }
     };
     lexer.addErrorListener(e_listener);
@@ -110,8 +112,10 @@ function graphsFromFile(fn, cb){
 function graphsFromString(data){
     data = replaceBadPrefixes(data);
     var trig = parseTrig(data);
+    
     var ruleHandler = createRuleHandler(data, trig.parser);
     var trigListener = new TrigGrammerListener(data, trig, ruleHandler);
+    
     antlr4.tree.ParseTreeWalker.DEFAULT.walk(trigListener, trig.tree);
     return trigListener.getDocument();
 }

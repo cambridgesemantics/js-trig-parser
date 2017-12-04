@@ -1,0 +1,9 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-nss#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix : <http://example.org/stuff/1.0/> .
+@prefix owl: <http://example.org/stuff/1.0/owl> .
+dc:graph{
+    :DataFile a owl:Class ; rdfs:label "Data File" ;
+          rdfs:subClassOf [ a owl:Restriction ; owl:onProperty dc:title ; owl:maxCardinality 1 ] .
+}

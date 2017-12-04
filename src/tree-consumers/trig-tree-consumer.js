@@ -43,7 +43,7 @@ module.exports = function (trig, parser, options) {
       literalState: LITERAL_STATES.UNPROCESSED_LITERAL,
       type: _spo.type,
       value: value !== undefined ? value : _spo.token,
-      _source: _spo
+      source: _spo
     };
   }
 
@@ -175,6 +175,8 @@ module.exports = function (trig, parser, options) {
       case 'xsd:integer':
         return Number.parseInt(str);
       case 'xsd:decimal':
+      case 'xsd:double':
+      case 'xsd:float':
         return Number.parseFloat(str);
       //case 'xsd:string':
       default:
@@ -201,7 +203,7 @@ module.exports = function (trig, parser, options) {
               literalState: LITERAL_STATES.UNPROCESSED_LITERAL,
               type: "LANGTAGED-LITERAL",
               value: stringLit,
-              _source: literal.children[0]
+              source: literal.children[0]
             };
           }
 
@@ -209,7 +211,7 @@ module.exports = function (trig, parser, options) {
             return {
               literalState: LITERAL_STATES.UNPROCESSED_IRI_LITERAL,
               iriLiteralType: literal.children[0].children[2].token,
-              _source: literal.children[0],
+              source: literal.children[0],
               value: stringLit
             };
           }
@@ -301,7 +303,7 @@ module.exports = function (trig, parser, options) {
       iriSubject: s.token, //uriUtils.tryConvertToURI(s.token),
       iriPredicate: p.token, //uriUtils.tryConvertToURI(p.token),
       iriObject: o.token || o, //? uriUtils.tryConvertToURI(o.token) : o,
-
+      
       _v: v,
       _s: s,
       _p: p,
@@ -318,16 +320,42 @@ module.exports = function (trig, parser, options) {
 
       },
       finalize: function(bnodeMap){
-        if(this.subject in bnodeMap){ this.subject = bnodeMap[this.subject]; }
+        if(this.subject in bnodeMap){
+          this.subject = bnodeMap[this.subject]; 
+          this.iriSubject = bnodeMap[this.subject];
+        }
         if(this.predicate in bnodeMap){ this.predicate = bnodeMap[this.predicate];}
         if(this.object in bnodeMap){ this.object = bnodeMap[this.object];}
 
+				delete this['applyPrefixes']
+				delete this['_graph']
+				delete this['finalize']
+				delete this._o['source']
+				delete this['_v']
+				delete this.iriObject['source']
+				cleanToken(this._g)
+				cleanToken(this._p)
+				cleanToken(this._s)
+
       },
       toString: function(){
-        return this.iriSubject + " " + this.iriPredicate + " " + this.iriObject;
+        return this.iriSubject + " " + this.iriPredicate + " " + this.object;
       }
     };
   }
+	
+	function cleanToken(t){
+		if(!t) return;
+		if(t.stop){
+			delete t.stop['source']
+		}
+		if(t.start){
+			delete t.start['source']
+		}
+		if(t.children){
+			delete t['children']
+		}
+	}
 
 
   function createTriples(subject, predicateObjectChildren){
@@ -398,25 +426,33 @@ module.exports = function (trig, parser, options) {
         _iri: iri,
         iri: iri.token,
         uri: uri,
-        _graph: _graph,
         //pos: (_graph && _graph.pos) || {line: 0, column: 0},
 
         finalize: function(prefixMap){
           var errors = [];
 
-          this._assignGraph();
           errors = errors.concat(this.applyPrefixes(prefixMap));
-          this._expandBnodes();
           errors = errors.concat(this._convertLiterals(prefixMap));
+					this._expandBnodes(prefixMap);
+					
           this.finalized = true;
-
+          
+					//cleanup
+					delete this['finalize']
+					delete this['_convertLiterals']
+					delete this['bnodeMap']
+					delete this['_assignGraph']
+					delete this['_expandBnodes']
+					delete this['applyPrefixes']
+					delete this['source']
+					
           return errors;
         },
 
         getStatements: function(){
           return triples;
         },
-
+      
         applyPrefixes: function(prefixMap){
           var errors = [];
           try{
@@ -431,7 +467,6 @@ module.exports = function (trig, parser, options) {
             var e1 = triple.applyPrefixes(prefixMap);
             errors = errors.concat(triple.applyPrefixes(prefixMap));
             triple.graph = this.uri;
-            triple._g = this._graph;
             triple._graph = this;
           }.bind(this));
           if(uriUtils.isURI(this.uri)) return errors;
@@ -447,16 +482,18 @@ module.exports = function (trig, parser, options) {
 
               case LITERAL_STATES.UNPROCESSED_IRI_LITERAL:
                 stmt._o = stmt.object;
+							
+								
                 try{
                   stmt.object.type = expandIRIString(stmt.object.iriLiteralType, prefixMap, true);
                 }catch(e){
                   if(e.type ==='invalidIri'){
                     errors.push({
                       message: e.message,
-                      line: stmt.object._source.children[2].pos.line,
-                      column: stmt.object._source.children[2].pos.column,
-                      start: stmt.object._source.children[2].start,
-                      stop: stmt.object._source.children[2].stop,
+                      line: stmt.object.source.children[2].pos.line,
+                      column: stmt.object.source.children[2].pos.column,
+                      start: stmt.object.source.children[2].start,
+                      stop: stmt.object.source.children[2].stop,
                       len: e.len
                     });
                   }
@@ -470,10 +507,13 @@ module.exports = function (trig, parser, options) {
                 break;
 
               case LITERAL_STATES.UNPROCESSED_LITERAL:
-
                 stmt._o = stmt.object;
                 stmt.object = stmt.object.value;
                 stmt.expObject = stmt.object;
+								let isLangTag = stmt._o.source && stmt._o.source.children && stmt._o.source.children[1] && stmt._o.source.children[1].token[0] === "@"
+								if(isLangTag){
+									stmt._o.lang = stmt._o.source.children[1].token
+								}
                 delete stmt._o['literalState'];
                 break;
 
@@ -492,17 +532,21 @@ module.exports = function (trig, parser, options) {
           }.bind(this));
         },
 
-        _expandBnodes: function(){
+        _expandBnodes: function(prefixMap){
           if(this.finalized) throw new Error('Graph finalized');
           var bnodeTriples = triples.filter(function(triple){
-              return triple._s.type === 'BlankNode';
+
+              //no type as they are fabricated not parsed
+              if(!triple._s.type){
+                triple._s = { type: 'BlankNode', token: triple._s, pos: { col: -1, row: -1} } 
+              }
+              return triple._s.type == 'BlankNode';
           });
 
           var tripleMap = bnodeTriples.reduce(function(acc, triple){
             acc[triple.subject] = true;
             return acc;
           },{});
-
           var uuids = Object.keys(tripleMap).reduce(function(acc, bNode){
             acc[bNode] = uuid.v4();
             return acc;
@@ -510,7 +554,8 @@ module.exports = function (trig, parser, options) {
 
           this.bnodeMap = Object.keys(uuids).reduce(function(acc, bNode){
             var uuid = acc[bNode];
-            var _uri = this.uri[this.uri.length - 1] === '/' ? this.uri : this.uri + '/';
+            var iriExpanded = expandIRIString(this.iri, prefixMap, true)
+            var _uri = iriExpanded[iriExpanded.length - 1] === '/' ? this.uri : this.uri + '/';
             acc[bNode] = _uri + uuid;
             return acc;
           }.bind(this),uuids);

@@ -63,7 +63,6 @@ describe('Trig File Tests - ', function() {
       var fn = path.resolve('validation', 'broken-directive.trig');
       it('Handles broken directives', function(done){
         tryDefaultLoad(fn, function(err, doc) {
-          //console.log(doc.syntaxErrors);
           done();
         });
       });
@@ -71,7 +70,6 @@ describe('Trig File Tests - ', function() {
       var fn = path.resolve('validation', 'broken-iri.trig');
       it('Handles broken iris', function(done){
         tryDefaultLoad(fn, function(err, doc) {
-          //console.log(doc.syntaxErrors);
           done();
         });
       });
@@ -151,6 +149,7 @@ describe('Trig File Tests - ', function() {
         var fn = path.resolve('other', 'blank-node.trig');
         tryLoadTrig(fn, function(err, doc) {
           if (err) throw err;
+          console.log(doc.graphs[0].getStatements()[0].subject)
           expect(containsUuid.test(doc.graphs[0].getStatements()[0].subject)).equals(true);
           done();
         });
@@ -211,7 +210,7 @@ describe('Trig File Tests - ', function() {
           done();
         });
       });
-      it.only("Properly creates graph values on statements", function(done){
+      it("Properly creates graph values on statements", function(done){
         var fn = path.resolve('other', 'strings.trig');
           tryLoadTrig(fn, function(err, doc) {
             if (err) throw err;
@@ -259,6 +258,7 @@ describe('Trig File Tests - ', function() {
         tryLoadTrig(path.resolve('other', 'any-uri.trig'), function(err, doc) {
           if (err) throw err;
           var stmts = doc.getStatements();
+          console.log(stmts[0].object)
           expect(stmts[0].object).equals('http://flixray.com/movie_reviews/No-Country-for-Old-Men.html');
           done();
         });
@@ -290,7 +290,7 @@ describe('Trig File Tests - ', function() {
         tryLoadTrig(path.resolve('other', 'lang-tags.trig'), function(err, doc) {
           if (err) throw (err);
           expect(doc.getStatements()[1].object).equals("Человек-паук");
-          expect(doc.getStatements()[1]._o._source.children[1].token === '@ru');
+          expect(doc.getStatements()[1]._o.lang).equals('@ru');
           done();
         });
 
@@ -326,7 +326,6 @@ describe('Trig File Tests - ', function() {
       it('Handles blank nodes', function(done) {
         tryLoadTrig(path.resolve('other', 'blank-nodes.trig'), function(err, doc) {
           if (err) throw err;
-
           expect(doc.getStatements().length).equals(2);
           expect(doc.getStatements()[0].subject).equals(doc.getStatements()[1].object);
           expect(containsUuid.test(doc.getStatements()[0].subject)).equals(true);
@@ -367,7 +366,30 @@ describe('Trig File Tests - ', function() {
 
       });
 
-    
+      it('Handles blankNode property Lists', function(done) {
+        tryLoadTrig(path.resolve('other', 'blank-node-list.trig'), function(err, doc) {
+          if(err) throw err;
+          console.log(doc.getStatements()[0].graph)
+          done()
+        })
+      })
+      it("handles floating points", (done) => {
+        tryLoadTrig(path.resolve('other', 'floats.trig'), function(err, doc) {
+          if(err) throw err;
+          expect(doc.getStatements()[0].object).equals(1.101)
+          expect(doc.getStatements()[1].object).equals(1.101)
+          done()
+        })
+      })
+
+      it('handles datasources-ont.trig', function(done){
+        tryLoadTrig(path.resolve('csi-ex', 'datasources-ont.trig'), function(err, doc) {
+          if(err) throw err;
+          doc.getStatements().forEach((s) => {
+          })
+          done()
+        })
+      })
       it('Handles blankNode property Lists', function(done) {
         tryLoadTrig(path.resolve('other', 'blank-node-property-list.trig'), function(err, doc) {
           if (err) throw err;
@@ -380,7 +402,6 @@ describe('Trig File Tests - ', function() {
           expect(doc.getStatements()[2].iriPredicate).equals("ex:homePage");
           expect(doc.getStatements()[3].iriPredicate).equals("ex:editor");
           expect(containsUuid.test(doc.getStatements()[3].object)).equals(true);
-
           done();
         });
       });
