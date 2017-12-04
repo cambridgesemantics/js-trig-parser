@@ -273,7 +273,7 @@ module.exports = function (trig, parser, options) {
   }
 
 
-  function flattenSPO(spo){
+  function _flattenSPO(spo){
     if(spo.type === '\'a\''){
       return spo;
     }
@@ -283,6 +283,16 @@ module.exports = function (trig, parser, options) {
       return spo.children[0].children[0];
     }
     return spo.children[0];
+
+
+  }
+  function flattenSPO(spo){
+      var result = _flattenSPO(spo)
+
+      if(!result.pos && result.source){
+          result.pos = result.source.pos
+      }
+      return result;
   }
 
 
@@ -290,20 +300,15 @@ module.exports = function (trig, parser, options) {
   function createTriple(s, v, o){
 
     var p = v.children[0];
-
     s = flattenSPO(s);
     p = flattenSPO(p);
     o = flattenSPO(o);
-
-
-
-
 
     return {
       iriSubject: s.token, //uriUtils.tryConvertToURI(s.token),
       iriPredicate: p.token, //uriUtils.tryConvertToURI(p.token),
       iriObject: o.token || o, //? uriUtils.tryConvertToURI(o.token) : o,
-      
+      _g: null,
       _v: v,
       _s: s,
       _p: p,
@@ -423,7 +428,7 @@ module.exports = function (trig, parser, options) {
 
   function _createGraph(uri, triples, _graph, iri){
     return {
-        _iri: iri,
+        _g: iri,
         iri: iri.token,
         uri: uri,
         //pos: (_graph && _graph.pos) || {line: 0, column: 0},
@@ -467,7 +472,7 @@ module.exports = function (trig, parser, options) {
             var e1 = triple.applyPrefixes(prefixMap);
             errors = errors.concat(triple.applyPrefixes(prefixMap));
             triple.graph = this.uri;
-            triple._graph = this;
+            triple._g = this._g;
           }.bind(this));
           if(uriUtils.isURI(this.uri)) return errors;
 
@@ -510,10 +515,10 @@ module.exports = function (trig, parser, options) {
                 stmt._o = stmt.object;
                 stmt.object = stmt.object.value;
                 stmt.expObject = stmt.object;
-								let isLangTag = stmt._o.source && stmt._o.source.children && stmt._o.source.children[1] && stmt._o.source.children[1].token[0] === "@"
-								if(isLangTag){
-									stmt._o.lang = stmt._o.source.children[1].token
-								}
+                var isLangTag = stmt._o.source && stmt._o.source.children && stmt._o.source.children[1] && stmt._o.source.children[1].token[0] === "@"
+                if(isLangTag){
+                    stmt._o.lang = stmt._o.source.children[1].token
+                }
                 delete stmt._o['literalState'];
                 break;
 
@@ -534,12 +539,11 @@ module.exports = function (trig, parser, options) {
 
         _expandBnodes: function(prefixMap){
           if(this.finalized) throw new Error('Graph finalized');
-          var bnodeTriples = triples.filter(function(triple){
-
+          triples = triples.map(function(triple){
               //no type as they are fabricated not parsed
-              if(!triple._s.type){
-                triple._s = { type: 'BlankNode', token: triple._s, pos: { col: -1, row: -1} } 
-              }
+              return finalizeBnodes(triple);
+          })
+          var bnodeTriples = triples.filter(function(triple){
               return triple._s.type == 'BlankNode';
           });
 
@@ -566,6 +570,17 @@ module.exports = function (trig, parser, options) {
         }
     };
 
+  }
+
+
+  function finalizeBnodes(triple){
+      if(!triple._s.type){
+          triple._s = { type: 'BlankNode', token: triple._s, pos: triple._p.pos }
+      }
+      if(!triple._o.type){
+          triple._o = { type: 'BlankNode', token: triple._o, pos: triple._p.pos }
+      }
+      return triple
   }
 
   function createGraph(triplesBlocks, iri, graphNode){
@@ -603,7 +618,7 @@ module.exports = function (trig, parser, options) {
         name_symbol: nameSym,
         value_symbol: valSym,
         name: nameSym.token,
-        token: uriUtils.toURI(valSym.token),
+        value: uriUtils.toURI(valSym.token),
         pos: nameSym.pos
       };
     },
