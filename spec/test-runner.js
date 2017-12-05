@@ -173,7 +173,7 @@ describe('Trig File Tests - ', function() {
         tryLoadTrig(fn, function(err, doc) {
           if (err) throw err;
           expect(doc.prefixes.get('rdf:').name).equals('rdf:');
-          expect(doc.prefixes.get('rdf:').token).equals('http://www.w3.org/1999/02/22-rdf-syntax-ns');
+          expect(doc.prefixes.get('rdf:').value).equals('http://www.w3.org/1999/02/22-rdf-syntax-ns');
           done();
         });
       });

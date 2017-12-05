@@ -1,16 +1,11 @@
 
 var TrigGrammerListener = function(trigStr, trig, ruleHandler, options) {
+  this.trigStr = trigStr;
   this.parser = trig.parser;
   this.ruleHandler = ruleHandler;
   this.prefixMap = { _prefixes: {}};
   this.prefixSymbolMap = { };
   var prefixUsageMap = {};
-
-  function cleanPrefixCtx(ctx){
-    delete ctx['parentCtx']
-    delete ctx['parser']
-    delete ctx['exception']
-  }
   this.prefixMap.get = function(prefixName){
     if(!(prefixName in this.prefixMap._prefixes)) return undefined;
     var count = prefixUsageMap[prefixName] || 0;
@@ -19,7 +14,6 @@ var TrigGrammerListener = function(trigStr, trig, ruleHandler, options) {
   }.bind(this)
   this.prefixMap.put = function(prefix, ctx){
     if(this.finalized) throw new Error("Listener fired after finalization.");
-    ctx = cleanPrefixCtx(ctx)
     this.prefixMap._prefixes[prefix.name] = prefix;
     this.prefixSymbolMap[prefix.name] = ctx;
   }.bind(this)
@@ -236,6 +230,7 @@ TrigGrammerListener.prototype.getDocument = function(){
     }
   };
   result.analysisErrors = result.analysisErrors.concat(this.finalize());
+  debugger;
   return result;
 };
 TrigGrammerListener.prototype.prefixId = function(ctx){};

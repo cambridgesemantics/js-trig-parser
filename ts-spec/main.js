@@ -18,7 +18,7 @@ var printPos = function (s) {
 var processGraph = function (err, doc) {
     doc.graphs.forEach(function (x) {
         x.getStatements().forEach(function (y) {
-            printPos(y);
+            console.log(y);
         });
     });
 };

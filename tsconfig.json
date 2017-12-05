@@ -1,7 +1,8 @@
 {
-    "compilerOptions": {
-        "module":  "commonjs",
-        "sourceMap": true
-    },
-    "files": ["ts-spec/main.ts"]
+  "compilerOptions": {
+    "module":  "commonjs",
+    "sourceMap": true
+  },
+  "files": ["ts-spec/main.ts", "index.ts"],
+  "declarationDir" : "ts-decl"
 }

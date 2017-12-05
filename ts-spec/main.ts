@@ -15,12 +15,12 @@ let printPos = (s: IParsedStatement) => {
     printTokenInfo(s._g)
     console.log(s._g.children)
     console.log(s._o)
-
 }
+
 let processGraph = (err, doc) => {
     doc.graphs.forEach((x) => {
         x.getStatements().forEach((y) => {
-            printPos(y)
+           console.log(y)
         })
     })
 }

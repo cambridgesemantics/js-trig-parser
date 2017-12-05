@@ -65,7 +65,7 @@ module.exports = function (trig, parser, options) {
       throw error;
     }
     var iri = prefixMap.get(prefix);
-    return str.replace(new RegExp('^' + prefix), iri.token);
+    return str.replace(new RegExp('^' + prefix), iri.value);
   }
 
   function tryExpandIRI (_spo, prefixMap, errors) {
