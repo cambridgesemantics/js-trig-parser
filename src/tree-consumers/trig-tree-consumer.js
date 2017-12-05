@@ -90,7 +90,7 @@ module.exports = function (trig, parser, options) {
         }
 
       case '\'a\'':
-        return 'a';
+        return "http://www.w3.org/1999/02/22-rdf-syntax-ns#type";
       case 'rdfLiteral':
         return _spo.children[0].token;
       case 'BlankNode':
