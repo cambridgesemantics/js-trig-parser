@@ -10,7 +10,7 @@ module.exports = {
   },
   isURI: function(str){
       if(typeof str !== 'string') return false;
-      return uriTest.test(str);
+      return str.indexOf(" ") === -1 && str.indexOf(":") !== -1;
   },
   isPrefixedIRI: function(iri){
     if(typeof str !== 'string') return false;
