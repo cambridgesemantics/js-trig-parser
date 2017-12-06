@@ -230,7 +230,6 @@ TrigGrammerListener.prototype.getDocument = function(){
     }
   };
   result.analysisErrors = result.analysisErrors.concat(this.finalize());
-  debugger;
   return result;
 };
 TrigGrammerListener.prototype.prefixId = function(ctx){};
