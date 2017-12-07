@@ -1,6 +1,6 @@
 export interface IPrefixMap< T extends IPrefixValue>{
     get(prefix: string): T
-
+    _prefixes: object
 }
 export interface IPrefixValue{
     name: string
