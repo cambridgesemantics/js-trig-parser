@@ -1,8 +1,12 @@
-export interface IPrefixMap{
-    get(prefix: string): PrefixValue
+export interface IPrefixMap< T extends IPrefixValue>{
+    get(prefix: string): T
 
 }
-export interface PrefixValue{
+export interface IPrefixValue{
+    name: string
+    value: string
+}
+export interface IParsedPrefixValue extends IPrefixValue{
     name: string
     name_symbol: IParsedToken
     value: string
@@ -10,7 +14,7 @@ export interface PrefixValue{
     pos: IEditPosition
 }
 export interface TrigDoc{
-    prefixes: IPrefixMap
+    prefixes: IPrefixMap<IParsedPrefixValue>
     graphs: IParsedGraph[]
     errors: any[]
     syntaxErrors: any[]
