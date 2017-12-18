@@ -33,10 +33,7 @@ interface HasGetStatements{
 //     find(u: URI, p: URI, v: Value, ng: URI)
 // }
 
-export interface ILoader{
-    fromString(s: string): TrigDoc
-    fromFile(s: string): TrigDoc
-}
+
 
 export interface IParsedGraph{
     getStatements(): IParsedStatement[]
@@ -92,8 +89,8 @@ interface IriToken extends IParsedToken{
 
 
 interface TrigLoader{
-    fromFile(path: string, cb: LoaderCB): TrigDoc
-    fromString(trig: string, cb: LoaderCB): TrigDoc
+    fromFile(path: string, cb: LoaderCB): void
+    fromString(trig: string, cb: LoaderCB): void
 }
 
 type LoaderCB = (any, TrigDoc) => any
