@@ -12,7 +12,6 @@ describe('Profiling: 30K lines 72K stmts', function() {
         tryParseTrig(path.resolve('other', 'performance-test2.trig'), function(err, doc) {
             if (err) throw err;
             console.profileEnd && console.profileEnd("trig perf test");
-            debugger;
             done();
         });
     });
@@ -24,7 +23,6 @@ describe('Profiling: 30K lines 72K stmts', function() {
             if (err) throw err;
             console.log(doc.getStatements().length);
             console.profileEnd && console.profileEnd("trig perf test");
-            debugger;
             done();
         });
     });
