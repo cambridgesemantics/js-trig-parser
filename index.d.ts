@@ -56,7 +56,7 @@ export interface IParsedStatement{
 }
 export interface IEditPosition{
     column: number
-    line: number
+    row: number
 }
 export interface IParsedToken{
     pos: IEditPosition
@@ -93,10 +93,20 @@ interface TrigLoader{
     fromString(trig: string, cb: LoaderCB): void
 }
 
+interface BaseLoader{
+    fromFile(path: string, cb: BaseLoaderCB): void
+    fromString(trig: string, cb: BaseLoaderCB): void
+}
+interface BaseParseResult{
+    expressions: IParsedToken[],
+    terminals: IParsedToken[]
+}
+
 type LoaderCB = (any, TrigDoc) => any
+type BaseLoaderCB = (any, BaseParseResult) => any
 interface Loaders{
     graphLoader: TrigLoader
-    baseLoader: TrigLoader
+    baseLoader: BaseLoader
 }
 declare module "./index.js" {
     export var loaders: Loaders

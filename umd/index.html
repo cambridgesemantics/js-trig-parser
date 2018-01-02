@@ -1,15 +1,57 @@
 <html>
-    <script type ='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.js'></script>
+    
+
 <head>
+    <script type ='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.js'></script>
+    <script
+        src="https://code.jquery.com/jquery-2.2.1.js"
+        crossorigin="anonymous"></script>
 </head>
 <body>
+    <textarea rows='40' cols='150' id="test-input" ></textarea>
+    <br />
+    <textarea rows='40' cols='150' id="test-output" value=></textarea>
     <script>
-        
         require(['./trigParser.min.js'], function(trigParser) {
+            let value = `@prefix test: <http://test.com> . 
+test:test test:test test:test .
+<http://1.com> <http://1.com> <http://1.com> .
+
+test:test1{
+     <http://1.com> <http://1.com> <http://1.com> .
+}
+`
+            $(document).ready(() => {
+
+                let $el = $('#test-input')
+                $el.val(value)
+               //  $('#test-input').on('change paste input propertychange keyup', () => {
+               //      let results = trigParser.loaders.graphLoader.fromString($el.val())
+               //      console.log(results)
+               //      console.log(results.getStatements())
+               //      window.lastResults = results
+                    
+                   
+               // })
+               // 
+               $('#test-input').on('change paste input propertychange keyup', () => {
+                    let results = trigParser.loaders.baseLoader.fromString($el.val())
+                    let results2 = trigParser.loaders.graphLoader.fromString($el.val())
+
+                    console.log(results)
+                    console.log(results2)
+                    window.lastResults = results
+                    
+                   
+               })
+
+            })    
+            
+            
             console.log('requirejs trigParser')
             console.log(trigParser)
         });
-
     </script>
+
 </body>
 </html>
