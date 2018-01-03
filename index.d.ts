@@ -56,7 +56,7 @@ export interface IParsedStatement{
 }
 export interface IEditPosition{
     column: number
-    line: number
+    row: number
 }
 export interface IParsedToken{
     pos: IEditPosition
@@ -94,8 +94,8 @@ interface TrigLoader{
 }
 
 interface BaseParseResult{
-    expressions: IParsedToken,
-    terminals: IParsedToken
+    expressions: IParsedToken[],
+    terminals: IParsedToken[]
 }
 
 type LoaderCB = (any, TrigDoc) => any
