@@ -90,9 +90,13 @@ interface IriToken extends IParsedToken{
 
 interface TrigLoader{
     fromFile(path: string, cb: LoaderCB): void
-    fromString(trig: string, cb: BaseLoaderCB): void
+    fromString(trig: string, cb: LoaderCB): void
 }
 
+interface BaseLoader{
+    fromFile(path: string, cb: BaseLoaderCB): void
+    fromString(trig: string, cb: BaseLoaderCB): void
+}
 interface BaseParseResult{
     expressions: IParsedToken[],
     terminals: IParsedToken[]
@@ -102,7 +106,7 @@ type LoaderCB = (any, TrigDoc) => any
 type BaseLoaderCB = (any, BaseParseResult) => any
 interface Loaders{
     graphLoader: TrigLoader
-    baseLoader: TrigLoader
+    baseLoader: BaseLoader
 }
 declare module "./index.js" {
     export var loaders: Loaders
