@@ -58,8 +58,12 @@ export interface IEditPosition{
     column: number
     row: number
 }
+export interface ITokenPosition{
+    column: number
+    line: number
+}
 export interface IParsedToken{
-    pos: IEditPosition
+    pos: ITokenPosition
     token: string
     type: string
     start: number
@@ -90,12 +94,12 @@ interface IriToken extends IParsedToken{
 
 interface TrigLoader{
     fromFile(path: string, cb: LoaderCB): void
-    fromString(trig: string, cb: LoaderCB): void
+    fromString(trig: string): TrigDoc
 }
 
 interface BaseLoader{
-    fromFile(path: string, cb: BaseLoaderCB): void
-    fromString(trig: string, cb: BaseLoaderCB): void
+    fromFile(path: string): BaseParseResult
+    fromString(trig: string): BaseParseResult
 }
 interface BaseParseResult{
     expressions: IParsedToken[],
