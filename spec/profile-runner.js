@@ -3,6 +3,7 @@ var routines = require('./test-routines.js');
 
 var tryLoadTrig = routines.tryLoadTrig;
 var tryParseTrig = routines.tryParseTrig;
+var tryDefaultLoad = routines.tryDefaultLoad;
 describe('Profiling: 30K lines 72K stmts', function() {
 
     it('Performance Test parser only', function(done) {
@@ -21,9 +22,10 @@ describe('Profiling: 30K lines 72K stmts', function() {
         console.profile && console.profile("trig perf test");
         tryLoadTrig(path.resolve('other', 'performance-test2.trig'), function(err, doc) {
             if (err) throw err;
-            console.log(doc.getStatements().length);
             console.profileEnd && console.profileEnd("trig perf test");
             done();
         });
     });
+
+
 });

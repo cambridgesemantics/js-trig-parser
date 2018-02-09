@@ -54,6 +54,7 @@ export interface IParsedStatement{
     _g: IParsedToken
 
 }
+
 export interface IEditPosition{
     column: number
     row: number
