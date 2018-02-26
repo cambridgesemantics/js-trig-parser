@@ -390,6 +390,15 @@ describe('Trig File Tests - ', function() {
           done()
         })
       })
+
+      it.only('handles guid-uri.trig', function(done){
+        tryLoadTrig(path.resolve('w3-ex', 'guid-uri.trig'), function(err, doc) {
+          if(err) throw err;
+          expect(doc.getStatements().length).equals(7)
+          done()
+        })
+      })
+
       it('Handles blankNode property Lists', function(done) {
         tryLoadTrig(path.resolve('other', 'blank-node-property-list.trig'), function(err, doc) {
           if (err) throw err;

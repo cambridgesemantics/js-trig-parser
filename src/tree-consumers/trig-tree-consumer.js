@@ -269,7 +269,9 @@ module.exports = function (trig, parser, options) {
       default:
         break;
     }
-    results.push(createTriple(subject, predicate, object));
+    if(object && object.type !== 'PN_PREFIX'){
+      results.push(createTriple(subject, predicate, object));
+    }
   }
 
 
@@ -380,7 +382,9 @@ module.exports = function (trig, parser, options) {
               child.type === '\'.\'' ||
               child.type === '\',\''){
         objects.forEach(function(object){
-          results.push(createTriple(subject, predicate, object));
+          if(object.type !== "PN_PREFIX"){
+            results.push(createTriple(subject, predicate, object));
+          }
         });
 
         predicate = null;

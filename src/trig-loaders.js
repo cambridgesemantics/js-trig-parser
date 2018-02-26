@@ -55,16 +55,19 @@ function formatSyntaxErrorMessage(msg){
   return msg;
 }
 
-
-
-
-function parseTrig(data){
+function parseTrig(data, options){
+    options = options || { printSyntaxErrors: false }
     data = replaceBadPrefixes(data);
     var chars = new antlr4.InputStream(data);
     var lexer = new TRIGLexer(chars);
     var tokens  = new antlr4.CommonTokenStream(lexer);
     var parser = new TRIGParser(tokens);
     var syntaxErrors = [];
+
+    if(!options.printSyntaxErrors){
+      parser._listeners = [];
+    }
+    
     var e_listener = {
       syntaxError: function(parser, offendingToken, line, column, msg, err){
         syntaxErrors.push({
@@ -109,9 +112,9 @@ function graphsFromFile(fn, cb){
     });
 }
 
-function graphsFromString(data){
+function graphsFromString(data, options){
     data = replaceBadPrefixes(data);
-    var trig = parseTrig(data);
+    var trig = parseTrig(data, options);
     
     var ruleHandler = createRuleHandler(data, trig.parser);
     var trigListener = new TrigGrammerListener(data, trig, ruleHandler);
@@ -128,9 +131,9 @@ function treeFromFile(fn, cb){
     });
 }
 
-function defaultTransform(data){
+function defaultTransform(data, options){
   data = replaceBadPrefixes(data);
-  var trig = parseTrig(data);
+  var trig = parseTrig(data, options);
   return transformTreeAndGetRules(data, trig);
 }
 

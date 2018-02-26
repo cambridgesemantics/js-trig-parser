@@ -1,9 +1,11 @@
+
 export interface IPrefixMap< T extends IPrefixValue>{
     get(prefix: string): T
+    hasValue(x: string): boolean
     _prefixes: object
 }
 export interface IPrefixValue{
-    name: string
+    name?: string
     value: string
 }
 export interface IParsedPrefixValue extends IPrefixValue{
@@ -12,6 +14,7 @@ export interface IParsedPrefixValue extends IPrefixValue{
     value: string
     value_symbol: IParsedToken
     pos: IEditPosition
+    file?: string
 }
 export interface TrigDoc{
     prefixes: IPrefixMap<IParsedPrefixValue>
@@ -67,8 +70,8 @@ export interface IParsedToken{
     pos: ITokenPosition
     token: string
     type: string
-    start: number
-    stop: number
+    start: IParsedToken | number
+    stop: IParsedToken | number 
     children: IParsedToken[]
 }
 interface IriToken extends IParsedToken{

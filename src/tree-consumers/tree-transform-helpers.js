@@ -3,6 +3,14 @@ function createPreprocessor(trig, parser){
   var ruleNames = parser.ruleNames;
   var literalNames = parser.literalNames;
   function createExpression(rule){
+    let token = null
+
+    //empty docs don't seem to populate these values
+    if(rule.start && rule.stop){
+      token = trig.substring(rule.start.start, rule.stop.stop + 1)
+    }else{
+      token = "ERR RESOLVING TOKEN"
+    }
     return {
         pos: {
           line: rule.start.line,
@@ -11,7 +19,7 @@ function createPreprocessor(trig, parser){
         start: rule.start,
         stop: rule.stop,
         type: ruleNames[rule.ruleIndex],
-        token: trig.substring(rule.start.start, rule.stop.stop + 1),
+        token: token,
         children: rule.children ? rule.children.map(createNode) : []
     };
   }
@@ -23,7 +31,7 @@ function createPreprocessor(trig, parser){
   }
 
   function createSymbol(symbolResult){
-    symbolResult = symbolResult.symbol;
+    symbolResult = symbolResult.symbol ?  symbolResult.symbol  : symbolResult
     return {
         pos:{
           line: symbolResult.line,

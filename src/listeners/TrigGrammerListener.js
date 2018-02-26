@@ -192,7 +192,6 @@ TrigGrammerListener.prototype.enterEveryRule = function(ctx){
     }
   }catch(e){
     this.handleError(e)
-    console.error(e);
   }
 
 
