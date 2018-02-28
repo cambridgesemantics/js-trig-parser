@@ -43,7 +43,6 @@ export interface IParsedGraph{
 }
 
 
-
 type Value = string | number | Date | boolean
 
 export interface IParsedStatement{
@@ -62,10 +61,12 @@ export interface IEditPosition{
     column: number
     row: number
 }
+
 export interface ITokenPosition{
     column: number
     line: number
 }
+
 export interface IParsedToken{
     pos: ITokenPosition
     token: string
@@ -74,6 +75,7 @@ export interface IParsedToken{
     stop: IParsedToken | number 
     children: IParsedToken[]
 }
+
 interface IriToken extends IParsedToken{
     iriLiteralType: string
     value: string
@@ -104,6 +106,15 @@ interface TrigLoader{
 interface BaseLoader{
     fromFile(path: string): BaseParseResult
     fromString(trig: string): BaseParseResult
+}
+interface BaseParseResult{
+    expressions: IParsedToken[],
+    terminals: IParsedToken[]
+}
+
+interface BaseLoader{
+    fromFile(path: string, cb: BaseLoaderCB): void
+    fromString(trig: string, cb: BaseLoaderCB): void
 }
 interface BaseParseResult{
     expressions: IParsedToken[],
