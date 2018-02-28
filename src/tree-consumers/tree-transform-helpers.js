@@ -1,16 +1,41 @@
+let allowedRootTypes = {
+  'predicateObjectList' : true,
+  'iri' : true,
+  'IRIREF' : true,
+  'rdfLiteral' : true,
+  '\'a\'' : true,
+  'BlankNode' : true,
+  'labelOrSubject' : true,
+  'triples' : true,
+  'subject': true
+}
+
 function createPreprocessor(trig, parser){
   var symbolicNames = parser.symbolicNames;
   var ruleNames = parser.ruleNames;
   var literalNames = parser.literalNames;
+  
+  let cache = {}
+  let substringCached = function(start, end){
+    let key = `${start},${end}`
+    if(key in cache){
+      return cache[key]
+    }
+    cache[key] = trig.substring(start, end)
+    return cache[key]
+  }
+
   function createExpression(rule){
     let token = null
 
     //empty docs don't seem to populate these values
     if(rule.start && rule.stop){
-      token = trig.substring(rule.start.start, rule.stop.stop + 1)
+      token = substringCached(rule.start.start, rule.stop.stop + 1)
     }else{
       token = "ERR RESOLVING TOKEN"
     }
+    
+
     return {
         pos: {
           line: rule.start.line,
@@ -20,11 +45,25 @@ function createPreprocessor(trig, parser){
         stop: rule.stop,
         type: ruleNames[rule.ruleIndex],
         token: token,
-        children: rule.children ? rule.children.map(createNode) : []
+        children: rule.children ? rule.children.map(_createNode) : []
     };
   }
 
   function createNode(childResult){
+    if(childResult.ruleIndex !== undefined){
+      if(ruleNames[childResult.ruleIndex] in allowedRootTypes){
+        return createExpression(childResult);  
+      }else{
+        // console.error(ruleNames[childResult.ruleIndex])
+
+      }
+      return null;      
+    }
+
+    return createSymbol(childResult);
+  }
+
+  function _createNode(childResult){
     if(childResult.ruleIndex !== undefined)
       return createExpression(childResult);
     return createSymbol(childResult);
@@ -32,15 +71,20 @@ function createPreprocessor(trig, parser){
 
   function createSymbol(symbolResult){
     symbolResult = symbolResult.symbol ?  symbolResult.symbol  : symbolResult
+
+
+    let type = symbolicNames[symbolResult.type] || literalNames[symbolResult.type]
+
+
     return {
         pos:{
           line: symbolResult.line,
           column: symbolResult.column,
         },
-        start: symbolResult.start,
-        stop: symbolResult.stop,
-        type: symbolicNames[symbolResult.type] || literalNames[symbolResult.type],
-        token: trig.substring(symbolResult.start, symbolResult.stop + 1)
+        start: symbolResult.start || symbolResult.source.start,
+        stop: symbolResult.stop || symbolResult.source.stop,
+        type: type,
+        token: substringCached(symbolResult.start, symbolResult.stop + 1)
 
     };
   }

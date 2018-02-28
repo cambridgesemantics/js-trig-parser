@@ -43,7 +43,9 @@ module.exports = function (trig, parser, options) {
       literalState: LITERAL_STATES.UNPROCESSED_LITERAL,
       type: _spo.type,
       value: value !== undefined ? value : _spo.token,
-      source: _spo
+      source: _spo,
+      start: _spo.start,
+      stop: _spo.stop
     };
   }
 
@@ -490,7 +492,6 @@ module.exports = function (trig, parser, options) {
             switch(stmt.object.literalState){
 
               case LITERAL_STATES.UNPROCESSED_IRI_LITERAL:
-                stmt._o = stmt.object;
 							
 								
                 try{
@@ -516,7 +517,6 @@ module.exports = function (trig, parser, options) {
                 break;
 
               case LITERAL_STATES.UNPROCESSED_LITERAL:
-                stmt._o = stmt.object;
                 stmt.object = stmt.object.value;
                 stmt.expObject = stmt.object;
                 var isLangTag = stmt._o.source && stmt._o.source.children && stmt._o.source.children[1] && stmt._o.source.children[1].token[0] === "@"

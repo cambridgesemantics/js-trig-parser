@@ -391,7 +391,7 @@ describe('Trig File Tests - ', function() {
         })
       })
 
-      it.only('handles guid-uri.trig', function(done){
+      it('handles guid-uri.trig', function(done){
         tryLoadTrig(path.resolve('w3-ex', 'guid-uri.trig'), function(err, doc) {
           if(err) throw err;
           expect(doc.getStatements().length).equals(7)
