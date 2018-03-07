@@ -4,7 +4,6 @@ let allowedRootTypes = {
   'IRIREF' : true,
   'rdfLiteral' : true,
   '\'a\'' : true,
-  'BlankNode' : true,
   'labelOrSubject' : true,
   'triples' : true,
   'subject': true
@@ -15,14 +14,8 @@ function createPreprocessor(trig, parser){
   var ruleNames = parser.ruleNames;
   var literalNames = parser.literalNames;
   
-  let cache = {}
   let substringCached = function(start, end){
-    let key = `${start},${end}`
-    if(key in cache){
-      return cache[key]
-    }
-    cache[key] = trig.substring(start, end)
-    return cache[key]
+    return trig.substring(start, end)
   }
 
   function createExpression(rule){

@@ -86,9 +86,11 @@ module.exports = function (trig, parser, options) {
             errors.push(createErrorFromNode(_spo, e.message, e.len));
 
           }else if (e.type === 'noPrefixFound') {
-            var token = _spo.children[0].token;
+            var token = _spo.token;
+            console.log('trace')
             errors.push(createErrorFromNode(token, e.message, e.len));
           }
+          return _spo.token
         }
 
       case '\'a\'':
