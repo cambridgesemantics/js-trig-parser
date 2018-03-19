@@ -1,0 +1,1276 @@
+Statistical profiling result from isolate-0x102805200-v8.log, (4250 ticks, 113 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+      9    0.2%          /usr/lib/system/libsystem_pthread.dylib
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+    275    6.5%    6.5%  LoadIC: A load IC from the snapshot
+    270    6.4%    6.4%  LazyCompile: *LexerATNSimulator.execATN /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/LexerATNSimulator.js:145:47
+    141    3.3%    3.3%  StoreIC: A store IC from the snapshot
+    105    2.5%    2.5%  Builtin: KeyedLoadIC_Megamorphic
+    100    2.4%    2.4%  LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+     93    2.2%    2.2%  Builtin: ArrayMap
+     90    2.1%    2.1%  LazyCompile: *createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+     83    2.0%    2.0%  Builtin: StringPrototypeCharCodeAt
+     77    1.8%    1.8%  LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+     76    1.8%    1.8%  LazyCompile: *_loadString /Users/cborodic/github/js-trig-parser/node_modules/antlr4/InputStream.js:14:21
+     74    1.7%    1.7%  KeyedLoadIC: A keyed load IC from the snapshot
+     56    1.3%    1.3%  LazyCompile: *Lexer.nextToken /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Lexer.js:103:37
+     55    1.3%    1.3%  LazyCompile: *createSymbol /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:65:24
+     49    1.2%    1.2%  Builtin: StringPrototypeSubstring
+     42    1.0%    1.0%  LazyCompile: *Parser.consume /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:376:36
+     34    0.8%    0.8%  Builtin: InterpreterEntryTrampoline
+     28    0.7%    0.7%  LazyCompile: *Parser.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:113:34
+     23    0.5%    0.5%  LazyCompile: *TRIGParser.iri /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2262:36
+     22    0.5%    0.5%  LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+     21    0.5%    0.5%  Builtin: GrowFastSmiOrObjectElements
+     17    0.4%    0.4%  LoadIC: A load IC from the snapshot {1}
+     16    0.4%    0.4%  Builtin: ArgumentsAdaptorTrampoline
+     15    0.4%    0.4%  Builtin: FunctionPrototypeHasInstance
+     15    0.4%    0.4%  Builtin: Call_ReceiverIsNotNullOrUndefined
+     15    0.4%    0.4%  Builtin: CallFunction_ReceiverIsAny
+     14    0.3%    0.3%  LazyCompile: *LexerActionExecutor.execute /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/LexerActionExecutor.js:113:49
+     11    0.3%    0.3%  Stub: GetPropertyStub
+     11    0.3%    0.3%  Builtin: HasProperty
+     10    0.2%    0.2%  LazyCompile: *CommonTokenFactory.create /Users/cborodic/github/js-trig-parser/node_modules/antlr4/CommonTokenFactory.js:51:47
+     10    0.2%    0.2%  LazyCompile: *BufferedTokenStream.fetch /Users/cborodic/github/js-trig-parser/node_modules/antlr4/BufferedTokenStream.js:135:47
+     10    0.2%    0.2%  Builtin: CallFunction_ReceiverIsNotNullOrUndefined
+      8    0.2%    0.2%  Stub: RecordWriteStub {3}
+      7    0.2%    0.2%  LazyCompile: *substringCached /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:17:33
+      7    0.2%    0.2%  LazyCompile: *CommonTokenStream.LB /Users/cborodic/github/js-trig-parser/node_modules/antlr4/CommonTokenStream.js:49:42
+      6    0.1%    0.1%  Stub: RecordWriteStub {10}
+      6    0.1%    0.1%  Script: ~Parser.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:113:34
+      6    0.1%    0.1%  Script: ~Parser.consume /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:376:36
+      6    0.1%    0.1%  LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      6    0.1%    0.1%  LazyCompile: *Parser.enterRule /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:413:38
+      6    0.1%    0.1%  LazyCompile: *ObjectListContext /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1494:27
+      6    0.1%    0.1%  Builtin: JSConstructStubGenericUnrestrictedReturn
+      6    0.1%    0.1%  Builtin: FastNewObject
+      5    0.1%    0.1%  Stub: RecordWriteStub {15}
+      5    0.1%    0.1%  RegExp: @prefix[^.]*.
+      5    0.1%    0.1%  LazyCompile: *InputStream.LA /Users/cborodic/github/js-trig-parser/node_modules/antlr4/InputStream.js:73:36
+      5    0.1%    0.1%  Builtin: LoadIC_Noninlined
+      4    0.1%    0.1%  Stub: RecordWriteStub {7}
+      4    0.1%    0.1%  Script: ~LexerATNSimulator.getEpsilonTarget /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/LexerATNSimulator.js:410:56
+      4    0.1%    0.1%  Script: ~Lexer.nextToken /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Lexer.js:103:37
+      4    0.1%    0.1%  LazyCompile: *createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:45:22
+      4    0.1%    0.1%  LazyCompile: *Parser.exitRule /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:425:37
+      4    0.1%    0.1%  LazyCompile: *LexerATNSimulator.failOrAccept /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/LexerATNSimulator.js:260:52
+      3    0.1%    0.1%  Stub: RecordWriteStub {6}
+      3    0.1%    0.1%  Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      3    0.1%    0.1%  Script: ~TRIGParser.trigDoc /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:331:40
+      3    0.1%    0.1%  Script: ~LexerATNSimulator.getExistingTargetState /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/LexerATNSimulator.js:216:62
+      3    0.1%    0.1%  Script: ~LexerATNSimulator.execATN /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/LexerATNSimulator.js:145:47
+      3    0.1%    0.1%  LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      3    0.1%    0.1%  LazyCompile: *LexerATNSimulator.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/LexerATNSimulator.js:95:45
+      3    0.1%    0.1%  Builtin: Call_ReceiverIsAny
+      3    0.1%    0.1%  Builtin: CallFunction_ReceiverIsNullOrUndefined
+      2    0.0%    0.0%  Stub: RecordWriteStub {9}
+      2    0.0%    0.0%  Stub: RecordWriteStub {13}
+      2    0.0%    0.0%  Stub: RecordWriteStub {12}
+      2    0.0%    0.0%  Stub: RecordWriteStub
+      2    0.0%    0.0%  Script: ~realpathSync fs.js:1598:40
+      2    0.0%    0.0%  Script: ~dirname path.js:1356:28
+      2    0.0%    0.0%  Script: ~createSymbol /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:65:24
+      2    0.0%    0.0%  Script: ~WrappedGraphContext /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:709:29
+      2    0.0%    0.0%  Script: ~TriplesBlockContext /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:778:29
+      2    0.0%    0.0%  Script: ~TRIGParser.triplesOrGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:533:47
+      2    0.0%    0.0%  Script: ~TRIGParser.rdfLiteral /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2168:43
+      2    0.0%    0.0%  Script: ~Parser.enterRule /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:413:38
+      2    0.0%    0.0%  Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      2    0.0%    0.0%  Script: ~LexerATNSimulator.getReachableConfigSet /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/LexerATNSimulator.js:278:61
+      2    0.0%    0.0%  Script: ~Lexer.emit /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Lexer.js:239:32
+      2    0.0%    0.0%  Script: ~IriContext.exitRule /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2251:41
+      2    0.0%    0.0%  Script: ~ATN.nextTokensNoContext /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/ATN.js:52:45
+      2    0.0%    0.0%  LazyCompile: *VerbContext /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1573:21
+      2    0.0%    0.0%  LazyCompile: *TRIGParser.verb /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1610:37
+      2    0.0%    0.0%  LazyCompile: *TRIGParser.rdfLiteral /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2168:43
+      2    0.0%    0.0%  LazyCompile: *TRIGParser.literal /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1942:40
+      2    0.0%    0.0%  LazyCompile: *PredicateContext /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1732:26
+      2    0.0%    0.0%  LazyCompile: *ParserRuleContext.addChild /Users/cborodic/github/js-trig-parser/node_modules/antlr4/ParserRuleContext.js:88:48
+      2    0.0%    0.0%  LazyCompile: *Parser.enterOuterAlt /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:435:42
+      2    0.0%    0.0%  Builtin: FunctionPrototypeCall
+      2    0.0%    0.0%  Builtin: Call_ReceiverIsNullOrUndefined
+      1    0.0%    0.0%  Stub: StringAddStub
+      1    0.0%    0.0%  Stub: StoreBufferOverflowStub
+      1    0.0%    0.0%  Stub: RecordWriteStub {8}
+      1    0.0%    0.0%  Stub: RecordWriteStub {5}
+      1    0.0%    0.0%  Stub: RecordWriteStub {4}
+      1    0.0%    0.0%  Stub: RecordWriteStub {2}
+      1    0.0%    0.0%  Stub: RecordWriteStub {1}
+      1    0.0%    0.0%  Stub: RecordWriteStub {18}
+      1    0.0%    0.0%  Stub: RecordWriteStub {17}
+      1    0.0%    0.0%  Stub: RecordWriteStub {16}
+      1    0.0%    0.0%  Stub: RecordWriteStub {14}
+      1    0.0%    0.0%  Stub: RecordWriteStub {11}
+      1    0.0%    0.0%  Stub: CEntryStub
+      1    0.0%    0.0%  StoreIC: A store IC from the snapshot {1}
+      1    0.0%    0.0%  Script: ~resetSimState /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/LexerATNSimulator.js:39:23
+      1    0.0%    0.0%  Script: ~createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+      1    0.0%    0.0%  Script: ~adjust /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/ATNDeserializer.js:139:23
+      1    0.0%    0.0%  Script: ~_loadString /Users/cborodic/github/js-trig-parser/node_modules/antlr4/InputStream.js:14:21
+      1    0.0%    0.0%  Script: ~TriplesOrGraphContext.enterRule /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:516:53
+      1    0.0%    0.0%  Script: ~TriplesContext /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1302:24
+      1    0.0%    0.0%  Script: ~TRIGParser.wrappedGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:746:45
+      1    0.0%    0.0%  Script: ~TRIGParser.verb /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1610:37
+      1    0.0%    0.0%  Script: ~TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      1    0.0%    0.0%  Script: ~TRIGParser.prefixedname /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2338:45
+      1    0.0%    0.0%  Script: ~TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      1    0.0%    0.0%  Script: ~TRIGParser.predicate /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1769:42
+      1    0.0%    0.0%  Script: ~TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      1    0.0%    0.0%  Script: ~TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      1    0.0%    0.0%  Script: ~TRIGParser.literal /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1942:40
+      1    0.0%    0.0%  Script: ~TRIGParser.labelOrSubject /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:614:47
+      1    0.0%    0.0%  Script: ~TRIGParser.iri /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2262:36
+      1    0.0%    0.0%  Script: ~Set.get /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Utils.js:117:30
+      1    0.0%    0.0%  Script: ~RdfLiteralContext.exitRule /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2157:48
+      1    0.0%    0.0%  Script: ~PredicateObjectListContext.exitRule /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1439:57
+      1    0.0%    0.0%  Script: ~PredicateObjectListContext.enterRule /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1433:58
+      1    0.0%    0.0%  Script: ~PredicateContext.exitRule /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1758:47
+      1    0.0%    0.0%  Script: ~ParserRuleContext.getChild /Users/cborodic/github/js-trig-parser/node_modules/antlr4/ParserRuleContext.js:120:48
+      1    0.0%    0.0%  Script: ~ParserRuleContext /Users/cborodic/github/js-trig-parser/node_modules/antlr4/ParserRuleContext.js:37:27
+      1    0.0%    0.0%  Script: ~Parser.getTokenStream /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:324:43
+      1    0.0%    0.0%  Script: ~Parser.exitRule /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:425:37
+      1    0.0%    0.0%  Script: ~Parser.addContextToParseTree /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:403:50
+      1    0.0%    0.0%  Script: ~ObjectContext.exitRule /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1833:44
+      1    0.0%    0.0%  Script: ~ObjectContext.enterRule /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1827:45
+      1    0.0%    0.0%  Script: ~LexerActionExecutor.execute /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/LexerActionExecutor.js:113:49
+      1    0.0%    0.0%  Script: ~LexerATNSimulator.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/LexerATNSimulator.js:95:45
+      1    0.0%    0.0%  Script: ~LexerATNSimulator.captureSimState /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/LexerATNSimulator.js:523:55
+      1    0.0%    0.0%  Script: ~LexerATNConfig.updateHashCode /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/ATNConfig.js:153:51
+      1    0.0%    0.0%  Script: ~LexerATNConfig /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/ATNConfig.js:140:24
+      1    0.0%    0.0%  Script: ~IriContext.enterRule /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2245:42
+      1    0.0%    0.0%  Script: ~InputStream.consume /Users/cborodic/github/js-trig-parser/node_modules/antlr4/InputStream.js:65:41
+      1    0.0%    0.0%  Script: ~InputStream.LA /Users/cborodic/github/js-trig-parser/node_modules/antlr4/InputStream.js:73:36
+      1    0.0%    0.0%  Script: ~Hash.finish /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Utils.js:372:34
+      1    0.0%    0.0%  Script: ~DefaultErrorStrategy.sync /Users/cborodic/github/js-trig-parser/node_modules/antlr4/error/ErrorStrategy.js:218:47
+      1    0.0%    0.0%  Script: ~CommonTokenFactory.create /Users/cborodic/github/js-trig-parser/node_modules/antlr4/CommonTokenFactory.js:51:47
+      1    0.0%    0.0%  Script: ~CommonToken /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Token.js:70:21
+      1    0.0%    0.0%  Script: ~BufferedTokenStream.sync /Users/cborodic/github/js-trig-parser/node_modules/antlr4/BufferedTokenStream.js:122:46
+      1    0.0%    0.0%  Script: ~BlockContext.enterRule /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:419:44
+      1    0.0%    0.0%  Script: ~ATNState /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/ATNState.js:70:18
+      1    0.0%    0.0%  Script: ~ATNDeserializer.readInt /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/ATNDeserializer.js:556:45
+      1    0.0%    0.0%  Script: ~ATNDeserializer.readEdges /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/ATNDeserializer.js:279:47
+      1    0.0%    0.0%  Script: ~ATNConfig /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/ATNConfig.js:42:19
+      1    0.0%    0.0%  Script: ~<anonymous> internal/loader/ModuleJob.js:1:11
+      1    0.0%    0.0%  Script: ~<anonymous> /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:25:16
+      1    0.0%    0.0%  LazyCompile: *checkParams /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/ATNConfig.js:21:21
+      1    0.0%    0.0%  LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      1    0.0%    0.0%  LazyCompile: *RdfLiteralContext /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2123:27
+      1    0.0%    0.0%  LazyCompile: *Parser.addContextToParseTree /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:403:50
+      1    0.0%    0.0%  LazyCompile: *LexerATNSimulator.closure /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/LexerATNSimulator.js:355:47
+      1    0.0%    0.0%  LazyCompile: *LexerATNSimulator.accept /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/LexerATNSimulator.js:314:46
+      1    0.0%    0.0%  LazyCompile: *Lexer.emit /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Lexer.js:239:32
+      1    0.0%    0.0%  LazyCompile: *IntervalSet.contains /Users/cborodic/github/js-trig-parser/node_modules/antlr4/IntervalSet.js:122:42
+      1    0.0%    0.0%  LazyCompile: *DefaultErrorStrategy.sync /Users/cborodic/github/js-trig-parser/node_modules/antlr4/error/ErrorStrategy.js:218:47
+      1    0.0%    0.0%  LazyCompile: *CommonTokenStream.LT /Users/cborodic/github/js-trig-parser/node_modules/antlr4/CommonTokenStream.js:67:42
+      1    0.0%    0.0%  LazyCompile: *BufferedTokenStream.nextTokenOnChannel /Users/cborodic/github/js-trig-parser/node_modules/antlr4/BufferedTokenStream.js:245:60
+      1    0.0%    0.0%  LazyCompile: *ATNConfig /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/ATNConfig.js:42:19
+      1    0.0%    0.0%  Handler: state
+      1    0.0%    0.0%  Builtin: Typeof
+      1    0.0%    0.0%  Builtin: ToObject
+      1    0.0%    0.0%  Builtin: InterpreterPushArgsThenCall
+
+ [C++]:
+   ticks  total  nonlib   name
+    494   11.6%   11.6%  T v8::internal::IncrementalMarking::Step(unsigned long, v8::internal::IncrementalMarking::CompletionAction, v8::internal::IncrementalMarking::ForceCompletionAction, v8::internal::StepOrigin)
+    399    9.4%    9.4%  T v8::internal::Heap::AllocateFixedArrayWithFiller(int, v8::internal::PretenureFlag, v8::internal::Object*)
+    196    4.6%    4.6%  T _guarded_open_np
+    165    3.9%    3.9%  t ___pfz_setup
+    141    3.3%    3.3%  t v8::internal::Scavenger::ScavengeObject(v8::internal::HeapObject**, v8::internal::HeapObject*)
+     94    2.2%    2.2%  t v8::internal::(anonymous namespace)::CopyObjectToObjectElements(v8::internal::FixedArrayBase*, v8::internal::ElementsKind, unsigned int, v8::internal::FixedArrayBase*, v8::internal::ElementsKind, unsigned int, int)
+     91    2.1%    2.1%  t node::(anonymous namespace)::ContextifyScript::New(v8::FunctionCallbackInfo<v8::Value> const&)
+     33    0.8%    0.8%  t v8::internal::Worklist<v8::internal::HeapObject*, 64>::Pop(int, v8::internal::HeapObject**)
+     31    0.7%    0.7%  t int v8::internal::SlotSet::Iterate<v8::internal::PageScavengingItem::Process(v8::internal::Scavenger*)::'lambda'(unsigned char*)>(v8::internal::PageScavengingItem::Process(v8::internal::Scavenger*)::'lambda'(unsigned char*), v8::internal::SlotSet::EmptyBucketMode)
+     24    0.6%    0.6%  T v8::internal::Scavenger::Process(v8::internal::Scavenger::Barrier*)
+     24    0.6%    0.6%  T v8::internal::Heap::CreateFillerObjectAt(unsigned char*, int, v8::internal::ClearRecordedSlots)
+     22    0.5%    0.5%  t v8::internal::IterateAndScavengePromotedObjectsVisitor::VisitPointers(v8::internal::HeapObject*, v8::internal::Object**, v8::internal::Object**)
+     16    0.4%    0.4%  T __simple_getenv
+     15    0.4%    0.4%  T v8::internal::Scavenger::IterateAndScavengePromotedObject(v8::internal::HeapObject*, int)
+     13    0.3%    0.3%  t v8::internal::Worklist<std::__1::pair<v8::internal::HeapObject*, int>, 256>::Pop(int, std::__1::pair<v8::internal::HeapObject*, int>*)
+     12    0.3%    0.3%  T _vm_map
+     11    0.3%    0.3%  t _szone_malloc_should_clear
+     10    0.2%    0.2%  T v8::internal::compiler::GraphReducer::ReduceTop()
+      9    0.2%    0.2%  t void v8::internal::FixedBodyDescriptor<24, 40, 40>::IterateBody<v8::internal::IncrementalMarkingMarkingVisitor>(v8::internal::HeapObject*, v8::internal::IncrementalMarkingMarkingVisitor*)
+      6    0.1%    0.1%  T __simple_asl_msg_set
+      5    0.1%    0.1%  t void node::Buffer::(anonymous namespace)::StringSlice<(node::encoding)1>(v8::FunctionCallbackInfo<v8::Value> const&)
+      5    0.1%    0.1%  t v8::internal::LocalAllocator::AllocateInLAB(int, v8::internal::AllocationAlignment)
+      5    0.1%    0.1%  t v8::internal::LiveObjectRange<(v8::internal::LiveObjectIterationMode)0>::iterator::AdvanceToNextValidObject()
+      5    0.1%    0.1%  T v8::internal::Space::AllocationStep(unsigned char*, int)
+      5    0.1%    0.1%  T v8::internal::MemoryChunk::Initialize(v8::internal::Heap*, unsigned char*, unsigned long, unsigned char*, unsigned char*, v8::internal::Executability, v8::internal::Space*, v8::base::VirtualMemory*)
+      5    0.1%    0.1%  T v8::internal::LargeObjectSpace::AllocateRaw(int, v8::internal::Executability)
+      4    0.1%    0.1%  t v8::internal::PagedSpace::Available()
+      4    0.1%    0.1%  t node::Binding(v8::FunctionCallbackInfo<v8::Value> const&)
+      4    0.1%    0.1%  T v8::internal::Heap::Scavenge()
+      4    0.1%    0.1%  T v8::internal::Bitmap::Clear()
+      4    0.1%    0.1%  T node::TTYWrap::New(v8::FunctionCallbackInfo<v8::Value> const&)
+      3    0.1%    0.1%  t v8::internal::compiler::Typer::Visitor::Reduce(v8::internal::compiler::Node*)
+      3    0.1%    0.1%  t _mach_msg_destroy_port
+      3    0.1%    0.1%  t __malloc_initialize
+      3    0.1%    0.1%  T v8::internal::compiler::GraphReducer::Reduce(v8::internal::compiler::Node*)
+      2    0.0%    0.0%  t void v8::internal::RelocInfo::Visit<v8::internal::IncrementalMarkingMarkingVisitor>(v8::internal::Isolate*, v8::internal::IncrementalMarkingMarkingVisitor*)
+      2    0.0%    0.0%  t v8::internal::PointersUpdatingVisitor::VisitPointers(v8::internal::HeapObject*, v8::internal::Object**, v8::internal::Object**)
+      2    0.0%    0.0%  t v8::internal::Heap::AllocateRaw(int, v8::internal::AllocationSpace, v8::internal::AllocationAlignment)
+      2    0.0%    0.0%  t _tiny_malloc_from_free_list
+      2    0.0%    0.0%  t _szone_free_definite_size
+      2    0.0%    0.0%  t __platform_memchr$VARIANT$Generic
+      2    0.0%    0.0%  T v8::internal::compiler::Scheduler::PrepareUses()
+      2    0.0%    0.0%  T v8::internal::RelocIterator::next()
+      2    0.0%    0.0%  T v8::internal::IncrementalMarking::RecordWriteSlow(v8::internal::HeapObject*, v8::internal::Object**, v8::internal::Object*)
+      2    0.0%    0.0%  T v8::internal::HeapObject::IterateBody(v8::internal::InstanceType, int, v8::internal::ObjectVisitor*)
+      1    0.0%    0.0%  t void v8::internal::String::WriteToFlat<unsigned char>(v8::internal::String*, unsigned char*, int, int)
+      1    0.0%    0.0%  t void v8::internal::SlotSet::Insert<(v8::internal::AccessMode)0>(int)
+      1    0.0%    0.0%  t void v8::internal::BodyDescriptorBase::IterateBodyImpl<v8::internal::ObjectVisitor>(v8::internal::HeapObject*, int, int, v8::internal::ObjectVisitor*)
+      1    0.0%    0.0%  t void v8::internal::BodyDescriptorApply<v8::internal::CallIterateBody, void, v8::internal::HeapObject*, int, v8::internal::RecordMigratedSlotVisitor*>(v8::internal::InstanceType, v8::internal::HeapObject*, int, v8::internal::RecordMigratedSlotVisitor*)
+      1    0.0%    0.0%  t void v8::internal::BodyDescriptorApply<v8::internal::CallIterateBody, void, v8::internal::HeapObject*, int, v8::internal::ObjectVisitor*>(v8::internal::InstanceType, v8::internal::HeapObject*, int, v8::internal::ObjectVisitor*)
+      1    0.0%    0.0%  t void std::__1::vector<v8::internal::compiler::Node*, v8::internal::ZoneAllocator<v8::internal::compiler::Node*> >::__push_back_slow_path<v8::internal::compiler::Node* const&>(v8::internal::compiler::Node* const&&&)
+      1    0.0%    0.0%  t void std::__1::vector<int, v8::internal::ZoneAllocator<int> >::__push_back_slow_path<int>(int&&)
+      1    0.0%    0.0%  t v8::internal::compiler::SourcePositionTable::Decorator::Decorate(v8::internal::compiler::Node*)
+      1    0.0%    0.0%  t v8::internal::compiler::RepresentationSelector::VisitInputs(v8::internal::compiler::Node*)
+      1    0.0%    0.0%  t v8::internal::compiler::RepresentationSelector::RunTypePropagationPhase()
+      1    0.0%    0.0%  t v8::internal::compiler::Operator1<v8::internal::compiler::TypedStateValueInfo, v8::internal::compiler::OpEqualTo<v8::internal::compiler::TypedStateValueInfo>, v8::internal::compiler::OpHash<v8::internal::compiler::TypedStateValueInfo> >::HashCode() const
+      1    0.0%    0.0%  t v8::internal::compiler::(anonymous namespace)::SourcePositionWrapper::Reduce(v8::internal::compiler::Node*)
+      1    0.0%    0.0%  t v8::internal::ScavengingTask::RunInParallel()
+      1    0.0%    0.0%  t v8::internal::Scavenger::EvacuateShortcutCandidate(v8::internal::Map*, v8::internal::HeapObject**, v8::internal::ConsString*, int)
+      1    0.0%    0.0%  t v8::internal::PatchIncrementalMarkingRecordWriteStubs(v8::internal::Heap*, v8::internal::RecordWriteStub::Mode)
+      1    0.0%    0.0%  t v8::internal::InternalizedStringTableCleaner::VisitPointers(v8::internal::HeapObject*, v8::internal::Object**, v8::internal::Object**)
+      1    0.0%    0.0%  t v8::internal::(anonymous namespace)::JSObjectWalkVisitor<v8::internal::AllocationSiteUsageContext>::StructureWalk(v8::internal::Handle<v8::internal::JSObject>)
+      1    0.0%    0.0%  t unsigned int v8::internal::StringHasher::HashSequentialString<unsigned char>(unsigned char const*, int, unsigned int)
+      1    0.0%    0.0%  t std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> > std::__1::__pad_and_output<char, std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> > >(std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> >, char const*, char const*, char const*, std::__1::ios_base&, char)
+      1    0.0%    0.0%  t node::inspector::(anonymous namespace)::AddCommandLineAPI(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.0%    0.0%  t node::cares_wrap::(anonymous namespace)::ChannelWrap::New(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.0%    0.0%  t node::Read(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.0%    0.0%  t node::(anonymous namespace)::ContextifyScript::RunInThisContext(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.0%    0.0%  t int v8::internal::SlotSet::Iterate<v8::internal::RememberedSetUpdatingItem<v8::internal::MajorNonAtomicMarkingState>::UpdateUntypedPointers()::'lambda'(unsigned char*)>(v8::internal::RememberedSetUpdatingItem<v8::internal::MajorNonAtomicMarkingState>::UpdateUntypedPointers()::'lambda'(unsigned char*), v8::internal::SlotSet::EmptyBucketMode)
+      1    0.0%    0.0%  t bool v8::internal::LiveObjectVisitor::VisitBlackObjects<v8::internal::EvacuateOldSpaceVisitor, v8::internal::MajorNonAtomicMarkingState>(v8::internal::MemoryChunk*, v8::internal::MajorNonAtomicMarkingState*, v8::internal::EvacuateOldSpaceVisitor*, v8::internal::LiveObjectVisitor::IterationMode, v8::internal::HeapObject**)
+      1    0.0%    0.0%  t _szone_free
+      1    0.0%    0.0%  t __pthread_mutex_init
+      1    0.0%    0.0%  t __pthread_exit
+      1    0.0%    0.0%  T v8::internal::interpreter::BytecodeArrayRandomIterator::UpdateOffsetFromIndex()
+      1    0.0%    0.0%  T v8::internal::interpreter::BytecodeArrayIterator::done() const
+      1    0.0%    0.0%  T v8::internal::interpreter::BytecodeArrayAccessor::current_bytecode_size() const
+      1    0.0%    0.0%  T v8::internal::interpreter::BytecodeArrayAccessor::GetIndexOperand(int) const
+      1    0.0%    0.0%  T v8::internal::compiler::ZoneStats::ZoneStats(v8::internal::AccountingAllocator*)
+      1    0.0%    0.0%  T v8::internal::compiler::VariableTracker::Scope::~Scope()
+      1    0.0%    0.0%  T v8::internal::compiler::Type::SlowIs(v8::internal::compiler::Type*)
+      1    0.0%    0.0%  T v8::internal::compiler::StateValuesCache::BuildTree(unsigned long*, v8::internal::compiler::Node**, unsigned long, v8::internal::BitVector const*, int, unsigned long)
+      1    0.0%    0.0%  T v8::internal::compiler::SourcePositionTable::GetSourcePosition(v8::internal::compiler::Node*) const
+      1    0.0%    0.0%  T v8::internal::compiler::Scheduler::DecrementUnscheduledUseCount(v8::internal::compiler::Node*, int, v8::internal::compiler::Node*)
+      1    0.0%    0.0%  T v8::internal::compiler::RegisterAllocationData::GetOrCreateLiveRangeFor(int)
+      1    0.0%    0.0%  T v8::internal::compiler::PipelineCompilationJob::RegisterWeakObjectsInOptimizedCode(v8::internal::Handle<v8::internal::Code>)
+      1    0.0%    0.0%  T v8::internal::compiler::OperatorProperties::HasFrameStateInput(v8::internal::compiler::Operator const*)
+      1    0.0%    0.0%  T v8::internal::compiler::OperatorProperties::HasContextInput(v8::internal::compiler::Operator const*)
+      1    0.0%    0.0%  T v8::internal::compiler::NodeProperties::ReplaceEffectInput(v8::internal::compiler::Node*, v8::internal::compiler::Node*, int)
+      1    0.0%    0.0%  T v8::internal::compiler::NodeProperties::IsControlEdge(v8::internal::compiler::Edge)
+      1    0.0%    0.0%  T v8::internal::compiler::NodeProperties::InferReceiverMaps(v8::internal::compiler::Node*, v8::internal::compiler::Node*, v8::internal::ZoneHandleSet<v8::internal::Map>*)
+      1    0.0%    0.0%  T v8::internal::compiler::NodeProperties::GetValueInput(v8::internal::compiler::Node*, int)
+      1    0.0%    0.0%  T v8::internal::compiler::NodeProperties::GetEffectInput(v8::internal::compiler::Node*, int)
+      1    0.0%    0.0%  T v8::internal::compiler::Node::Kill()
+      1    0.0%    0.0%  T v8::internal::compiler::LiveRange::DetachAt(v8::internal::compiler::LifetimePosition, v8::internal::compiler::LiveRange*, v8::internal::Zone*, v8::internal::compiler::LiveRange::HintConnectionOption)
+      1    0.0%    0.0%  T v8::internal::compiler::LinearScanAllocator::AllocateBlockedReg(v8::internal::compiler::LiveRange*)
+      1    0.0%    0.0%  T v8::internal::compiler::JSTypedLowering::Reduce(v8::internal::compiler::Node*)
+      1    0.0%    0.0%  T v8::internal::compiler::JSNativeContextSpecialization::ReduceNamedAccess(v8::internal::compiler::Node*, v8::internal::compiler::Node*, std::__1::vector<v8::internal::Handle<v8::internal::Map>, std::__1::allocator<v8::internal::Handle<v8::internal::Map> > > const&, v8::internal::Handle<v8::internal::Name>, v8::internal::compiler::AccessMode, v8::internal::LanguageMode, v8::internal::compiler::Node*)
+      1    0.0%    0.0%  T v8::internal::compiler::JSNativeContextSpecialization::Reduce(v8::internal::compiler::Node*)
+      1    0.0%    0.0%  T v8::internal::compiler::JSIntrinsicLowering::Reduce(v8::internal::compiler::Node*)
+      1    0.0%    0.0%  T v8::internal::compiler::JSInliner::InlineCall(v8::internal::compiler::Node*, v8::internal::compiler::Node*, v8::internal::compiler::Node*, v8::internal::compiler::Node*, v8::internal::compiler::Node*, v8::internal::compiler::Node*, v8::internal::compiler::Node*, v8::internal::ZoneVector<v8::internal::compiler::Node*> const&)
+      1    0.0%    0.0%  T v8::internal::compiler::JSCallReducer::Reduce(v8::internal::compiler::Node*)
+      1    0.0%    0.0%  T v8::internal::compiler::InstructionSelector::CanCover(v8::internal::compiler::Node*, v8::internal::compiler::Node*) const
+      1    0.0%    0.0%  T v8::internal::compiler::InstructionSelector::AddOperandToStateValueDescriptor(v8::internal::compiler::StateValueList*, v8::internal::ZoneVector<v8::internal::compiler::InstructionOperand>*, v8::internal::compiler::OperandGenerator*, v8::internal::compiler::StateObjectDeduplicator*, v8::internal::compiler::Node*, v8::internal::MachineType, v8::internal::compiler::FrameStateInputKind, v8::internal::Zone*)
+      1    0.0%    0.0%  T v8::internal::compiler::GraphTrimmer::TrimGraph()
+      1    0.0%    0.0%  T v8::internal::compiler::GraphReducer::ReplaceWithValue(v8::internal::compiler::Node*, v8::internal::compiler::Node*, v8::internal::compiler::Node*, v8::internal::compiler::Node*)
+      1    0.0%    0.0%  T v8::internal::compiler::GraphReducer::Replace(v8::internal::compiler::Node*, v8::internal::compiler::Node*, unsigned int)
+      1    0.0%    0.0%  T v8::internal::compiler::Graph::NewNode(v8::internal::compiler::Operator const*, int, v8::internal::compiler::Node* const*, bool)
+      1    0.0%    0.0%  T v8::internal::compiler::CommonOperatorReducer::Reduce(v8::internal::compiler::Node*)
+      1    0.0%    0.0%  T v8::internal::compiler::BytecodeLivenessMap::InitializeLiveness(int, int, v8::internal::Zone*)
+      1    0.0%    0.0%  T v8::internal::compiler::BytecodeGraphBuilder::MergeControl(v8::internal::compiler::Node*, v8::internal::compiler::Node*)
+      1    0.0%    0.0%  T v8::internal::compiler::BitsetType::Lub(v8::internal::compiler::Type*)
+      1    0.0%    0.0%  T v8::internal::compiler::BitsetType::Glb(v8::internal::compiler::Type*)
+      1    0.0%    0.0%  T v8::internal::compiler::AllNodes::Mark(v8::internal::Zone*, v8::internal::compiler::Node*, v8::internal::compiler::Graph const*)
+      1    0.0%    0.0%  T v8::internal::compiler::AccessInfoFactory::ComputePropertyAccessInfo(v8::internal::Handle<v8::internal::Map>, v8::internal::Handle<v8::internal::Name>, v8::internal::compiler::AccessMode, v8::internal::compiler::PropertyAccessInfo*)
+      1    0.0%    0.0%  T v8::internal::V8::GetCurrentPlatform()
+      1    0.0%    0.0%  T v8::internal::TransitionsAccessor::TraverseTransitionTreeInternal(void (*)(v8::internal::Map*, void*), void*, v8::internal::PerThreadAssertScopeDebugOnly<(v8::internal::PerThreadAssertType)0, false>*)
+      1    0.0%    0.0%  T v8::internal::String::CalculateLineEnds(v8::internal::Handle<v8::internal::String>, bool)
+      1    0.0%    0.0%  T v8::internal::StoreBuffer::StoreBufferOverflow(v8::internal::Isolate*)
+      1    0.0%    0.0%  T v8::internal::Scavenger::RecordCopiedObject(v8::internal::HeapObject*)
+      1    0.0%    0.0%  T v8::internal::Runtime_CreateObjectLiteral(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.0%    0.0%  T v8::internal::RuntimeProfiler::ShouldOptimize(v8::internal::JSFunction*, v8::internal::JavaScriptFrame*)
+      1    0.0%    0.0%  T v8::internal::PagedSpace::RefillFreeList()
+      1    0.0%    0.0%  T v8::internal::PagedSpace::CountTotalPages()
+      1    0.0%    0.0%  T v8::internal::Object* v8::internal::VisitWeakList<v8::internal::AllocationSite>(v8::internal::Heap*, v8::internal::Object*, v8::internal::WeakObjectRetainer*)
+      1    0.0%    0.0%  T v8::internal::MemoryAllocator::AllocateChunk(unsigned long, unsigned long, v8::internal::Executability, v8::internal::Space*)
+      1    0.0%    0.0%  T v8::internal::MarkCompactCollector::RecordRelocSlot(v8::internal::Code*, v8::internal::RelocInfo*, v8::internal::Object*)
+      1    0.0%    0.0%  T v8::internal::Map::GetOrCreatePrototypeChainValidityCell(v8::internal::Handle<v8::internal::Map>, v8::internal::Isolate*)
+      1    0.0%    0.0%  T v8::internal::Map::ConnectTransition(v8::internal::Handle<v8::internal::Map>, v8::internal::Handle<v8::internal::Map>, v8::internal::Handle<v8::internal::Name>, v8::internal::SimpleTransitionFlag)
+      1    0.0%    0.0%  T v8::internal::Log::MessageBuilder::Append(char const*, ...)
+      1    0.0%    0.0%  T v8::internal::LoadICNexus::StateFromFeedback() const
+      1    0.0%    0.0%  T v8::internal::InnerPointerToCodeCache::GetCacheEntry(unsigned char*)
+      1    0.0%    0.0%  T v8::internal::InnerPointerToCodeCache::GcSafeFindCodeForInnerPointer(unsigned char*)
+      1    0.0%    0.0%  T v8::internal::IncrementalMarking::Hurry()
+      1    0.0%    0.0%  T v8::internal::IncrementalMarking::DeactivateIncrementalWriteBarrier()
+      1    0.0%    0.0%  T v8::internal::IdentityMapBase::LookupOrInsert(v8::internal::Object*)
+      1    0.0%    0.0%  T v8::internal::Heap::MarkCompactPrologue()
+      1    0.0%    0.0%  T v8::internal::Heap::AllocateMap(v8::internal::InstanceType, int, v8::internal::ElementsKind)
+      1    0.0%    0.0%  T v8::internal::GCTracer::ScavengeSpeedInBytesPerMillisecond(v8::internal::ScavengeSpeedMode) const
+      1    0.0%    0.0%  T v8::internal::Deserializer::ReadData(v8::internal::Object**, v8::internal::Object**, int, unsigned char*)
+      1    0.0%    0.0%  T v8::internal::Deserializer::GetBackReferencedObject(int)
+      1    0.0%    0.0%  T v8::internal::Deoptimizer::WriteTranslatedValueToOutput(v8::internal::TranslatedFrame::iterator*, int*, int, unsigned int, char const*, unsigned char*)
+      1    0.0%    0.0%  T v8::internal::Compiler::FinalizeCompilationJob(v8::internal::CompilationJob*)
+      1    0.0%    0.0%  T v8::internal::CompilationDependencies::AssumePrototypeMapsStable(v8::internal::Handle<v8::internal::Map>, v8::internal::MaybeHandle<v8::internal::JSReceiver>)
+      1    0.0%    0.0%  T v8::internal::CanonicalHandleScope::Lookup(v8::internal::Object*)
+      1    0.0%    0.0%  T v8::internal::AstNumberingVisitor::VisitObjectLiteral(v8::internal::ObjectLiteral*)
+      1    0.0%    0.0%  T v8::internal::Assembler::pushq_imm32(int)
+      1    0.0%    0.0%  T v8::internal::Assembler::emit_mov(v8::internal::Register, v8::internal::Register, int)
+      1    0.0%    0.0%  T v8::internal::AllocationResult v8::internal::Heap::CopyArrayAndGrow<v8::internal::FixedArray>(v8::internal::FixedArray*, int, v8::internal::PretenureFlag)
+      1    0.0%    0.0%  T v8::internal::Accessors::IsJSObjectFieldAccessor(v8::internal::Handle<v8::internal::Map>, v8::internal::Handle<v8::internal::Name>, int*)
+      1    0.0%    0.0%  T v8::base::VirtualMemory::VirtualMemory(unsigned long, unsigned long, void*)
+      1    0.0%    0.0%  T node::NodePlatform::MonotonicallyIncreasingTime()
+      1    0.0%    0.0%  T _tempnam
+      1    0.0%    0.0%  T _create_scalable_zone
+      1    0.0%    0.0%  T __simple_asl_send
+      1    0.0%    0.0%  T ___fread
+
+ [Summary]:
+   ticks  total  nonlib   name
+   2130   50.1%   50.2%  JavaScript
+   1998   47.0%   47.1%  C++
+   1113   26.2%   26.2%  GC
+      9    0.2%          Shared libraries
+    113    2.7%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+    510   58.4%   12.0%  T v8::internal::Runtime_GrowArrayElements(int, v8::internal::Object**, v8::internal::Isolate*)
+    145   16.6%    3.4%  T v8::internal::Runtime_StringIndexOfUnchecked(int, v8::internal::Object**, v8::internal::Isolate*)
+    108   12.4%    2.5%  T v8::internal::Builtin_HandleApiCall(int, v8::internal::Object**, v8::internal::Isolate*)
+     55    6.3%    1.3%  T v8::internal::Runtime_CompileOptimized_Concurrent(int, v8::internal::Object**, v8::internal::Isolate*)
+     15    1.7%    0.4%  T v8::internal::Runtime_CompileForOnStackReplacement(int, v8::internal::Object**, v8::internal::Isolate*)
+      8    0.9%    0.2%  T v8::internal::Runtime_StackGuard(int, v8::internal::Object**, v8::internal::Isolate*)
+      6    0.7%    0.1%  T v8::internal::Runtime_StringCharCodeAtRT(int, v8::internal::Object**, v8::internal::Isolate*)
+      6    0.7%    0.1%  T v8::internal::Runtime_RegExpExec(int, v8::internal::Object**, v8::internal::Isolate*)
+      6    0.7%    0.1%  T v8::internal::Runtime_CompileOptimized_NotConcurrent(int, v8::internal::Object**, v8::internal::Isolate*)
+      2    0.2%    0.0%  T v8::internal::Runtime_HasProperty(int, v8::internal::Object**, v8::internal::Isolate*)
+      2    0.2%    0.0%  T v8::internal::Runtime_CreateObjectLiteral(int, v8::internal::Object**, v8::internal::Isolate*)
+      2    0.2%    0.0%  T v8::internal::Runtime_CompileLazy(int, v8::internal::Object**, v8::internal::Isolate*)
+      2    0.2%    0.0%  T v8::internal::Runtime_AllocateInTargetSpace(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.1%    0.0%  T v8::internal::Runtime_StoreIC_Miss(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.1%    0.0%  T v8::internal::Runtime_NumberToString(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.1%    0.0%  T v8::internal::Runtime_LoadIC_Miss(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.1%    0.0%  T v8::internal::Runtime_KeyedStoreIC_Miss(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.1%    0.0%  T v8::internal::Runtime_KeyedLoadIC_Miss(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.1%    0.0%  T v8::internal::Runtime_Interrupt(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.1%    0.0%  T v8::internal::Runtime_FinalizeInstanceSize(int, v8::internal::Object**, v8::internal::Isolate*)
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+    494   11.6%  T v8::internal::IncrementalMarking::Step(unsigned long, v8::internal::IncrementalMarking::CompletionAction, v8::internal::IncrementalMarking::ForceCompletionAction, v8::internal::StepOrigin)
+
+    399    9.4%  T v8::internal::Heap::AllocateFixedArrayWithFiller(int, v8::internal::PretenureFlag, v8::internal::Object*)
+    399  100.0%    T v8::internal::Runtime_GrowArrayElements(int, v8::internal::Object**, v8::internal::Isolate*)
+    292   73.2%      LazyCompile: *_loadString /Users/cborodic/github/js-trig-parser/node_modules/antlr4/InputStream.js:14:21
+    292  100.0%        Script: ~InputStream /Users/cborodic/github/js-trig-parser/node_modules/antlr4/InputStream.js:37:21
+    211   72.3%          Script: ~parseTrig /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:58:19
+    211  100.0%            Script: ~defaultTransform /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:134:26
+     81   27.7%          Script: ~<anonymous> /Users/cborodic/github/js-trig-parser/src/temp-perf-test.js:1:11
+     81  100.0%            Script: ~Module._compile module.js:617:37
+     95   23.8%      LazyCompile: *Parser.consume /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:376:36
+     93   97.9%        Script: ~InputStream /Users/cborodic/github/js-trig-parser/node_modules/antlr4/InputStream.js:37:21
+     93  100.0%          Script: ~parseTrig /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:58:19
+     93  100.0%            Script: ~defaultTransform /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:134:26
+      2    2.1%        LazyCompile: *TRIGParser.rdfLiteral /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2168:43
+      2  100.0%          LazyCompile: *TRIGParser.literal /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1942:40
+      2  100.0%            LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      9    2.3%      LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      9  100.0%        LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      9  100.0%          LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      9  100.0%            LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+
+    275    6.5%  LoadIC: A load IC from the snapshot
+     95   34.5%    LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+     93   97.9%      LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+     89   95.7%        LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+     88   98.9%          LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+     83   94.3%            LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      5    5.7%            Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      1    1.1%          Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      1  100.0%            Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      4    4.3%        Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      3   75.0%          Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      3  100.0%            Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      1   25.0%          Script: ~transformTreeAndGetRules /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:21:40
+      1  100.0%            Script: ~defaultTransform /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:134:26
+      2    2.1%      Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      2  100.0%        Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      2  100.0%          Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      2  100.0%            Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+     58   21.1%    LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+     58  100.0%      Builtin: ArrayMap
+     31   53.4%        LazyCompile: *createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+     19   61.3%          LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+     19  100.0%            Builtin: ArrayMap
+     11   35.5%          LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+     11  100.0%            LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      1    3.2%          LazyCompile: *createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:45:22
+      1  100.0%            LazyCompile: *<anonymous> /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:23:69
+     25   43.1%        LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+     25  100.0%          Builtin: ArrayMap
+     20   80.0%            LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+      3   12.0%            LazyCompile: *createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+      2    8.0%            Script: ~createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+      2    3.4%        Script: ~createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+      2  100.0%          Script: ~_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+      2  100.0%            Builtin: ArrayMap
+     32   11.6%    LazyCompile: *createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+     25   78.1%      LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+     25  100.0%        Builtin: ArrayMap
+     23   92.0%          LazyCompile: *createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+     17   73.9%            LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+      6   26.1%            LazyCompile: *createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:45:22
+      2    8.0%          Script: ~createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+      2  100.0%            LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+      4   12.5%      LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      4  100.0%        LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      4  100.0%          LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      4  100.0%            LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      3    9.4%      LazyCompile: *createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:45:22
+      3  100.0%        LazyCompile: *<anonymous> /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:23:69
+      3  100.0%          LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      3  100.0%            LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+     19    6.9%    LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+     19  100.0%      LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+     18   94.7%        LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+     11   61.1%          LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+     11  100.0%            LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      7   38.9%          Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      7  100.0%            LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      1    5.3%        Script: ~TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      1  100.0%          Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1  100.0%            Script: ~TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+     17    6.2%    LazyCompile: *Parser.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:113:34
+      9   52.9%      LazyCompile: *TRIGParser.iri /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2262:36
+      9  100.0%        LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      9  100.0%          LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      9  100.0%            LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      6   35.3%      LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      6  100.0%        LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      6  100.0%          LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      5   83.3%            LazyCompile: *TRIGParser.wrappedGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:746:45
+      1   16.7%            LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      2   11.8%      LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      2  100.0%        LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      1   50.0%          Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1  100.0%            LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      1   50.0%          LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1  100.0%            LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+     12    4.4%    LazyCompile: *TRIGParser.iri /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2262:36
+      8   66.7%      LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      8  100.0%        LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      8  100.0%          LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      6   75.0%            LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      2   25.0%            Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      4   33.3%      LazyCompile: *TRIGParser.verb /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1610:37
+      4  100.0%        LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      4  100.0%          LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      4  100.0%            LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+     10    3.6%    LazyCompile: *Parser.enterRule /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:413:38
+      4   40.0%      LazyCompile: *TRIGParser.verb /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1610:37
+      4  100.0%        LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      2   50.0%          Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      2  100.0%            Script: ~TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      2   50.0%          LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      2  100.0%            LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      2   20.0%      LazyCompile: *TRIGParser.labelOrSubject /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:614:47
+      2  100.0%        LazyCompile: *TRIGParser.block /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:436:38
+      2  100.0%          LazyCompile: *TRIGParser.trigDoc /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:331:40
+      2  100.0%            Script: ~parseTrig /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:58:19
+      1   10.0%      Script: ~TRIGParser.predicate /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1769:42
+      1  100.0%        Script: ~TRIGParser.verb /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1610:37
+      1  100.0%          Script: ~TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      1  100.0%            Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1   10.0%      LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      1  100.0%        LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      1  100.0%          LazyCompile: *TRIGParser.wrappedGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:746:45
+      1  100.0%            LazyCompile: *TRIGParser.block /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:436:38
+      1   10.0%      LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      1  100.0%        LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      1  100.0%          Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1  100.0%            LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      1   10.0%      LazyCompile: *TRIGParser.block /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:436:38
+      1  100.0%        LazyCompile: *TRIGParser.trigDoc /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:331:40
+      1  100.0%          Script: ~parseTrig /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:58:19
+      1  100.0%            Script: ~defaultTransform /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:134:26
+      8    2.9%    LazyCompile: *Parser.enterOuterAlt /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:435:42
+      3   37.5%      LazyCompile: *TRIGParser.verb /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1610:37
+      3  100.0%        LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      3  100.0%          LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      3  100.0%            LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      2   25.0%      LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      2  100.0%        LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      1   50.0%          Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1  100.0%            Script: ~TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      1   50.0%          LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1  100.0%            LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      2   25.0%      LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      2  100.0%        LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      2  100.0%          LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      2  100.0%            LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1   12.5%      LazyCompile: *TRIGParser.iri /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2262:36
+      1  100.0%        LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1  100.0%          LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      1  100.0%            LazyCompile: *TRIGParser.wrappedGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:746:45
+      7    2.5%    LazyCompile: *TRIGParser.literal /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1942:40
+      7  100.0%      LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      7  100.0%        LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      7  100.0%          LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      6   85.7%            LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1   14.3%            Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      6    2.2%    LazyCompile: *createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:45:22
+      5   83.3%      LazyCompile: *<anonymous> /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:23:69
+      5  100.0%        LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      5  100.0%          LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      5  100.0%            LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      1   16.7%      LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      1  100.0%        LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      1  100.0%          LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      1  100.0%            LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      4    1.5%    LazyCompile: *TRIGParser.verb /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1610:37
+      4  100.0%      LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      4  100.0%        LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      4  100.0%          LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      4  100.0%            LazyCompile: *TRIGParser.wrappedGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:746:45
+      4    1.5%    LazyCompile: *Parser.consume /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:376:36
+      3   75.0%      LazyCompile: *TRIGParser.rdfLiteral /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2168:43
+      3  100.0%        LazyCompile: *TRIGParser.literal /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1942:40
+      3  100.0%          LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      3  100.0%            LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      1   25.0%      LazyCompile: *TRIGParser.wrappedGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:746:45
+      1  100.0%        LazyCompile: *TRIGParser.block /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:436:38
+      1  100.0%          Script: ~TRIGParser.trigDoc /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:331:40
+      1  100.0%            Script: ~parseTrig /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:58:19
+
+    270    6.4%  LazyCompile: *LexerATNSimulator.execATN /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/LexerATNSimulator.js:145:47
+    176   65.2%    LazyCompile: *BufferedTokenStream.fetch /Users/cborodic/github/js-trig-parser/node_modules/antlr4/BufferedTokenStream.js:135:47
+    176  100.0%      LazyCompile: *Parser.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:113:34
+     86   48.9%        LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+     81   94.2%          LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+     51   63.0%            LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+     30   37.0%            Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      5    5.8%          Script: ~TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      5  100.0%            Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+     41   23.3%        LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+     34   82.9%          LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+     34  100.0%            LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      7   17.1%          Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      7  100.0%            LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+     36   20.5%        LazyCompile: *TRIGParser.iri /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2262:36
+     28   77.8%          LazyCompile: *TRIGParser.verb /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1610:37
+     28  100.0%            LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      3    8.3%          LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      3  100.0%            LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      2    5.6%          Script: ~TRIGParser.subject /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1691:40
+      2  100.0%            Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      2    5.6%          LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      2  100.0%            LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      1    2.8%          LazyCompile: *TRIGParser.rdfLiteral /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2168:43
+      1  100.0%            LazyCompile: *TRIGParser.literal /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1942:40
+      6    3.4%        Script: ~TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      6  100.0%          Script: ~TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      6  100.0%            Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      5    2.8%        LazyCompile: *TRIGParser.rdfLiteral /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2168:43
+      5  100.0%          LazyCompile: *TRIGParser.literal /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1942:40
+      5  100.0%            LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+     87   32.2%    LazyCompile: *_loadString /Users/cborodic/github/js-trig-parser/node_modules/antlr4/InputStream.js:14:21
+     87  100.0%      LazyCompile: *Parser.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:113:34
+     50   57.5%        LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+     50  100.0%          LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+     50  100.0%            LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+     18   20.7%        LazyCompile: *TRIGParser.iri /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2262:36
+      8   44.4%          LazyCompile: *TRIGParser.verb /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1610:37
+      8  100.0%            LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      6   33.3%          LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      6  100.0%            LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      3   16.7%          LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      3  100.0%            LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      1    5.6%          LazyCompile: *TRIGParser.rdfLiteral /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2168:43
+      1  100.0%            LazyCompile: *TRIGParser.literal /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1942:40
+     15   17.2%        LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+     15  100.0%          LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+     15  100.0%            LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      4    4.6%        LazyCompile: *TRIGParser.rdfLiteral /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2168:43
+      4  100.0%          LazyCompile: *TRIGParser.literal /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1942:40
+      4  100.0%            LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      3    1.1%    LazyCompile: *BufferedTokenStream.sync /Users/cborodic/github/js-trig-parser/node_modules/antlr4/BufferedTokenStream.js:122:46
+      3  100.0%      Script: ~BufferedTokenStream.consume /Users/cborodic/github/js-trig-parser/node_modules/antlr4/BufferedTokenStream.js:93:49
+      3  100.0%        Script: ~Parser.consume /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:376:36
+      3  100.0%          Script: ~Parser.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:113:34
+      2   66.7%            LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      1   33.3%            Script: ~TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+
+    196    4.6%  T _guarded_open_np
+      9    4.6%    T v8::internal::Runtime_GrowArrayElements(int, v8::internal::Object**, v8::internal::Isolate*)
+      4   44.4%      LazyCompile: *BufferedTokenStream.fetch /Users/cborodic/github/js-trig-parser/node_modules/antlr4/BufferedTokenStream.js:135:47
+      4  100.0%        LazyCompile: *Parser.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:113:34
+      2   50.0%          LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      2  100.0%            LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      2   50.0%          LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      2  100.0%            LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      3   33.3%      LazyCompile: *Parser.consume /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:376:36
+      3  100.0%        LazyCompile: *TRIGParser.rdfLiteral /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2168:43
+      3  100.0%          LazyCompile: *TRIGParser.literal /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1942:40
+      3  100.0%            LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      2   22.2%      LazyCompile: *Parser.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:113:34
+      1   50.0%        LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      1  100.0%          LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1  100.0%            LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      1   50.0%        LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      1  100.0%          LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      1  100.0%            LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+
+    165    3.9%  t ___pfz_setup
+    142   86.1%    T v8::internal::Runtime_StringIndexOfUnchecked(int, v8::internal::Object**, v8::internal::Isolate*)
+    142  100.0%      Builtin: StringPrototypeReplace
+    142  100.0%        Script: ~<anonymous> /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:40:68
+    142  100.0%          Builtin: ArrayForEach
+    142  100.0%            Script: ~<anonymous> /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:39:57
+      6    3.6%    T v8::internal::Runtime_StringCharCodeAtRT(int, v8::internal::Object**, v8::internal::Isolate*)
+      6  100.0%      Builtin: StringPrototypeCharCodeAt
+      3   50.0%        Script: ~_loadString /Users/cborodic/github/js-trig-parser/node_modules/antlr4/InputStream.js:14:21
+      3  100.0%          Script: ~InputStream /Users/cborodic/github/js-trig-parser/node_modules/antlr4/InputStream.js:37:21
+      3  100.0%            Script: ~parseTrig /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:58:19
+      3   50.0%        LazyCompile: *_loadString /Users/cborodic/github/js-trig-parser/node_modules/antlr4/InputStream.js:14:21
+      3  100.0%          Script: ~InputStream /Users/cborodic/github/js-trig-parser/node_modules/antlr4/InputStream.js:37:21
+      3  100.0%            Script: ~parseTrig /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:58:19
+      6    3.6%    T v8::internal::Runtime_RegExpExec(int, v8::internal::Object**, v8::internal::Isolate*)
+      6  100.0%      Builtin: RegExpPrototypeMatch
+      6  100.0%        LazyCompile: ~match native string.js:12:6
+      6  100.0%          Script: ~replaceBadPrefixes /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:38:34
+      6  100.0%            Script: ~parseTrig /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:58:19
+
+    141    3.3%  t v8::internal::Scavenger::ScavengeObject(v8::internal::HeapObject**, v8::internal::HeapObject*)
+
+    141    3.3%  StoreIC: A store IC from the snapshot
+     45   31.9%    LazyCompile: *TRIGParser.iri /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2262:36
+     27   60.0%      LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+     26   96.3%        LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+     26  100.0%          LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+     21   80.8%            LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      5   19.2%            Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1    3.7%        Script: ~TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      1  100.0%          Script: ~TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      1  100.0%            Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      7   15.6%      LazyCompile: *TRIGParser.verb /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1610:37
+      7  100.0%        LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      5   71.4%          LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      5  100.0%            LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      2   28.6%          Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      2  100.0%            LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      6   13.3%      LazyCompile: *TRIGParser.rdfLiteral /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2168:43
+      6  100.0%        LazyCompile: *TRIGParser.literal /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1942:40
+      6  100.0%          LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      6  100.0%            LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      2    4.4%      LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      2  100.0%        LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      1   50.0%          LazyCompile: *TRIGParser.wrappedGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:746:45
+      1  100.0%            Script: ~TRIGParser.triplesOrGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:533:47
+      1   50.0%          LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      1  100.0%            LazyCompile: *TRIGParser.wrappedGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:746:45
+      1    2.2%      Script: ~TRIGParser.subject /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1691:40
+      1  100.0%        Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1  100.0%          LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      1  100.0%            Script: ~TRIGParser.wrappedGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:746:45
+      1    2.2%      Script: ~TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      1  100.0%        Script: ~TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      1  100.0%          Script: ~TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      1  100.0%            Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1    2.2%      LazyCompile: *ParserRuleContext /Users/cborodic/github/js-trig-parser/node_modules/antlr4/ParserRuleContext.js:37:27
+      1  100.0%        Script: ~TriplesContext /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1302:24
+      1  100.0%          Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1  100.0%            LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+     28   19.9%    LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+     27   96.4%      LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+     27  100.0%        LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+     18   66.7%          LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+     18  100.0%            LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      9   33.3%          Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      9  100.0%            LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      1    3.6%      Script: ~TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      1  100.0%        Script: ~TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      1  100.0%          Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1  100.0%            Script: ~TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+     16   11.3%    LazyCompile: *LexerATNSimulator.execATN /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/LexerATNSimulator.js:145:47
+      8   50.0%      LazyCompile: *VerbContext /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1573:21
+      8  100.0%        LazyCompile: *TRIGParser.verb /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1610:37
+      8  100.0%          LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      7   87.5%            LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1   12.5%            Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      8   50.0%      LazyCompile: *PredicateContext /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1732:26
+      8  100.0%        LazyCompile: *TRIGParser.verb /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1610:37
+      8  100.0%          LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      7   87.5%            LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1   12.5%            Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      9    6.4%    LazyCompile: *ParserRuleContext /Users/cborodic/github/js-trig-parser/node_modules/antlr4/ParserRuleContext.js:37:27
+      4   44.4%      Script: ~PredicateContext /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1732:26
+      4  100.0%        LazyCompile: *TRIGParser.verb /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1610:37
+      4  100.0%          LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      4  100.0%            Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1   11.1%      Script: ~TriplesOrGraphContext /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:488:31
+      1  100.0%        Script: ~TRIGParser.triplesOrGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:533:47
+      1  100.0%          Script: ~TRIGParser.block /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:436:38
+      1  100.0%            Script: ~TRIGParser.trigDoc /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:331:40
+      1   11.1%      Script: ~PredicateObjectListContext /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1395:36
+      1  100.0%        LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      1  100.0%          LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1  100.0%            LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      1   11.1%      Script: ~ObjectListContext /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1494:27
+      1  100.0%        LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      1  100.0%          LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      1  100.0%            Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1   11.1%      Script: ~LabelOrSubjectContext /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:573:31
+      1  100.0%        LazyCompile: *TRIGParser.labelOrSubject /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:614:47
+      1  100.0%          LazyCompile: *TRIGParser.block /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:436:38
+      1  100.0%            Script: ~TRIGParser.trigDoc /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:331:40
+      1   11.1%      Script: ~BlockContext /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:387:22
+      1  100.0%        Script: ~TRIGParser.block /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:436:38
+      1  100.0%          Script: ~TRIGParser.trigDoc /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:331:40
+      1  100.0%            Script: ~parseTrig /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:58:19
+      5    3.5%    LazyCompile: *TRIGParser.literal /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1942:40
+      5  100.0%      LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      5  100.0%        LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      5  100.0%          LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      4   80.0%            LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1   20.0%            Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      5    3.5%    LazyCompile: *RdfLiteralContext /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2123:27
+      5  100.0%      LazyCompile: *TRIGParser.rdfLiteral /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2168:43
+      5  100.0%        LazyCompile: *TRIGParser.literal /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1942:40
+      5  100.0%          LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      5  100.0%            LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      5    3.5%    LazyCompile: *ObjectListContext /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1494:27
+      5  100.0%      LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      5  100.0%        LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      3   60.0%          LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      3  100.0%            LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      2   40.0%          Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      2  100.0%            LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      4    2.8%    LazyCompile: *VerbContext /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1573:21
+      4  100.0%      LazyCompile: *TRIGParser.verb /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1610:37
+      4  100.0%        LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      4  100.0%          LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      4  100.0%            LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      4    2.8%    LazyCompile: *Parser.enterRule /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:413:38
+      2   50.0%      LazyCompile: *TRIGParser.verb /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1610:37
+      2  100.0%        LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      2  100.0%          LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      2  100.0%            LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      1   25.0%      Script: ~TRIGParser.iri /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2262:36
+      1  100.0%        Script: ~TRIGParser.predicate /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1769:42
+      1  100.0%          Script: ~TRIGParser.verb /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1610:37
+      1  100.0%            Script: ~TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      1   25.0%      Script: ~TRIGParser.block /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:436:38
+      1  100.0%        Script: ~TRIGParser.trigDoc /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:331:40
+      1  100.0%          Script: ~<anonymous> /Users/cborodic/github/js-trig-parser/src/temp-perf-test.js:1:11
+      1  100.0%            Script: ~Module._compile module.js:617:37
+      3    2.1%    LazyCompile: *TRIGParser.rdfLiteral /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2168:43
+      3  100.0%      LazyCompile: *TRIGParser.literal /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1942:40
+      3  100.0%        LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      3  100.0%          LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      3  100.0%            LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      2    1.4%    LazyCompile: *RuleContext /Users/cborodic/github/js-trig-parser/node_modules/antlr4/RuleContext.js:32:21
+      2  100.0%      LazyCompile: *TRIGParser.literal /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1942:40
+      2  100.0%        LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      2  100.0%          LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      2  100.0%            LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      2    1.4%    LazyCompile: *Parser.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:113:34
+      2  100.0%      LazyCompile: *TRIGParser.iri /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2262:36
+      2  100.0%        LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      2  100.0%          LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      1   50.0%            Script: ~TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      1   50.0%            LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+
+    113    2.7%  UNKNOWN
+      4    3.5%    LazyCompile: *Parser.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:113:34
+      3   75.0%      LazyCompile: *TRIGParser.iri /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2262:36
+      3  100.0%        LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      3  100.0%          LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      3  100.0%            LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      1   25.0%      LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      1  100.0%        LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      1  100.0%          LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1  100.0%            LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+
+    105    2.5%  Builtin: KeyedLoadIC_Megamorphic
+     93   88.6%    LazyCompile: *LexerATNSimulator.execATN /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/LexerATNSimulator.js:145:47
+     59   63.4%      LazyCompile: *BufferedTokenStream.fetch /Users/cborodic/github/js-trig-parser/node_modules/antlr4/BufferedTokenStream.js:135:47
+     59  100.0%        LazyCompile: *Parser.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:113:34
+     37   62.7%          LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+     34   91.9%            LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      3    8.1%            Script: ~TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+     10   16.9%          LazyCompile: *TRIGParser.iri /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2262:36
+      6   60.0%            LazyCompile: *TRIGParser.verb /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1610:37
+      2   20.0%            LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      1   10.0%            Script: ~TRIGParser.subject /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1691:40
+      1   10.0%            LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      8   13.6%          LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      4   50.0%            Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      4   50.0%            LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      2    3.4%          Script: ~TRIGParser.wrappedGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:746:45
+      2  100.0%            Script: ~TRIGParser.triplesOrGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:533:47
+      1    1.7%          Script: ~TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      1  100.0%            Script: ~TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      1    1.7%          LazyCompile: *TRIGParser.rdfLiteral /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2168:43
+      1  100.0%            LazyCompile: *TRIGParser.literal /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1942:40
+     33   35.5%      LazyCompile: *_loadString /Users/cborodic/github/js-trig-parser/node_modules/antlr4/InputStream.js:14:21
+     33  100.0%        LazyCompile: *Parser.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:113:34
+     25   75.8%          LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+     25  100.0%            LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      4   12.1%          LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      4  100.0%            LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      3    9.1%          LazyCompile: *TRIGParser.iri /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2262:36
+      2   66.7%            LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      1   33.3%            LazyCompile: *TRIGParser.verb /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1610:37
+      1    3.0%          LazyCompile: *TRIGParser.rdfLiteral /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2168:43
+      1  100.0%            LazyCompile: *TRIGParser.literal /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1942:40
+      1    1.1%      LazyCompile: *BufferedTokenStream.sync /Users/cborodic/github/js-trig-parser/node_modules/antlr4/BufferedTokenStream.js:122:46
+      1  100.0%        Script: ~BufferedTokenStream.consume /Users/cborodic/github/js-trig-parser/node_modules/antlr4/BufferedTokenStream.js:93:49
+      1  100.0%          Script: ~Parser.consume /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:376:36
+      1  100.0%            Script: ~Parser.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:113:34
+     12   11.4%    LazyCompile: *Lexer.nextToken /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Lexer.js:103:37
+     10   83.3%      LazyCompile: *Parser.consume /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:376:36
+      5   50.0%        Script: ~Parser.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:113:34
+      2   40.0%          LazyCompile: *TRIGParser.iri /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2262:36
+      1   50.0%            Script: ~TRIGParser.subject /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1691:40
+      1   50.0%            LazyCompile: *TRIGParser.verb /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1610:37
+      1   20.0%          Script: ~TRIGParser.rdfLiteral /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2168:43
+      1  100.0%            Script: ~TRIGParser.literal /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1942:40
+      1   20.0%          Script: ~TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      1  100.0%            Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1   20.0%          Script: ~TRIGParser.iri /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2262:36
+      1  100.0%            Script: ~TRIGParser.subject /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1691:40
+      3   30.0%        LazyCompile: *TRIGParser.wrappedGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:746:45
+      3  100.0%          LazyCompile: *TRIGParser.block /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:436:38
+      3  100.0%            LazyCompile: *TRIGParser.trigDoc /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:331:40
+      2   20.0%        LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      1   50.0%          Script: ~TRIGParser.wrappedGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:746:45
+      1  100.0%            Script: ~TRIGParser.triplesOrGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:533:47
+      1   50.0%          LazyCompile: *TRIGParser.wrappedGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:746:45
+      1  100.0%            LazyCompile: *TRIGParser.block /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:436:38
+      2   16.7%      Script: ~BufferedTokenStream.fetch /Users/cborodic/github/js-trig-parser/node_modules/antlr4/BufferedTokenStream.js:135:47
+      1   50.0%        Script: ~BufferedTokenStream.sync /Users/cborodic/github/js-trig-parser/node_modules/antlr4/BufferedTokenStream.js:122:46
+      1  100.0%          Script: ~BufferedTokenStream.consume /Users/cborodic/github/js-trig-parser/node_modules/antlr4/BufferedTokenStream.js:93:49
+      1  100.0%            Script: ~Parser.consume /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:376:36
+      1   50.0%        LazyCompile: *Parser.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:113:34
+      1  100.0%          LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      1  100.0%            LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+
+    100    2.4%  LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+     95   95.0%    LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+     91   95.8%      LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+     84   92.3%        LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+     80   95.2%          LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+     79   98.8%            LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      1    1.3%            Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      4    4.8%          Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      3   75.0%            Script: ~transformTreeAndGetRules /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:21:40
+      1   25.0%            Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      7    7.7%        Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      6   85.7%          Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      6  100.0%            Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      1   14.3%          Script: ~transformTreeAndGetRules /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:21:40
+      1  100.0%            Script: ~defaultTransform /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:134:26
+      4    4.2%      Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      4  100.0%        Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      4  100.0%          Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      4  100.0%            Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      5    5.0%    Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      5  100.0%      Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      5  100.0%        Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      5  100.0%          Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      5  100.0%            Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+
+     94    2.2%  t v8::internal::(anonymous namespace)::CopyObjectToObjectElements(v8::internal::FixedArrayBase*, v8::internal::ElementsKind, unsigned int, v8::internal::FixedArrayBase*, v8::internal::ElementsKind, unsigned int, int)
+     94  100.0%    T v8::internal::Runtime_GrowArrayElements(int, v8::internal::Object**, v8::internal::Isolate*)
+     59   62.8%      LazyCompile: *_loadString /Users/cborodic/github/js-trig-parser/node_modules/antlr4/InputStream.js:14:21
+     59  100.0%        Script: ~InputStream /Users/cborodic/github/js-trig-parser/node_modules/antlr4/InputStream.js:37:21
+     36   61.0%          Script: ~parseTrig /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:58:19
+     36  100.0%            Script: ~defaultTransform /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:134:26
+     23   39.0%          Script: ~<anonymous> /Users/cborodic/github/js-trig-parser/src/temp-perf-test.js:1:11
+     23  100.0%            Script: ~Module._compile module.js:617:37
+     24   25.5%      LazyCompile: *Parser.consume /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:376:36
+     21   87.5%        Script: ~InputStream /Users/cborodic/github/js-trig-parser/node_modules/antlr4/InputStream.js:37:21
+     21  100.0%          Script: ~parseTrig /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:58:19
+     21  100.0%            Script: ~defaultTransform /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:134:26
+      3   12.5%        LazyCompile: *TRIGParser.rdfLiteral /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2168:43
+      3  100.0%          LazyCompile: *TRIGParser.literal /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1942:40
+      2   66.7%            LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      1   33.3%            Script: ~TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      9    9.6%      LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      9  100.0%        LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      9  100.0%          LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      9  100.0%            LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      1    1.1%      LazyCompile: *Parser.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:113:34
+      1  100.0%        LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      1  100.0%          LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1  100.0%            LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      1    1.1%      LazyCompile: *BufferedTokenStream.fetch /Users/cborodic/github/js-trig-parser/node_modules/antlr4/BufferedTokenStream.js:135:47
+      1  100.0%        LazyCompile: *Parser.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:113:34
+      1  100.0%          LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      1  100.0%            LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+
+     93    2.2%  Builtin: ArrayMap
+     59   63.4%    LazyCompile: *createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+     35   59.3%      LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+     35  100.0%        Builtin: ArrayMap
+     35  100.0%          LazyCompile: *createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+     29   82.9%            LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+      5   14.3%            LazyCompile: *createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:45:22
+      1    2.9%            Script: ~createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:45:22
+     13   22.0%      LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+     13  100.0%        LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+     13  100.0%          LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+     12   92.3%            LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      1    7.7%            Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+     10   16.9%      LazyCompile: *createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:45:22
+     10  100.0%        LazyCompile: *<anonymous> /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:23:69
+     10  100.0%          LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+     10  100.0%            LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      1    1.7%      Script: ~createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:45:22
+      1  100.0%        Script: ~<anonymous> /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:23:69
+      1  100.0%          Script: ~DefaultTrigGrammerListener.enterEveryRule /Users/cborodic/github/js-trig-parser/src/listeners/DefaultGrammerListener.js:14:63
+      1  100.0%            Script: ~ParseTreeWalker.enterRule /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:204:47
+     34   36.6%    LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+     34  100.0%      Builtin: ArrayMap
+     26   76.5%        LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+     26  100.0%          Builtin: ArrayMap
+     21   80.8%            LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+      4   15.4%            LazyCompile: *createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+      1    3.8%            Script: ~createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+      5   14.7%        LazyCompile: *createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+      5  100.0%          LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      5  100.0%            LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      3    8.8%        Script: ~createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+      3  100.0%          Script: ~createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:45:22
+      3  100.0%            Script: ~<anonymous> /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:23:69
+
+     91    2.1%  t node::(anonymous namespace)::ContextifyScript::New(v8::FunctionCallbackInfo<v8::Value> const&)
+     91  100.0%    T v8::internal::Builtin_HandleApiCall(int, v8::internal::Object**, v8::internal::Isolate*)
+     48   52.7%      Script: ~runInThisContext bootstrap_node.js:507:28
+     48  100.0%        Script: ~NativeModule.compile bootstrap_node.js:593:44
+     48  100.0%          Script: ~NativeModule.require bootstrap_node.js:525:34
+     10   20.8%            Script: ~<anonymous> module.js:1:11
+      7   14.6%            Script: ~<anonymous> util.js:1:11
+      5   10.4%            Script: ~<anonymous> tty.js:1:11
+      3    6.3%            Script: ~setupGlobalVariables bootstrap_node.js:257:32
+      3    6.3%            Script: ~setupGlobalConsole bootstrap_node.js:316:30
+      3    6.3%            Script: ~<anonymous> stream.js:1:11
+      2    4.2%            Script: ~startup bootstrap_node.js:14:19
+      2    4.2%            Script: ~setupGlobalTimeouts bootstrap_node.js:306:31
+      2    4.2%            Script: ~<anonymous> readline.js:1:11
+      2    4.2%            Script: ~<anonymous> fs.js:1:11
+      2    4.2%            Script: ~<anonymous> crypto.js:1:11
+      1    2.1%            Script: ~setup_performance internal/process.js:12:27
+      1    2.1%            Script: ~setupNextTick internal/process/next_tick.js:45:23
+      1    2.1%            Script: ~createWritableStdioStream internal/process/stdio.js:142:35
+      1    2.1%            Script: ~<anonymous> internal/url.js:1:11
+      1    2.1%            Script: ~<anonymous> internal/trace_events_async_hooks.js:1:11
+      1    2.1%            Script: ~<anonymous> internal/loader/ModuleRequest.js:1:11
+      1    2.1%            Script: ~<anonymous> internal/crypto/pbkdf2.js:1:11
+     43   47.3%      Script: ~Script vm.js:46:14
+     43  100.0%        Script: ~createScript vm.js:137:22
+     43  100.0%          Script: ~runInThisContext vm.js:198:26
+     43  100.0%            Script: ~Module._compile module.js:617:37
+
+     90    2.1%  LazyCompile: *createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+     46   51.1%    LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+     46  100.0%      Builtin: ArrayMap
+     45   97.8%        LazyCompile: *createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+     41   91.1%          LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+     41  100.0%            Builtin: ArrayMap
+      4    8.9%          LazyCompile: *createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:45:22
+      4  100.0%            LazyCompile: *<anonymous> /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:23:69
+      1    2.2%        Script: ~createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+      1  100.0%          LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+      1  100.0%            Builtin: ArrayMap
+     18   20.0%    LazyCompile: *createSymbol /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:65:24
+     18  100.0%      LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+     18  100.0%        Builtin: ArrayMap
+     18  100.0%          LazyCompile: *createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+     15   83.3%            LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+      3   16.7%            LazyCompile: *createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:45:22
+     17   18.9%    LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+     17  100.0%      LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+     17  100.0%        LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+     13   76.5%          LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+     13  100.0%            LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      4   23.5%          Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      4  100.0%            Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      8    8.9%    LazyCompile: *createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:45:22
+      8  100.0%      LazyCompile: *<anonymous> /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:23:69
+      8  100.0%        LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      8  100.0%          LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      8  100.0%            LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      1    1.1%    Builtin: InterpreterEntryTrampoline
+      1  100.0%      LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      1  100.0%        LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      1  100.0%          LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      1  100.0%            LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+
+     83    2.0%  Builtin: StringPrototypeCharCodeAt
+     55   66.3%    LazyCompile: *_loadString /Users/cborodic/github/js-trig-parser/node_modules/antlr4/InputStream.js:14:21
+     55  100.0%      Script: ~InputStream /Users/cborodic/github/js-trig-parser/node_modules/antlr4/InputStream.js:37:21
+     37   67.3%        Script: ~parseTrig /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:58:19
+     37  100.0%          Script: ~defaultTransform /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:134:26
+     37  100.0%            Script: ~<anonymous> /Users/cborodic/github/js-trig-parser/src/temp-perf-test.js:1:11
+     18   32.7%        Script: ~<anonymous> /Users/cborodic/github/js-trig-parser/src/temp-perf-test.js:1:11
+     18  100.0%          Script: ~Module._compile module.js:617:37
+     18  100.0%            Script: ~Module._extensions..js module.js:669:37
+     28   33.7%    LazyCompile: *Parser.consume /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:376:36
+     28  100.0%      Script: ~InputStream /Users/cborodic/github/js-trig-parser/node_modules/antlr4/InputStream.js:37:21
+     28  100.0%        Script: ~parseTrig /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:58:19
+     28  100.0%          Script: ~defaultTransform /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:134:26
+     28  100.0%            Script: ~<anonymous> /Users/cborodic/github/js-trig-parser/src/temp-perf-test.js:1:11
+
+     77    1.8%  LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+     77  100.0%    Builtin: ArrayMap
+     63   81.8%      LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+     63  100.0%        Builtin: ArrayMap
+     48   76.2%          LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+     48  100.0%            Builtin: ArrayMap
+     12   19.0%          LazyCompile: *createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+     12  100.0%            LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      3    4.8%          Script: ~createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+      2   66.7%            Script: ~_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+      1   33.3%            Script: ~createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:45:22
+     12   15.6%      LazyCompile: *createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+      9   75.0%        LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      9  100.0%          LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      9  100.0%            LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      3   25.0%        LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+      3  100.0%          Builtin: ArrayMap
+      3  100.0%            LazyCompile: *createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+      2    2.6%      Script: ~createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+      2  100.0%        Script: ~_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+      2  100.0%          Builtin: ArrayMap
+      2  100.0%            Script: ~createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+
+     76    1.8%  LazyCompile: *_loadString /Users/cborodic/github/js-trig-parser/node_modules/antlr4/InputStream.js:14:21
+     70   92.1%    Script: ~InputStream /Users/cborodic/github/js-trig-parser/node_modules/antlr4/InputStream.js:37:21
+     38   54.3%      Script: ~<anonymous> /Users/cborodic/github/js-trig-parser/src/temp-perf-test.js:1:11
+     38  100.0%        Script: ~Module._compile module.js:617:37
+     38  100.0%          Script: ~Module._extensions..js module.js:669:37
+     38  100.0%            Script: ~Module.load module.js:564:33
+     32   45.7%      Script: ~parseTrig /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:58:19
+     32  100.0%        Script: ~defaultTransform /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:134:26
+     32  100.0%          Script: ~<anonymous> /Users/cborodic/github/js-trig-parser/src/temp-perf-test.js:1:11
+     32  100.0%            Script: ~Module._compile module.js:617:37
+      6    7.9%    LazyCompile: *Parser.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:113:34
+      4   66.7%      LazyCompile: *TRIGParser.iri /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2262:36
+      2   50.0%        LazyCompile: *TRIGParser.verb /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1610:37
+      2  100.0%          LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      2  100.0%            LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      2   50.0%        LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      2  100.0%          LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      2  100.0%            LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      1   16.7%      LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      1  100.0%        LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1  100.0%          LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      1  100.0%            LazyCompile: *TRIGParser.wrappedGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:746:45
+      1   16.7%      LazyCompile: *TRIGParser.labelOrSubject /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:614:47
+      1  100.0%        LazyCompile: *TRIGParser.block /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:436:38
+      1  100.0%          LazyCompile: *TRIGParser.trigDoc /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:331:40
+      1  100.0%            Script: ~parseTrig /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:58:19
+
+     74    1.7%  KeyedLoadIC: A keyed load IC from the snapshot
+     61   82.4%    LazyCompile: *LexerATNSimulator.execATN /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/LexerATNSimulator.js:145:47
+     34   55.7%      LazyCompile: *BufferedTokenStream.fetch /Users/cborodic/github/js-trig-parser/node_modules/antlr4/BufferedTokenStream.js:135:47
+     34  100.0%        LazyCompile: *Parser.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:113:34
+     17   50.0%          LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+     15   88.2%            LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      2   11.8%            Script: ~TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      9   26.5%          LazyCompile: *TRIGParser.iri /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2262:36
+      6   66.7%            LazyCompile: *TRIGParser.verb /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1610:37
+      2   22.2%            LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      1   11.1%            LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      7   20.6%          LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      5   71.4%            LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      2   28.6%            Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1    2.9%          Script: ~TRIGParser.wrappedGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:746:45
+      1  100.0%            Script: ~TRIGParser.triplesOrGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:533:47
+     26   42.6%      LazyCompile: *_loadString /Users/cborodic/github/js-trig-parser/node_modules/antlr4/InputStream.js:14:21
+     26  100.0%        LazyCompile: *Parser.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:113:34
+     16   61.5%          LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+     16  100.0%            LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      6   23.1%          LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      6  100.0%            LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      4   15.4%          LazyCompile: *TRIGParser.iri /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2262:36
+      2   50.0%            LazyCompile: *TRIGParser.verb /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1610:37
+      1   25.0%            LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1   25.0%            LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      1    1.6%      Script: ~LexerATNSimulator.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/LexerATNSimulator.js:95:45
+      1  100.0%        LazyCompile: *BufferedTokenStream.consume /Users/cborodic/github/js-trig-parser/node_modules/antlr4/BufferedTokenStream.js:93:49
+      1  100.0%          Script: ~Parser.consume /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:376:36
+      1  100.0%            LazyCompile: *TRIGParser.wrappedGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:746:45
+     12   16.2%    LazyCompile: *Lexer.nextToken /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Lexer.js:103:37
+     10   83.3%      LazyCompile: *Parser.consume /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:376:36
+      5   50.0%        LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      4   80.0%          LazyCompile: *TRIGParser.wrappedGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:746:45
+      2   50.0%            Script: ~TRIGParser.triplesOrGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:533:47
+      2   50.0%            LazyCompile: *TRIGParser.block /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:436:38
+      1   20.0%          LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      1  100.0%            LazyCompile: *TRIGParser.wrappedGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:746:45
+      3   30.0%        LazyCompile: *TRIGParser.wrappedGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:746:45
+      3  100.0%          LazyCompile: *TRIGParser.block /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:436:38
+      2   66.7%            LazyCompile: *TRIGParser.trigDoc /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:331:40
+      1   33.3%            Script: ~TRIGParser.trigDoc /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:331:40
+      2   20.0%        Script: ~Parser.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:113:34
+      1   50.0%          Script: ~TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      1  100.0%            Script: ~TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      1   50.0%          LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      1  100.0%            Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      2   16.7%      Script: ~BufferedTokenStream.fetch /Users/cborodic/github/js-trig-parser/node_modules/antlr4/BufferedTokenStream.js:135:47
+      2  100.0%        LazyCompile: *Parser.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:113:34
+      2  100.0%          LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      2  100.0%            LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      1    1.4%    Script: ~LexerATNSimulator.getReachableConfigSet /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/LexerATNSimulator.js:278:61
+      1  100.0%      Script: ~LexerATNSimulator.computeTargetState /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/LexerATNSimulator.js:241:58
+      1  100.0%        Script: ~LexerATNSimulator.execATN /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/LexerATNSimulator.js:145:47
+      1  100.0%          Script: ~LexerATNSimulator.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/atn/LexerATNSimulator.js:95:45
+      1  100.0%            Script: ~Lexer.nextToken /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Lexer.js:103:37
+
+     56    1.3%  LazyCompile: *Lexer.nextToken /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Lexer.js:103:37
+     48   85.7%    LazyCompile: *Parser.consume /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:376:36
+     14   29.2%      LazyCompile: *TRIGParser.wrappedGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:746:45
+     10   71.4%        LazyCompile: *TRIGParser.block /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:436:38
+      7   70.0%          LazyCompile: *TRIGParser.trigDoc /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:331:40
+      7  100.0%            Script: ~parseTrig /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:58:19
+      3   30.0%          Script: ~TRIGParser.trigDoc /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:331:40
+      3  100.0%            Script: ~parseTrig /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:58:19
+      4   28.6%        Script: ~TRIGParser.triplesOrGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:533:47
+      4  100.0%          Script: ~TRIGParser.block /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:436:38
+      4  100.0%            Script: ~TRIGParser.trigDoc /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:331:40
+     13   27.1%      Script: ~Parser.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:113:34
+      4   30.8%        Script: ~TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      4  100.0%          Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      4  100.0%            Script: ~TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      2   15.4%        Script: ~TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      2  100.0%          Script: ~TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      2  100.0%            Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      2   15.4%        Script: ~TRIGParser.iri /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2262:36
+      2  100.0%          LazyCompile: *TRIGParser.verb /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1610:37
+      2  100.0%            LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      2   15.4%        LazyCompile: *TRIGParser.iri /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2262:36
+      1   50.0%          LazyCompile: *TRIGParser.verb /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1610:37
+      1  100.0%            LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      1   50.0%          LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      1  100.0%            Script: ~TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      1    7.7%        Script: ~TRIGParser.wrappedGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:746:45
+      1  100.0%          Script: ~TRIGParser.triplesOrGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:533:47
+      1  100.0%            Script: ~TRIGParser.block /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:436:38
+      1    7.7%        Script: ~TRIGParser.rdfLiteral /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2168:43
+      1  100.0%          Script: ~TRIGParser.literal /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1942:40
+      1  100.0%            Script: ~TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      1    7.7%        LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      1  100.0%          Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1  100.0%            Script: ~TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+     11   22.9%      LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+     10   90.9%        LazyCompile: *TRIGParser.wrappedGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:746:45
+      8   80.0%          LazyCompile: *TRIGParser.block /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:436:38
+      6   75.0%            LazyCompile: *TRIGParser.trigDoc /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:331:40
+      2   25.0%            Script: ~TRIGParser.trigDoc /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:331:40
+      2   20.0%          Script: ~TRIGParser.triplesOrGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:533:47
+      2  100.0%            Script: ~TRIGParser.block /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:436:38
+      1    9.1%        LazyCompile: *TRIGParser.triplesBlock /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:819:45
+      1  100.0%          Script: ~TRIGParser.wrappedGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:746:45
+      1  100.0%            Script: ~TRIGParser.triplesOrGraph /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:533:47
+     10   20.8%      LazyCompile: *TRIGParser.rdfLiteral /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2168:43
+     10  100.0%        LazyCompile: *TRIGParser.literal /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1942:40
+     10  100.0%          LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+     10  100.0%            LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      8   14.3%    Script: ~BufferedTokenStream.fetch /Users/cborodic/github/js-trig-parser/node_modules/antlr4/BufferedTokenStream.js:135:47
+      6   75.0%      LazyCompile: *Parser.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:113:34
+      3   50.0%        LazyCompile: *TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      3  100.0%          LazyCompile: *TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      3  100.0%            LazyCompile: *TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      2   33.3%        Script: ~TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      2  100.0%          Script: ~TRIGParser.predicateObjectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1450:52
+      2  100.0%            Script: ~TRIGParser.triples /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1347:40
+      1   16.7%        LazyCompile: *TRIGParser.iri /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:2262:36
+      1  100.0%          LazyCompile: *TRIGParser.object /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1844:39
+      1  100.0%            Script: ~TRIGParser.objectList /Users/cborodic/github/js-trig-parser/src/antlr-trig/TRIGParser.js:1538:43
+      2   25.0%      Script: ~BufferedTokenStream.sync /Users/cborodic/github/js-trig-parser/node_modules/antlr4/BufferedTokenStream.js:122:46
+      2  100.0%        Script: ~BufferedTokenStream.consume /Users/cborodic/github/js-trig-parser/node_modules/antlr4/BufferedTokenStream.js:93:49
+      2  100.0%          Script: ~Parser.consume /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:376:36
+      2  100.0%            Script: ~Parser.match /Users/cborodic/github/js-trig-parser/node_modules/antlr4/Parser.js:113:34
+
+     55    1.3%  LazyCompile: *createSymbol /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:65:24
+     38   69.1%    LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+     38  100.0%      Builtin: ArrayMap
+     38  100.0%        LazyCompile: *createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+     29   76.3%          LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+     29  100.0%            Builtin: ArrayMap
+      9   23.7%          LazyCompile: *createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:45:22
+      9  100.0%            LazyCompile: *<anonymous> /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:23:69
+     16   29.1%    LazyCompile: *createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:45:22
+     16  100.0%      LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+     16  100.0%        LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+     15   93.8%          LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+     15  100.0%            LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      1    6.3%          Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      1  100.0%            Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      1    1.8%    Script: ~createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:45:22
+      1  100.0%      Script: ~<anonymous> /Users/cborodic/github/js-trig-parser/src/trig-loaders.js:25:16
+      1  100.0%        Script: ~DefaultTrigGrammerListener.visitTerminal /Users/cborodic/github/js-trig-parser/src/listeners/DefaultGrammerListener.js:19:62
+      1  100.0%          Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      1  100.0%            Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+
+     49    1.2%  Builtin: StringPrototypeSubstring
+     26   53.1%    LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+     25   96.2%      Builtin: ArrayMap
+     21   84.0%        LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+     21  100.0%          Builtin: ArrayMap
+     12   57.1%            LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+      6   28.6%            LazyCompile: *createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+      3   14.3%            Script: ~createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+      4   16.0%        LazyCompile: *createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+      4  100.0%          LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      4  100.0%            LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      1    3.8%      LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+      1  100.0%        Builtin: ArrayMap
+      1  100.0%          LazyCompile: *createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+      1  100.0%            LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+     17   34.7%    LazyCompile: *substringCached /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:17:33
+     16   94.1%      LazyCompile: *createSymbol /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:65:24
+     10   62.5%        LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+     10  100.0%          Builtin: ArrayMap
+      9   90.0%            LazyCompile: *createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+      1   10.0%            Script: ~createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+      6   37.5%        LazyCompile: *createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:45:22
+      6  100.0%          LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      6  100.0%            LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      1    5.9%      LazyCompile: *createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+      1  100.0%        LazyCompile: *_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+      1  100.0%          Builtin: ArrayMap
+      1  100.0%            LazyCompile: *createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+      3    6.1%    LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      2   66.7%      LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      2  100.0%        LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      2  100.0%          LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      2  100.0%            LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      1   33.3%      Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      1  100.0%        Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      1  100.0%          Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      1  100.0%            Script: ~ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      2    4.1%    LazyCompile: *createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+      2  100.0%      LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      2  100.0%        LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      2  100.0%          LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      2  100.0%            LazyCompile: *ParseTreeWalker.walk /Users/cborodic/github/js-trig-parser/node_modules/antlr4/tree/Tree.js:182:42
+      1    2.0%    Script: ~substringCached /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:17:33
+      1  100.0%      Script: ~createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+      1  100.0%        Script: ~_createNode /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:59:23
+      1  100.0%          Builtin: ArrayMap
+      1  100.0%            Script: ~createExpression /Users/cborodic/github/js-trig-parser/src/tree-consumers/tree-transform-helpers.js:21:28
+

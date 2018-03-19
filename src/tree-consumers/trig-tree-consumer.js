@@ -50,7 +50,15 @@ module.exports = function (trig, parser, options) {
   }
 
   function expandIRIString (str, prefixMap, returnOnUnseen) {
-    var prefixMatches = uriUtils.getPrefix(str);
+
+    
+    var prefixMatches = null;
+    try{
+      prefixMatches = uriUtils.getPrefix(str);
+    } catch(e){
+
+    }
+     
     if (prefixMatches === null || prefixMatches.length === 0) {
       var error = new Error('No prefix found for: ' + str);
       error.type = 'noPrefixFound';
@@ -79,6 +87,12 @@ module.exports = function (trig, parser, options) {
         var iriResult = uriUtils.toURI(_spo.children[0].token);
         return uriUtils.toURI(_spo.children[0].token);
       case 'prefixedname':
+        //invalid iri: already an 
+        if(!_spo.token && _spo.message){
+          errors.push(createErrorFromNode(_spo, _spo.message, _spo.len))
+          return null;
+        }
+
         try {
           return expandIRIString(_spo.token, prefixMap);
         } catch (e) {
@@ -87,7 +101,6 @@ module.exports = function (trig, parser, options) {
 
           }else if (e.type === 'noPrefixFound') {
             var token = _spo.token;
-            console.log('trace')
             errors.push(createErrorFromNode(token, e.message, e.len));
           }
           return _spo.token
@@ -205,7 +218,7 @@ module.exports = function (trig, parser, options) {
           if(hasLangTagIdentifier){
             return {
               literalState: LITERAL_STATES.UNPROCESSED_LITERAL,
-              type: "LANGTAGED-LITERAL",
+              type: "LANGTAG",
               value: stringLit,
               source: literal.children[0]
             };
@@ -238,7 +251,9 @@ module.exports = function (trig, parser, options) {
     var _uri = uriUtils.ensureSlashEnd(uriUtils.toURI(subject.token));
     var bnodeId = _uri + uuid.v4();
     tempResults.forEach(function(tresult){
-      results.push(createTriple(bnodeId, tresult._v, tresult._o));
+      let tempTriple = createTriple(bnodeId, tresult._v, tresult._o)
+      if(tempTriple)
+        results.push(tempTriple);
     });
 
     return bnodeId;
@@ -274,7 +289,11 @@ module.exports = function (trig, parser, options) {
         break;
     }
     if(object && object.type !== 'PN_PREFIX'){
-      results.push(createTriple(subject, predicate, object));
+      let maybeTriple = createTriple(subject, predicate, object)
+      if(maybeTriple){
+        results.push(maybeTriple);
+
+      }
     }
   }
 
@@ -302,6 +321,30 @@ module.exports = function (trig, parser, options) {
   }
 
 
+  let objectTypes = {
+    'iri' : true,
+    'BlankNode': true,
+    'String': true,
+    'IRIREF': true,
+    'prefixedname': true,
+    'PNAME_LN': true,
+    'collection': true,
+    'literal': true,
+    'NumericLiteral': true,
+    'PN_PREFIX' : true,
+    'INTEGER': true,
+    'DECIMAL': true,
+    'LANGTAG': true,
+    'UNPROCESSED_IRI_LITERAL': true,
+  }
+
+  function isInValidObjectType(token){
+    if(token && typeof token === 'string' || token.iriLiteralType){
+      return false 
+    }
+    
+    return !token || !token.type || !(token.type in objectTypes)
+  }
 
   function createTriple(s, v, o){
 
@@ -309,7 +352,10 @@ module.exports = function (trig, parser, options) {
     s = flattenSPO(s);
     p = flattenSPO(p);
     o = flattenSPO(o);
-
+    if(isInValidObjectType(o)){
+      return null
+    }
+    
     return {
       iriSubject: s.token, //uriUtils.tryConvertToURI(s.token),
       iriPredicate: p.token, //uriUtils.tryConvertToURI(p.token),
@@ -386,9 +432,9 @@ module.exports = function (trig, parser, options) {
               child.type === '\'.\'' ||
               child.type === '\',\''){
         objects.forEach(function(object){
-          if(object.type !== "PN_PREFIX"){
-            results.push(createTriple(subject, predicate, object));
-          }
+            let maybeTriple = createTriple(subject, predicate, object)
+            if(maybeTriple)
+              results.push(maybeTriple)
         });
 
         predicate = null;
@@ -468,6 +514,11 @@ module.exports = function (trig, parser, options) {
       
         applyPrefixes: function(prefixMap){
           var errors = [];
+
+           if(!this.uri.token && this.uri.message){
+              errors.push(createErrorFromNode(this.uri.token, this.uri.message, this.uri.len))
+              return null;
+          }
           try{
               this.uri = expandIRIString(this.uri, prefixMap);
           }catch(e){

@@ -258,7 +258,6 @@ describe('Trig File Tests - ', function() {
         tryLoadTrig(path.resolve('other', 'any-uri.trig'), function(err, doc) {
           if (err) throw err;
           var stmts = doc.getStatements();
-          console.log(stmts[0].object)
           expect(stmts[0].object).equals('http://flixray.com/movie_reviews/No-Country-for-Old-Men.html');
           done();
         });
@@ -273,12 +272,16 @@ describe('Trig File Tests - ', function() {
       it('Handles rdf collections', function(done) {
         tryLoadTrig(path.resolve('other', 'rdf-collections.trig'), function(err, doc) {
           if (err) throw err;
+
           expect(doc.getStatements()[0].object).equals('http://example.org/foo/a');
           expect(doc.getStatements()[0].predicate).equals('http://example.org/foo/predicate');
           expect(doc.getStatements()[0].subject).equals('http://example.org/foo/subject');
           expect(doc.getStatements()[1].object).equals('http://example.org/foo/b');
+
           expect(doc.getStatements()[2].object).equals('http://example.org/foo/c');
+
           done();
+
 
 
         });
@@ -319,6 +322,9 @@ describe('Trig File Tests - ', function() {
           expect(doc.getStatements()[1].object).equals(9007199254740990);
           expect(doc.getStatements()[2].object).equals(1.1);
           expect(doc.getStatements()[3].object).equals(9007199254740992);
+          expect(doc.getStatements()[4].object).equals(1.1);
+          expect(doc.getStatements()[5].object).equals(1);
+          expect(doc.getStatements()[6].object).equals(-1);
           done();
         });
 
