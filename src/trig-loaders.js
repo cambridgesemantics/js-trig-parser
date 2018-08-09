@@ -18,7 +18,7 @@ try {
 
 }
 
-var transformTreeAndGetRules = function(docStr, trig){
+function transformTreeAndGetRules(docStr, trig){
     var helpers = treeTransformHelpers(docStr, trig.parser);
     var listener = new DefaultGrammerListener(docStr, trig, function(rule){
       return helpers.createNode(rule);
@@ -26,16 +26,26 @@ var transformTreeAndGetRules = function(docStr, trig){
       return helpers.createNode(terminal);
     });
 
-    antlr4.tree.ParseTreeWalker.DEFAULT.walk(listener, trig.tree);
+      antlr4.tree.ParseTreeWalker.DEFAULT.walk(listener, trig.tree);
     return {
       syntaxErrors: trig.syntaxErrors,
-      errors: listener.errors,
+      errors: listener.errors.map(x => {
+
+        return {
+          offendingToken: x.parentCtx.exception ? x.parentCtx.exception.offendingToken : null,
+          text: x.symbol.text,
+          line: x.symbol.line,
+          column: x.symbol.column,
+          msg: x.symbol._text,
+          err: x 
+        };
+      }),
       expressions: listener.expressions,
       terminals: listener.terminals
     };
 };
 
-var replaceBadPrefixes = function(trigStr){
+function replaceBadPrefixes(trigStr){
   (trigStr.match(selectPrefixes) || []).forEach(function(prefix){
     (prefix.match(trimPrefixNameWhitespace) || []).forEach(function(match){
       trigStr = trigStr.replace(match, match.replace(removeWhitespace, ':'));
@@ -45,15 +55,6 @@ var replaceBadPrefixes = function(trigStr){
 };
 
 
-/**
- * EBNF rule names to human readable names.
- * @param  {[type]} msg [description]
- * @return {[type]}     [description]
- */
-function formatSyntaxErrorMessage(msg){
-  msg = msg.replace('PNAME_NS', 'Prefix Namespace Declaration');
-  return msg;
-}
 
 function parseTrig(data, options){
     options = options || { printSyntaxErrors: false }
@@ -91,6 +92,7 @@ function parseTrig(data, options){
     lexer.addErrorListener(e_listener);
     parser.addErrorListener(e_listener);
     parser.buildParseTrees = true;
+    
     return {
       tree: parser.trigDoc(),
       parser: parser,
@@ -138,9 +140,17 @@ function defaultTransform(data, options){
 }
 
 function defaultTransformFromFile(fn, cb){
+  
     fs.readFile(fn, 'utf-8', function(err, content){
       if(err) cb(err);
-      cb(null, defaultTransform(content));
+      try{
+        let results = defaultTransform(content)
+        cb(null, defaultTransform(results));
+      }catch(e){
+        console.error("Error parsing trig file: " + fn)
+        console.error(e)
+        cb(e);
+      }
     });
 }
 

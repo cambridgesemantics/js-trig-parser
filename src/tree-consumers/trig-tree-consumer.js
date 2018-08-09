@@ -62,7 +62,7 @@ module.exports = function (trig, parser, options) {
     if (prefixMatches === null || prefixMatches.length === 0) {
       var error = new Error('No prefix found for: ' + str);
       error.type = 'noPrefixFound';
-      error.len = str.length;
+      error.len = str ? str.length: 0;
       throw error;
     }
 
@@ -378,18 +378,24 @@ module.exports = function (trig, parser, options) {
       },
       finalize: function(bnodeMap){
         if(this.subject in bnodeMap){
-          this.subject = bnodeMap[this.subject]; 
           this.iriSubject = bnodeMap[this.subject];
+          this.subject = bnodeMap[this.subject]; 
         }
-        if(this.predicate in bnodeMap){ this.predicate = bnodeMap[this.predicate];}
-        if(this.object in bnodeMap){ this.object = bnodeMap[this.object];}
+        if(this.predicate in bnodeMap){ 
+            this.iriPredicate = bnodeMap[this.predicate];
+            this.predicate = bnodeMap[this.predicate];
+        }
+        if(this.object in bnodeMap){ 
+            this.iriObject = bnodeMap[this.object];
+            this.object = bnodeMap[this.object];
+        }
 
 				delete this['applyPrefixes']
 				delete this['_graph']
 				delete this['finalize']
 				delete this._o['source']
 				delete this['_v']
-				delete this.iriObject['source']
+				// if(_.isString(this.iriObject)) delete this.iriObject['source']
 				cleanToken(this._g)
 				cleanToken(this._p)
 				cleanToken(this._s)
@@ -598,7 +604,8 @@ module.exports = function (trig, parser, options) {
           if(this.finalized) throw new Error('Graph finalized');
           triples = triples.map(function(triple){
               //no type as they are fabricated not parsed
-              return finalizeBnodes(triple);
+              let finalized = finalizeBnodes(triple);
+              return finalized;
           })
           var bnodeTriples = triples.filter(function(triple){
               return triple._s.type == 'BlankNode';
@@ -615,9 +622,14 @@ module.exports = function (trig, parser, options) {
 
           this.bnodeMap = Object.keys(uuids).reduce(function(acc, bNode){
             var uuid = acc[bNode];
-            var iriExpanded = expandIRIString(this.iri, prefixMap, true)
-            var _uri = iriExpanded[iriExpanded.length - 1] === '/' ? this.uri : this.uri + '/';
-            acc[bNode] = _uri + uuid;
+            try{
+              let iriVal= iri.token || iri;
+              var iriExpanded = expandIRIString(iriVal, prefixMap, true)
+              var _uri = iriExpanded[iriExpanded.length - 1] === '/' ? this.uri : this.uri + '/';
+              acc[bNode] = _uri + uuid;
+            }catch(e){
+              console.error(e)
+            }
             return acc;
           }.bind(this),uuids);
           triples.forEach(function(triple){
@@ -632,10 +644,10 @@ module.exports = function (trig, parser, options) {
 
   function finalizeBnodes(triple){
       if(!triple._s.type){
-          triple._s = { type: 'BlankNode', token: triple._s, pos: triple._p.pos }
+          triple._s = { type: 'BlankNode', token: triple.subject, pos: triple._p.pos }
       }
       if(!triple._o.type){
-          triple._o = { type: 'BlankNode', token: triple._o, pos: triple._p.pos }
+          triple._o = { type: 'BlankNode', token: triple.object, pos: triple._p.pos }
       }
       return triple
   }

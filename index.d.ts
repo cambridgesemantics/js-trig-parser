@@ -23,19 +23,29 @@ export interface IParsedPrefixValue extends IPrefixValue{
     file?: string
 }
 
-export interface ISyntaxError{
+export interface ISyntaxError {
+    err: any
     msg: string
     line: number
     column:number
     offendingToken: ICommonToken
 }
 
+export interface IAnalysisError {
+    len: number
+    column: number
+    line: number
+    message: string
+    start: number
+    stop: number
+}
+
 export interface TrigDoc{
     prefixes: IPrefixMap<IParsedPrefixValue>
     graphs: IParsedGraph[]
-    errors: any[]
+    errors: ISyntaxError[]
     syntaxErrors: ISyntaxError[]
-    analysisErrors: any[]
+    analysisErrors: IAnalysisError[]
     macros: any
     getStatements(): IParsedStatement[]
 

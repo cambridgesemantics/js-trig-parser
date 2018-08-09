@@ -4,7 +4,7 @@ var TrigGrammerListener = function(trigStr, trig, ruleHandler, options) {
   this.parser = trig.parser;
   this.ruleHandler = ruleHandler;
   this.prefixMap = { _prefixes: {}};
-  this.prefixSymbolMap = { };
+  this.prefixSymbolMap = {};
   var prefixUsageMap = {};
   this.prefixMap.get = function(prefixName){
     if(!(prefixName in this.prefixMap._prefixes)) return undefined;
@@ -16,14 +16,15 @@ var TrigGrammerListener = function(trigStr, trig, ruleHandler, options) {
     if(this.finalized) throw new Error("Listener fired after finalization.");
     this.prefixMap._prefixes[prefix.name] = prefix;
     this.prefixSymbolMap[prefix.name] = ctx;
-  }.bind(this)
-  this.prefixMap.getUnusedAsError = function(prefixName){
+      }.bind(this)
+  this.prefixMap.getUnusedAsError = function(){
     return Object.keys(this.prefixMap._prefixes).filter(function(prefix){
       return !prefixUsageMap[prefix]
     }.bind(this)).map(function(prefix){
-      prefix = this.prefixMap._prefixes[prefix]
-      return this.ruleHandler.createErrorFromNode(prefix.name_symbol,
-         "Unused prefix: " + prefix.name, prefix.name.length);
+     let prefixObj = this.prefixMap._prefixes[prefix]
+
+      return this.ruleHandler.createErrorFromNode(prefixObj.name_symbol,
+         "Unused prefix: " + prefixObj.name, prefixObj.name.length);
     }.bind(this))
   }.bind(this)
 
@@ -98,8 +99,7 @@ TrigGrammerListener.prototype.finalize = function(){
     errors = errors.concat(unusedPrefixes)
     return errors;
   }catch(e){
-    console.error("Error finalizing trig doc")
-    console.error(e);
+    throw e;
   }
 };
 
