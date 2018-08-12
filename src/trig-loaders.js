@@ -106,11 +106,12 @@ function graphsFromFile(fn, cb){
         if(err) cb(err);
         try{
           var result = graphsFromString(content);
-          cb(null, result);
         }
         catch(e){
           cb(e);
         }
+
+        cb(null, result);
     });
 }
 

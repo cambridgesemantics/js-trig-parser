@@ -57,8 +57,10 @@ TrigGrammerListener.prototype.handleGraphTriples = function(rootTriplesBlock, ir
     var flattenedTriples = this.flattenTriplesBlock(rootTriplesBlock);
 
     if(iri){
+
       this.graphs.push(this.ruleHandler.handleGraph(flattenedTriples, iri, graphToken));
     }else{
+
       flattenedTriples.forEach(function(triplesBlock){
         triplesBlock.children.forEach(function(triples){
           if(!triples.children && triples.symbol.type === 2){
@@ -76,6 +78,7 @@ TrigGrammerListener.prototype.handleGraphTriples = function(rootTriplesBlock, ir
 }
 
 TrigGrammerListener.prototype.flattenTriplesBlock = function(triplesBlock, results){
+    if(!triplesBlock || triplesBlock.length === 0) return  []
   results = results || [ triplesBlock ];
   triplesBlock.children.forEach(function(child, i){
     var ruleName = this.parser.ruleNames[child.ruleIndex];

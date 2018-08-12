@@ -77,12 +77,13 @@ describe('Trig File Tests - ', function() {
       var fn = path.resolve('validation', 'prefix-not-found.trig');
       it('handles prefix not found', function(done){
         tryLoadTrig(fn, function(err, doc) {
-          expect(doc.analysisErrors.length).equals(3);
+            if(err) console.error(err)
+          expect(doc.analysisErrors.length).equals(4);
           done();
         });
       });
 
-      it('Handles broken graphs', function(done){
+      it.only('Handles broken graphs', function(done){
         var fn = path.resolve('validation', 'broken-graph.trig');
         tryLoadTrig(fn, function(err, doc) {
           expect(doc.errors.length).equals(2)
@@ -351,6 +352,7 @@ describe('Trig File Tests - ', function() {
       it('Handles unknown iri literals', function(done) {
         tryLoadTrig(path.resolve('other', 'unknown-iri-literal.trig'), function(err, doc) {
           if (err) throw err;
+
           expect(doc.getStatements()[0].object).equals('somecoolliteral');
           var iriType = doc.getStatements()[0].iriObject.type
           expect(iriType).equals('http://g.com/fix');
@@ -362,10 +364,11 @@ describe('Trig File Tests - ', function() {
       it('Handles raw lists', function(done) {
         tryLoadTrig(path.resolve('other', 'raw-list.trig'), function(err, doc) {
           if (err) throw err;
+
           expect(doc.getStatements().length).equals(6);
-          expect(doc.getStatements()[0].object).equals(1);
           expect(doc.getStatements()[1].iriPredicate).equals('rdf:rest');
-          expect(doc.getStatements()[0].iriSubject).equals('_:b0');
+          expect(doc.getStatements()[1].object).equal(doc.getStatements()[2].subject)
+          expect(doc.getStatements()[3].object).equal(doc.getStatements()[4].subject)
           expect(doc.getStatements()[5].iriObject).equals('rdf:nil');
           done();
         });

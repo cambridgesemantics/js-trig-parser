@@ -1,5 +1,5 @@
 var sUtils = require('./str-utils');
-var isPrefixedIRI = new RegExp('[A-Za-z1-9]*:[A-Za-z1-9]*');
+var  PN_CHARS_BASE_EXP = /^([a-z|A-Z|0-9|_|.|-]+)?:([a-z|A-Z|0-9|_|.|-])*$/ 
 var selectPrefixName = new RegExp('^(.*?:)');
 
 module.exports = {
@@ -9,11 +9,11 @@ module.exports = {
   },
   isURI: function(str){
       if(typeof str !== 'string') return false;
-      return str.indexOf(" ") === -1 && str.indexOf(":") !== -1;
+      return str.indexOf(" ") === -1 && str.indexOf("://") !== -1;
   },
   isPrefixedIRI: function(iri){
-    if(typeof str !== 'string') return false;
-    return iri.test(isPrefixedIRI);
+    if(typeof iri !== 'string') return false;
+    return PN_CHARS_BASE_EXP.test(iri)
   },
   toURI: function(iri){
     if(typeof iri !== 'string') return false;

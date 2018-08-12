@@ -34,7 +34,7 @@ module.exports = function (trig, parser, options) {
       column: node.pos.column,
       start: node.start,
       stop: node.stop,
-      len: len
+      len: len 
     };
   }
 
@@ -60,7 +60,7 @@ module.exports = function (trig, parser, options) {
     }
      
     if (prefixMatches === null || prefixMatches.length === 0) {
-      var error = new Error('No prefix found for: ' + str);
+      let error = new Error('No prefix found for: ' + str);
       error.type = 'noPrefixFound';
       error.len = str ? str.length: 0;
       throw error;
@@ -69,7 +69,7 @@ module.exports = function (trig, parser, options) {
     var prefix = prefixMatches[0];
     if (!prefixMap.get(prefix)) {
       if (returnOnUnseen) return uriUtils.toURI(str);
-      error = new Error('Prefix not declared: ' + prefix);
+      let error = new Error('Prefix not declared: ' + prefix);
       error.type = 'prefixNotDeclared';
       error.len = prefix.length;
       throw error;
@@ -84,7 +84,6 @@ module.exports = function (trig, parser, options) {
       case 'IRIREF':
           return uriUtils.toURI(_spo.token);
       case 'iri':
-        var iriResult = uriUtils.toURI(_spo.children[0].token);
         return uriUtils.toURI(_spo.children[0].token);
       case 'prefixedname':
         //invalid iri: already an 
@@ -100,11 +99,12 @@ module.exports = function (trig, parser, options) {
             errors.push(createErrorFromNode(_spo, e.message, e.len));
 
           }else if (e.type === 'noPrefixFound') {
-            var token = _spo.token;
+            let token = _spo.token;
             errors.push(createErrorFromNode(token, e.message, e.len));
           }
           return _spo.token
         }
+        break;
 
       case '\'a\'':
         return "http://www.w3.org/1999/02/22-rdf-syntax-ns#type";
@@ -120,7 +120,6 @@ module.exports = function (trig, parser, options) {
   function handleObjectList(subject, predicate, objectList, results){
     return objectList.children.forEach(function(olItem){
       switch(olItem.type){
-
         case 'object':
           handleObject(subject, predicate, olItem, results);
           break;
@@ -494,6 +493,7 @@ module.exports = function (trig, parser, options) {
         //pos: (_graph && _graph.pos) || {line: 0, column: 0},
 
         finalize: function(prefixMap){
+
           var errors = [];
 
           errors = errors.concat(this.applyPrefixes(prefixMap));
@@ -526,10 +526,17 @@ module.exports = function (trig, parser, options) {
               return null;
           }
           try{
-              this.uri = expandIRIString(this.uri, prefixMap);
+              if(uriUtils.isPrefixedIRI(this.uri)){
+                this.uri = expandIRIString(this.uri, prefixMap);
+              }
           }catch(e){
               if(e.type === 'invalidIri'){
-                errors.push(createErrorFromNode(this._iri, e.message, this.iri.len));
+                errors.push(createErrorFromNode(iri, e.message, iri.token.length));
+              }
+              if(e.type === 'prefixNotDeclared'){
+                  if(iri.pos){
+                    errors.push(createErrorFromNode(iri, e.message, iri.token.length));
+                  }
               }
           }
 
