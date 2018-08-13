@@ -173,9 +173,9 @@ module.exports = function (trig, parser, options) {
         throw new Error("Invalid URI in anyURI literal: " + str)
         break;
       case 'xsd:date':
-        return moment(str, 'YYYY-MM-DDZ');
+        return moment(str, 'YYYY-MM-DD[Z]');
       case 'xsd:dateTime':
-        return moment(str, 'YYYY-MM-DD HH:mm:ss Z');
+        return moment(str, 'YYYY-MM-DD HH:mm:ss [Z]');
 
       //TODO: validation of these types
       case 'xsd:int':
