@@ -218,7 +218,7 @@ STRING_LITERAL_LONG_QUOTE
 
 
 STRING_LITERAL_QUOTE
-   : '"' (~ ['"''\\''\r''\n'] | '\'' | '\\"')* '"'
+   : '"' (~ ['"''\\''\r''\n'] | ECHAR | UCHAR | '\'' | '\\"')* '"'
    ;
 
 
