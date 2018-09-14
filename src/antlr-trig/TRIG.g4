@@ -4,7 +4,7 @@ grammar TRIG;
 trigDoc
    : ( directive
    | block
-   | macro)*
+   | macro)* EOF
    ;
 
 block
@@ -253,7 +253,7 @@ UCHAR
 
 
 ECHAR
-   : '\\' [tbnrf"\'\\]
+   : '\\' [tbnrf"'\\]
    ;
 
 

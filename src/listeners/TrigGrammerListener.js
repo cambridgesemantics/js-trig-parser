@@ -1,5 +1,6 @@
 
-var TrigGrammerListener = function(trigStr, trig, ruleHandler, options) {
+var TrigGrammerListener = function(trigStr, trig, ruleHandler, treeTransformHelpers, options) {
+  this.treeTransformHelpers = treeTransformHelpers;
   this.trigStr = trigStr;
   this.parser = trig.parser;
   this.ruleHandler = ruleHandler;
@@ -28,6 +29,8 @@ var TrigGrammerListener = function(trigStr, trig, ruleHandler, options) {
     }.bind(this))
   }.bind(this)
 
+  this.terminals = [];
+  this.expressions = [];
   this.graphs = [];
   this.macros = [];
   this.errors = [];
@@ -93,13 +96,14 @@ TrigGrammerListener.prototype.flattenTriplesBlock = function(triplesBlock, resul
 
 TrigGrammerListener.prototype.finalize = function(){
   try{
-    this.finalized = true;
     var errors = [];
     this.allGraphs.forEach(function(graph){
         errors = errors.concat(graph.finalize(this.prefixMap));
     }.bind(this));
+
     var unusedPrefixes = this.prefixMap.getUnusedAsError()
     errors = errors.concat(unusedPrefixes)
+    this.finalized = true;
     return errors;
   }catch(e){
     throw e;
@@ -152,6 +156,9 @@ TrigGrammerListener.prototype.enterEveryRule = function(ctx){
   if(this.finalized) throw new Error("Listener fired after finalization.");
   var ruleName = this.parser.ruleNames[ctx.ruleIndex];
 
+  // var result = (this.onRule && treeTransformHelpers.createNode(ctx)) || ctx;
+  // this.expressions.push(result);
+
   try{
     switch(ruleName){
 
@@ -200,7 +207,18 @@ TrigGrammerListener.prototype.enterEveryRule = function(ctx){
 
 };
 TrigGrammerListener.prototype.handleError = function(){}
-TrigGrammerListener.prototype.getDocument = function(){
+
+// function filterTerminals(terminal){
+//   return {
+//     type: terminal.symbol.type,
+//     token: terminal.symbol.text,
+//     pos: { line: terminal.symbol.line, column: terminal.symbol.column},
+//     start: terminal.symbol.start,
+//     stop: terminal.symbol.stop
+//   }
+// }
+
+TrigGrammerListener.prototype.getDocument = function(postProcessErrors){
 
 
   var graphs = this.graphs;
@@ -218,11 +236,20 @@ TrigGrammerListener.prototype.getDocument = function(){
     prefixes: this.prefixMap,
     graphs: graphs,
     macros: this.macros,
-    errors: this.errors,
-    syntaxErrors: this.syntaxErrors,
+    errors: postProcessErrors(this.errors),
+    syntaxErrors: this.syntaxErrors.map(x => {
+      if(x.offendingToken){
+        delete x.offendingToken.source
+      }
+      return x;
+    }),
     allGraphs: this.allGraphs,
     defaultGraph: defaultGraph,
     analysisErrors: this.analysisErrors,
+
+    terminals: this.terminals,
+    expressions: [], //this.expressions,
+
     getStatements: function(){
       return allGraphs.reduce(function(acc, graph){
         acc = acc.concat(graph.getStatements());
@@ -231,6 +258,7 @@ TrigGrammerListener.prototype.getDocument = function(){
       //return [].concat.apply([], [stmts, this.defaultGraph ? this.defaultGraph.getStatements() : []]);
     }
   };
+  
   result.analysisErrors = result.analysisErrors.concat(this.finalize());
   return result;
 };
@@ -239,7 +267,14 @@ TrigGrammerListener.prototype.prefixID = function(ctx){};
 TrigGrammerListener.prototype.graph = function(ctx){};
 TrigGrammerListener.prototype.triplesBlock = function(ctx){};
 TrigGrammerListener.prototype.macro = function(ctx){};
-TrigGrammerListener.prototype.visitTerminal = function(){};
+
+TrigGrammerListener.prototype.visitTerminal = function(ctx){
+  if(this.options.includeTerminals){
+    var result = this.treeTransformHelpers && this.treeTransformHelpers.createNode(ctx);
+    this.terminals.push(result);
+  }
+};
+
 TrigGrammerListener.prototype.exitEveryRule = function(){};
 TrigGrammerListener.prototype.exitRule = function(){};
 TrigGrammerListener.prototype.visitErrorNode = function(ctx){

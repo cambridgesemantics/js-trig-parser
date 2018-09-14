@@ -18,6 +18,18 @@ try {
 
 }
 
+function postProcessErrors(errors) {
+  return errors.map(x => {
+   return {
+      offendingToken: x.parentCtx.exception ? x.parentCtx.exception.offendingToken : null,
+      text: x.symbol.text,
+      line: x.symbol.line,
+      column: x.symbol.column,
+      msg: x.symbol._text
+    };
+  });
+}
+
 function transformTreeAndGetRules(docStr, trig){
     var helpers = treeTransformHelpers(docStr, trig.parser);
     var listener = new DefaultGrammerListener(docStr, trig, function(rule){
@@ -26,20 +38,18 @@ function transformTreeAndGetRules(docStr, trig){
       return helpers.createNode(terminal);
     });
 
-      antlr4.tree.ParseTreeWalker.DEFAULT.walk(listener, trig.tree);
-    return {
-      syntaxErrors: trig.syntaxErrors,
-      errors: listener.errors.map(x => {
 
-        return {
-          offendingToken: x.parentCtx.exception ? x.parentCtx.exception.offendingToken : null,
-          text: x.symbol.text,
-          line: x.symbol.line,
-          column: x.symbol.column,
-          msg: x.symbol._text,
-          err: x 
-        };
-      }),
+    antlr4.tree.ParseTreeWalker.DEFAULT.walk(listener, trig.tree);
+    // let syntaxErrorsCleaned = listener.syntaxErrors.map(x => {
+    //   if(x.offendingToken){
+    //     delete x.offendingToken['source']
+    //   }
+    //   return x;
+    // })
+
+    return {
+      syntaxErrors: listener.syntaxErrors,
+      errors: postProcessErrors(listener.errors),
       expressions: listener.expressions,
       terminals: listener.terminals
     };
@@ -75,8 +85,8 @@ function parseTrig(data, options){
           offendingToken: offendingToken,
           line: line,
           column: column,
-          msg: msg,
-          err: err
+          msg: msg
+          // err: err
         });
       },
       reportAttemptingFullContext: function(){
@@ -101,11 +111,59 @@ function parseTrig(data, options){
 }
 
 
-function graphsFromFile(fn, cb){
+function graphsFromString(data, options){
+    data = replaceBadPrefixes(data);
+    var trig = parseTrig(data, options);
+    
+    var ruleHandler = createRuleHandler(data, trig.parser);
+    var helpers = treeTransformHelpers(data, trig.parser);
+    var trigListener = new TrigGrammerListener(data, trig, ruleHandler, helpers, options);
+    
+    
+    antlr4.tree.ParseTreeWalker.DEFAULT.walk(trigListener, trig.tree);
+    return trigListener.getDocument(postProcessErrors);
+}
+
+function graphsFromStringAsync(data, options, cb){
+    if(typeof options === 'function' && !cb){
+      cb = options;
+    }
+
+    if(!cb) cb = function(){}
+    data = replaceBadPrefixes(data);
+
+    try{
+      var trig = parseTrig(data, options);
+      
+      var ruleHandler = createRuleHandler(data, trig.parser);
+      var helpers = treeTransformHelpers(data, trig.parser);
+      var trigListener = new TrigGrammerListener(data, trig, ruleHandler, helpers, options);
+      
+      
+      antlr4.tree.ParseTreeWalker.DEFAULT.walk(trigListener, trig.tree);
+      let trigDoc = trigListener.getDocument(postProcessErrors);
+      cb(null, trigDoc)
+    }catch(e){
+      cb(e)
+      return;
+    }
+
+}
+
+function graphsFromFile(fn, cbOrOpts, _cb){
+  if(!cbOrOpts) throw new Error("Must specify 2nd arg: cbOrOpts")
+    let options = {}
+    let cb = _cb;
+    if(cb){
+      options = cbOrOpts;
+    }else{
+      cb = cbOrOpts;
+    }
+
     fs.readFile(fn, 'utf-8', function(err, content){
         if(err) cb(err);
         try{
-          var result = graphsFromString(content);
+          var result = graphsFromString(content, options);
         }
         catch(e){
           cb(e);
@@ -114,18 +172,6 @@ function graphsFromFile(fn, cb){
         cb(null, result);
     });
 }
-
-function graphsFromString(data, options){
-    data = replaceBadPrefixes(data);
-    var trig = parseTrig(data, options);
-    
-    var ruleHandler = createRuleHandler(data, trig.parser);
-    var trigListener = new TrigGrammerListener(data, trig, ruleHandler);
-    
-    antlr4.tree.ParseTreeWalker.DEFAULT.walk(trigListener, trig.tree);
-    return trigListener.getDocument();
-}
-
 
 function treeFromFile(fn, cb){
     fs.readFile(fn, 'utf-8', function(err, content){
@@ -146,7 +192,7 @@ function defaultTransformFromFile(fn, cb){
       if(err) cb(err);
       try{
         let results = defaultTransform(content)
-        cb(null, defaultTransform(results));
+        cb(null, (results));
       }catch(e){
         console.error("Error parsing trig file: " + fn)
         console.error(e)
@@ -158,7 +204,8 @@ function defaultTransformFromFile(fn, cb){
 
 
 var graphLoader = {
-    fromString: graphsFromString
+    fromString: graphsFromString,
+    fromStringAsync: graphsFromStringAsync
 };
 var baseLoader = {
     fromString: defaultTransform

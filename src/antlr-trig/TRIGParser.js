@@ -1,11 +1,11 @@
-// Generated from TRIG.g4 by ANTLR 4.5.2
+// Generated from TRIG.g4 by ANTLR 4.7.1
 // jshint ignore: start
 var antlr4 = require('antlr4/index');
 var TRIGListener = require('./TRIGListener').TRIGListener;
 var grammarFileName = "TRIG.g4";
 
-var serializedATN = ["\u0003\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd",
-    "\u00034\u00d2\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t",
+var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
+    "\u00034\u00d4\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t",
     "\u0004\u0004\u0005\t\u0005\u0004\u0006\t\u0006\u0004\u0007\t\u0007\u0004",
     "\b\t\b\u0004\t\t\t\u0004\n\t\n\u0004\u000b\t\u000b\u0004\f\t\f\u0004",
     "\r\t\r\u0004\u000e\t\u000e\u0004\u000f\t\u000f\u0004\u0010\t\u0010\u0004",
@@ -13,128 +13,130 @@ var serializedATN = ["\u0003\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd",
     "\u0014\u0004\u0015\t\u0015\u0004\u0016\t\u0016\u0004\u0017\t\u0017\u0004",
     "\u0018\t\u0018\u0004\u0019\t\u0019\u0004\u001a\t\u001a\u0004\u001b\t",
     "\u001b\u0003\u0002\u0003\u0002\u0003\u0002\u0007\u0002:\n\u0002\f\u0002",
-    "\u000e\u0002=\u000b\u0002\u0003\u0003\u0003\u0003\u0003\u0003\u0003",
-    "\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0005\u0003F\n\u0003\u0003",
-    "\u0004\u0003\u0004\u0003\u0004\u0003\u0004\u0003\u0004\u0005\u0004M",
-    "\n\u0004\u0003\u0005\u0003\u0005\u0005\u0005Q\n\u0005\u0003\u0006\u0003",
-    "\u0006\u0003\u0007\u0003\u0007\u0005\u0007W\n\u0007\u0003\u0007\u0003",
-    "\u0007\u0003\b\u0003\b\u0003\b\u0005\b^\n\b\u0005\b`\n\b\u0003\t\u0003",
-    "\t\u0005\td\n\t\u0003\t\u0003\t\u0003\t\u0003\t\u0003\t\u0003\t\u0005",
-    "\tl\n\t\u0003\n\u0003\n\u0003\n\u0003\n\u0005\nr\n\n\u0003\u000b\u0003",
-    "\u000b\u0003\u000b\u0003\u000b\u0003\u000b\u0003\f\u0003\f\u0003\f\u0003",
-    "\f\u0003\r\u0003\r\u0003\r\u0003\u000e\u0003\u000e\u0003\u000e\u0003",
-    "\u000e\u0003\u000f\u0003\u000f\u0003\u000f\u0003\u000f\u0003\u000f\u0005",
-    "\u000f\u0089\n\u000f\u0005\u000f\u008b\n\u000f\u0003\u0010\u0003\u0010",
-    "\u0003\u0010\u0003\u0010\u0003\u0010\u0003\u0010\u0005\u0010\u0093\n",
-    "\u0010\u0007\u0010\u0095\n\u0010\f\u0010\u000e\u0010\u0098\u000b\u0010",
-    "\u0003\u0011\u0003\u0011\u0003\u0011\u0007\u0011\u009d\n\u0011\f\u0011",
-    "\u000e\u0011\u00a0\u000b\u0011\u0003\u0012\u0003\u0012\u0005\u0012\u00a4",
-    "\n\u0012\u0003\u0013\u0003\u0013\u0003\u0013\u0005\u0013\u00a9\n\u0013",
-    "\u0003\u0014\u0003\u0014\u0003\u0015\u0003\u0015\u0003\u0015\u0003\u0015",
-    "\u0003\u0015\u0005\u0015\u00b2\n\u0015\u0003\u0016\u0003\u0016\u0003",
-    "\u0016\u0005\u0016\u00b7\n\u0016\u0003\u0017\u0003\u0017\u0003\u0017",
-    "\u0003\u0017\u0003\u0018\u0003\u0018\u0007\u0018\u00bf\n\u0018\f\u0018",
-    "\u000e\u0018\u00c2\u000b\u0018\u0003\u0018\u0003\u0018\u0003\u0019\u0003",
-    "\u0019\u0003\u0019\u0003\u0019\u0005\u0019\u00ca\n\u0019\u0003\u001a",
-    "\u0003\u001a\u0005\u001a\u00ce\n\u001a\u0003\u001b\u0003\u001b\u0003",
-    "\u001b\u0002\u0002\u001c\u0002\u0004\u0006\b\n\f\u000e\u0010\u0012\u0014",
-    "\u0016\u0018\u001a\u001c\u001e \"$&(*,.024\u0002\u0003\u0004\u0002\u001c",
-    "\u001c\u001e\u001e\u00d9\u0002;\u0003\u0002\u0002\u0002\u0004E\u0003",
-    "\u0002\u0002\u0002\u0006G\u0003\u0002\u0002\u0002\bP\u0003\u0002\u0002",
-    "\u0002\nR\u0003\u0002\u0002\u0002\fT\u0003\u0002\u0002\u0002\u000eZ",
-    "\u0003\u0002\u0002\u0002\u0010k\u0003\u0002\u0002\u0002\u0012q\u0003",
-    "\u0002\u0002\u0002\u0014s\u0003\u0002\u0002\u0002\u0016x\u0003\u0002",
-    "\u0002\u0002\u0018|\u0003\u0002\u0002\u0002\u001a\u007f\u0003\u0002",
-    "\u0002\u0002\u001c\u008a\u0003\u0002\u0002\u0002\u001e\u008c\u0003\u0002",
-    "\u0002\u0002 \u0099\u0003\u0002\u0002\u0002\"\u00a3\u0003\u0002\u0002",
-    "\u0002$\u00a8\u0003\u0002\u0002\u0002&\u00aa\u0003\u0002\u0002\u0002",
-    "(\u00b1\u0003\u0002\u0002\u0002*\u00b6\u0003\u0002\u0002\u0002,\u00b8",
-    "\u0003\u0002\u0002\u0002.\u00bc\u0003\u0002\u0002\u00020\u00c5\u0003",
-    "\u0002\u0002\u00022\u00cd\u0003\u0002\u0002\u00024\u00cf\u0003\u0002",
-    "\u0002\u00026:\u0005\u0012\n\u00027:\u0005\u0004\u0003\u00028:\u0005",
-    "\n\u0006\u000296\u0003\u0002\u0002\u000297\u0003\u0002\u0002\u00029",
-    "8\u0003\u0002\u0002\u0002:=\u0003\u0002\u0002\u0002;9\u0003\u0002\u0002",
-    "\u0002;<\u0003\u0002\u0002\u0002<\u0003\u0003\u0002\u0002\u0002=;\u0003",
-    "\u0002\u0002\u0002>F\u0005\u0006\u0004\u0002?F\u0005\f\u0007\u0002@",
-    "F\u0005\u0010\t\u0002AB\u0007\u0003\u0002\u0002BC\u0005\b\u0005\u0002",
-    "CD\u0005\f\u0007\u0002DF\u0003\u0002\u0002\u0002E>\u0003\u0002\u0002",
-    "\u0002E?\u0003\u0002\u0002\u0002E@\u0003\u0002\u0002\u0002EA\u0003\u0002",
-    "\u0002\u0002F\u0005\u0003\u0002\u0002\u0002GL\u0005\b\u0005\u0002HM",
-    "\u0005\f\u0007\u0002IJ\u0005\u001e\u0010\u0002JK\u0007\u0004\u0002\u0002",
-    "KM\u0003\u0002\u0002\u0002LH\u0003\u0002\u0002\u0002LI\u0003\u0002\u0002",
-    "\u0002M\u0007\u0003\u0002\u0002\u0002NQ\u00052\u001a\u0002OQ\u0007\u0018",
-    "\u0002\u0002PN\u0003\u0002\u0002\u0002PO\u0003\u0002\u0002\u0002Q\t",
-    "\u0003\u0002\u0002\u0002RS\u0007\u0013\u0002\u0002S\u000b\u0003\u0002",
-    "\u0002\u0002TV\u0007\u0005\u0002\u0002UW\u0005\u000e\b\u0002VU\u0003",
-    "\u0002\u0002\u0002VW\u0003\u0002\u0002\u0002WX\u0003\u0002\u0002\u0002",
-    "XY\u0007\u0006\u0002\u0002Y\r\u0003\u0002\u0002\u0002Z_\u0005\u001c",
-    "\u000f\u0002[]\u0007\u0004\u0002\u0002\\^\u0005\u000e\b\u0002]\\\u0003",
-    "\u0002\u0002\u0002]^\u0003\u0002\u0002\u0002^`\u0003\u0002\u0002\u0002",
-    "_[\u0003\u0002\u0002\u0002_`\u0003\u0002\u0002\u0002`\u000f\u0003\u0002",
-    "\u0002\u0002ac\u0005,\u0017\u0002bd\u0005\u001e\u0010\u0002cb\u0003",
-    "\u0002\u0002\u0002cd\u0003\u0002\u0002\u0002de\u0003\u0002\u0002\u0002",
-    "ef\u0007\u0004\u0002\u0002fl\u0003\u0002\u0002\u0002gh\u0005.\u0018",
-    "\u0002hi\u0005\u001e\u0010\u0002ij\u0007\u0004\u0002\u0002jl\u0003\u0002",
-    "\u0002\u0002ka\u0003\u0002\u0002\u0002kg\u0003\u0002\u0002\u0002l\u0011",
-    "\u0003\u0002\u0002\u0002mr\u0005\u0014\u000b\u0002nr\u0005\u0016\f\u0002",
-    "or\u0005\u001a\u000e\u0002pr\u0005\u0018\r\u0002qm\u0003\u0002\u0002",
-    "\u0002qn\u0003\u0002\u0002\u0002qo\u0003\u0002\u0002\u0002qp\u0003\u0002",
-    "\u0002\u0002r\u0013\u0003\u0002\u0002\u0002st\u0007\u0007\u0002\u0002",
-    "tu\u0007\u001c\u0002\u0002uv\u0007\u001b\u0002\u0002vw\u0007\u0004\u0002",
-    "\u0002w\u0015\u0003\u0002\u0002\u0002xy\u0007\b\u0002\u0002yz\u0007",
-    "\u001b\u0002\u0002z{\u0007\u0004\u0002\u0002{\u0017\u0003\u0002\u0002",
-    "\u0002|}\u0007\t\u0002\u0002}~\u0007\u001b\u0002\u0002~\u0019\u0003",
-    "\u0002\u0002\u0002\u007f\u0080\u0007\n\u0002\u0002\u0080\u0081\u0007",
-    "\u001c\u0002\u0002\u0081\u0082\u0007\u001b\u0002\u0002\u0082\u001b\u0003",
-    "\u0002\u0002\u0002\u0083\u0084\u0005$\u0013\u0002\u0084\u0085\u0005",
-    "\u001e\u0010\u0002\u0085\u008b\u0003\u0002\u0002\u0002\u0086\u0088\u0005",
-    ",\u0017\u0002\u0087\u0089\u0005\u001e\u0010\u0002\u0088\u0087\u0003",
-    "\u0002\u0002\u0002\u0088\u0089\u0003\u0002\u0002\u0002\u0089\u008b\u0003",
-    "\u0002\u0002\u0002\u008a\u0083\u0003\u0002\u0002\u0002\u008a\u0086\u0003",
-    "\u0002\u0002\u0002\u008b\u001d\u0003\u0002\u0002\u0002\u008c\u008d\u0005",
-    "\"\u0012\u0002\u008d\u0096\u0005 \u0011\u0002\u008e\u0092\u0007\u000b",
-    "\u0002\u0002\u008f\u0090\u0005\"\u0012\u0002\u0090\u0091\u0005 \u0011",
-    "\u0002\u0091\u0093\u0003\u0002\u0002\u0002\u0092\u008f\u0003\u0002\u0002",
-    "\u0002\u0092\u0093\u0003\u0002\u0002\u0002\u0093\u0095\u0003\u0002\u0002",
-    "\u0002\u0094\u008e\u0003\u0002\u0002\u0002\u0095\u0098\u0003\u0002\u0002",
-    "\u0002\u0096\u0094\u0003\u0002\u0002\u0002\u0096\u0097\u0003\u0002\u0002",
-    "\u0002\u0097\u001f\u0003\u0002\u0002\u0002\u0098\u0096\u0003\u0002\u0002",
-    "\u0002\u0099\u009e\u0005(\u0015\u0002\u009a\u009b\u0007\f\u0002\u0002",
-    "\u009b\u009d\u0005(\u0015\u0002\u009c\u009a\u0003\u0002\u0002\u0002",
-    "\u009d\u00a0\u0003\u0002\u0002\u0002\u009e\u009c\u0003\u0002\u0002\u0002",
-    "\u009e\u009f\u0003\u0002\u0002\u0002\u009f!\u0003\u0002\u0002\u0002",
-    "\u00a0\u009e\u0003\u0002\u0002\u0002\u00a1\u00a4\u0005&\u0014\u0002",
-    "\u00a2\u00a4\u0007\r\u0002\u0002\u00a3\u00a1\u0003\u0002\u0002\u0002",
-    "\u00a3\u00a2\u0003\u0002\u0002\u0002\u00a4#\u0003\u0002\u0002\u0002",
-    "\u00a5\u00a9\u00052\u001a\u0002\u00a6\u00a9\u0007\u0018\u0002\u0002",
-    "\u00a7\u00a9\u0005.\u0018\u0002\u00a8\u00a5\u0003\u0002\u0002\u0002",
-    "\u00a8\u00a6\u0003\u0002\u0002\u0002\u00a8\u00a7\u0003\u0002\u0002\u0002",
-    "\u00a9%\u0003\u0002\u0002\u0002\u00aa\u00ab\u00052\u001a\u0002\u00ab",
-    "\'\u0003\u0002\u0002\u0002\u00ac\u00b2\u00052\u001a\u0002\u00ad\u00b2",
-    "\u0007\u0018\u0002\u0002\u00ae\u00b2\u0005.\u0018\u0002\u00af\u00b2",
-    "\u0005,\u0017\u0002\u00b0\u00b2\u0005*\u0016\u0002\u00b1\u00ac\u0003",
-    "\u0002\u0002\u0002\u00b1\u00ad\u0003\u0002\u0002\u0002\u00b1\u00ae\u0003",
-    "\u0002\u0002\u0002\u00b1\u00af\u0003\u0002\u0002\u0002\u00b1\u00b0\u0003",
-    "\u0002\u0002\u0002\u00b2)\u0003\u0002\u0002\u0002\u00b3\u00b7\u0005",
-    "0\u0019\u0002\u00b4\u00b7\u0007\u0014\u0002\u0002\u00b5\u00b7\u0007",
-    "\u0016\u0002\u0002\u00b6\u00b3\u0003\u0002\u0002\u0002\u00b6\u00b4\u0003",
-    "\u0002\u0002\u0002\u00b6\u00b5\u0003\u0002\u0002\u0002\u00b7+\u0003",
-    "\u0002\u0002\u0002\u00b8\u00b9\u0007\u000e\u0002\u0002\u00b9\u00ba\u0005",
-    "\u001e\u0010\u0002\u00ba\u00bb\u0007\u000f\u0002\u0002\u00bb-\u0003",
-    "\u0002\u0002\u0002\u00bc\u00c0\u0007\u0010\u0002\u0002\u00bd\u00bf\u0005",
-    "(\u0015\u0002\u00be\u00bd\u0003\u0002\u0002\u0002\u00bf\u00c2\u0003",
-    "\u0002\u0002\u0002\u00c0\u00be\u0003\u0002\u0002\u0002\u00c0\u00c1\u0003",
-    "\u0002\u0002\u0002\u00c1\u00c3\u0003\u0002\u0002\u0002\u00c2\u00c0\u0003",
-    "\u0002\u0002\u0002\u00c3\u00c4\u0007\u0011\u0002\u0002\u00c4/\u0003",
-    "\u0002\u0002\u0002\u00c5\u00c9\u0007\u0017\u0002\u0002\u00c6\u00ca\u0007",
-    " \u0002\u0002\u00c7\u00c8\u0007\u0012\u0002\u0002\u00c8\u00ca\u0005",
-    "2\u001a\u0002\u00c9\u00c6\u0003\u0002\u0002\u0002\u00c9\u00c7\u0003",
-    "\u0002\u0002\u0002\u00c9\u00ca\u0003\u0002\u0002\u0002\u00ca1\u0003",
-    "\u0002\u0002\u0002\u00cb\u00ce\u0007\u001b\u0002\u0002\u00cc\u00ce\u0005",
-    "4\u001b\u0002\u00cd\u00cb\u0003\u0002\u0002\u0002\u00cd\u00cc\u0003",
-    "\u0002\u0002\u0002\u00ce3\u0003\u0002\u0002\u0002\u00cf\u00d0\t\u0002",
-    "\u0002\u0002\u00d05\u0003\u0002\u0002\u0002\u00199;ELPV]_ckq\u0088\u008a",
-    "\u0092\u0096\u009e\u00a3\u00a8\u00b1\u00b6\u00c0\u00c9\u00cd"].join("");
+    "\u000e\u0002=\u000b\u0002\u0003\u0002\u0003\u0002\u0003\u0003\u0003",
+    "\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0005",
+    "\u0003H\n\u0003\u0003\u0004\u0003\u0004\u0003\u0004\u0003\u0004\u0003",
+    "\u0004\u0005\u0004O\n\u0004\u0003\u0005\u0003\u0005\u0005\u0005S\n\u0005",
+    "\u0003\u0006\u0003\u0006\u0003\u0007\u0003\u0007\u0005\u0007Y\n\u0007",
+    "\u0003\u0007\u0003\u0007\u0003\b\u0003\b\u0003\b\u0005\b`\n\b\u0005",
+    "\bb\n\b\u0003\t\u0003\t\u0005\tf\n\t\u0003\t\u0003\t\u0003\t\u0003\t",
+    "\u0003\t\u0003\t\u0005\tn\n\t\u0003\n\u0003\n\u0003\n\u0003\n\u0005",
+    "\nt\n\n\u0003\u000b\u0003\u000b\u0003\u000b\u0003\u000b\u0003\u000b",
+    "\u0003\f\u0003\f\u0003\f\u0003\f\u0003\r\u0003\r\u0003\r\u0003\u000e",
+    "\u0003\u000e\u0003\u000e\u0003\u000e\u0003\u000f\u0003\u000f\u0003\u000f",
+    "\u0003\u000f\u0003\u000f\u0005\u000f\u008b\n\u000f\u0005\u000f\u008d",
+    "\n\u000f\u0003\u0010\u0003\u0010\u0003\u0010\u0003\u0010\u0003\u0010",
+    "\u0003\u0010\u0005\u0010\u0095\n\u0010\u0007\u0010\u0097\n\u0010\f\u0010",
+    "\u000e\u0010\u009a\u000b\u0010\u0003\u0011\u0003\u0011\u0003\u0011\u0007",
+    "\u0011\u009f\n\u0011\f\u0011\u000e\u0011\u00a2\u000b\u0011\u0003\u0012",
+    "\u0003\u0012\u0005\u0012\u00a6\n\u0012\u0003\u0013\u0003\u0013\u0003",
+    "\u0013\u0005\u0013\u00ab\n\u0013\u0003\u0014\u0003\u0014\u0003\u0015",
+    "\u0003\u0015\u0003\u0015\u0003\u0015\u0003\u0015\u0005\u0015\u00b4\n",
+    "\u0015\u0003\u0016\u0003\u0016\u0003\u0016\u0005\u0016\u00b9\n\u0016",
+    "\u0003\u0017\u0003\u0017\u0003\u0017\u0003\u0017\u0003\u0018\u0003\u0018",
+    "\u0007\u0018\u00c1\n\u0018\f\u0018\u000e\u0018\u00c4\u000b\u0018\u0003",
+    "\u0018\u0003\u0018\u0003\u0019\u0003\u0019\u0003\u0019\u0003\u0019\u0005",
+    "\u0019\u00cc\n\u0019\u0003\u001a\u0003\u001a\u0005\u001a\u00d0\n\u001a",
+    "\u0003\u001b\u0003\u001b\u0003\u001b\u0002\u0002\u001c\u0002\u0004\u0006",
+    "\b\n\f\u000e\u0010\u0012\u0014\u0016\u0018\u001a\u001c\u001e \"$&(*",
+    ",.024\u0002\u0003\u0004\u0002\u001c\u001c\u001e\u001e\u0002\u00db\u0002",
+    ";\u0003\u0002\u0002\u0002\u0004G\u0003\u0002\u0002\u0002\u0006I\u0003",
+    "\u0002\u0002\u0002\bR\u0003\u0002\u0002\u0002\nT\u0003\u0002\u0002\u0002",
+    "\fV\u0003\u0002\u0002\u0002\u000e\\\u0003\u0002\u0002\u0002\u0010m\u0003",
+    "\u0002\u0002\u0002\u0012s\u0003\u0002\u0002\u0002\u0014u\u0003\u0002",
+    "\u0002\u0002\u0016z\u0003\u0002\u0002\u0002\u0018~\u0003\u0002\u0002",
+    "\u0002\u001a\u0081\u0003\u0002\u0002\u0002\u001c\u008c\u0003\u0002\u0002",
+    "\u0002\u001e\u008e\u0003\u0002\u0002\u0002 \u009b\u0003\u0002\u0002",
+    "\u0002\"\u00a5\u0003\u0002\u0002\u0002$\u00aa\u0003\u0002\u0002\u0002",
+    "&\u00ac\u0003\u0002\u0002\u0002(\u00b3\u0003\u0002\u0002\u0002*\u00b8",
+    "\u0003\u0002\u0002\u0002,\u00ba\u0003\u0002\u0002\u0002.\u00be\u0003",
+    "\u0002\u0002\u00020\u00c7\u0003\u0002\u0002\u00022\u00cf\u0003\u0002",
+    "\u0002\u00024\u00d1\u0003\u0002\u0002\u00026:\u0005\u0012\n\u00027:",
+    "\u0005\u0004\u0003\u00028:\u0005\n\u0006\u000296\u0003\u0002\u0002\u0002",
+    "97\u0003\u0002\u0002\u000298\u0003\u0002\u0002\u0002:=\u0003\u0002\u0002",
+    "\u0002;9\u0003\u0002\u0002\u0002;<\u0003\u0002\u0002\u0002<>\u0003\u0002",
+    "\u0002\u0002=;\u0003\u0002\u0002\u0002>?\u0007\u0002\u0002\u0003?\u0003",
+    "\u0003\u0002\u0002\u0002@H\u0005\u0006\u0004\u0002AH\u0005\f\u0007\u0002",
+    "BH\u0005\u0010\t\u0002CD\u0007\u0003\u0002\u0002DE\u0005\b\u0005\u0002",
+    "EF\u0005\f\u0007\u0002FH\u0003\u0002\u0002\u0002G@\u0003\u0002\u0002",
+    "\u0002GA\u0003\u0002\u0002\u0002GB\u0003\u0002\u0002\u0002GC\u0003\u0002",
+    "\u0002\u0002H\u0005\u0003\u0002\u0002\u0002IN\u0005\b\u0005\u0002JO",
+    "\u0005\f\u0007\u0002KL\u0005\u001e\u0010\u0002LM\u0007\u0004\u0002\u0002",
+    "MO\u0003\u0002\u0002\u0002NJ\u0003\u0002\u0002\u0002NK\u0003\u0002\u0002",
+    "\u0002O\u0007\u0003\u0002\u0002\u0002PS\u00052\u001a\u0002QS\u0007\u0018",
+    "\u0002\u0002RP\u0003\u0002\u0002\u0002RQ\u0003\u0002\u0002\u0002S\t",
+    "\u0003\u0002\u0002\u0002TU\u0007\u0013\u0002\u0002U\u000b\u0003\u0002",
+    "\u0002\u0002VX\u0007\u0005\u0002\u0002WY\u0005\u000e\b\u0002XW\u0003",
+    "\u0002\u0002\u0002XY\u0003\u0002\u0002\u0002YZ\u0003\u0002\u0002\u0002",
+    "Z[\u0007\u0006\u0002\u0002[\r\u0003\u0002\u0002\u0002\\a\u0005\u001c",
+    "\u000f\u0002]_\u0007\u0004\u0002\u0002^`\u0005\u000e\b\u0002_^\u0003",
+    "\u0002\u0002\u0002_`\u0003\u0002\u0002\u0002`b\u0003\u0002\u0002\u0002",
+    "a]\u0003\u0002\u0002\u0002ab\u0003\u0002\u0002\u0002b\u000f\u0003\u0002",
+    "\u0002\u0002ce\u0005,\u0017\u0002df\u0005\u001e\u0010\u0002ed\u0003",
+    "\u0002\u0002\u0002ef\u0003\u0002\u0002\u0002fg\u0003\u0002\u0002\u0002",
+    "gh\u0007\u0004\u0002\u0002hn\u0003\u0002\u0002\u0002ij\u0005.\u0018",
+    "\u0002jk\u0005\u001e\u0010\u0002kl\u0007\u0004\u0002\u0002ln\u0003\u0002",
+    "\u0002\u0002mc\u0003\u0002\u0002\u0002mi\u0003\u0002\u0002\u0002n\u0011",
+    "\u0003\u0002\u0002\u0002ot\u0005\u0014\u000b\u0002pt\u0005\u0016\f\u0002",
+    "qt\u0005\u001a\u000e\u0002rt\u0005\u0018\r\u0002so\u0003\u0002\u0002",
+    "\u0002sp\u0003\u0002\u0002\u0002sq\u0003\u0002\u0002\u0002sr\u0003\u0002",
+    "\u0002\u0002t\u0013\u0003\u0002\u0002\u0002uv\u0007\u0007\u0002\u0002",
+    "vw\u0007\u001c\u0002\u0002wx\u0007\u001b\u0002\u0002xy\u0007\u0004\u0002",
+    "\u0002y\u0015\u0003\u0002\u0002\u0002z{\u0007\b\u0002\u0002{|\u0007",
+    "\u001b\u0002\u0002|}\u0007\u0004\u0002\u0002}\u0017\u0003\u0002\u0002",
+    "\u0002~\u007f\u0007\t\u0002\u0002\u007f\u0080\u0007\u001b\u0002\u0002",
+    "\u0080\u0019\u0003\u0002\u0002\u0002\u0081\u0082\u0007\n\u0002\u0002",
+    "\u0082\u0083\u0007\u001c\u0002\u0002\u0083\u0084\u0007\u001b\u0002\u0002",
+    "\u0084\u001b\u0003\u0002\u0002\u0002\u0085\u0086\u0005$\u0013\u0002",
+    "\u0086\u0087\u0005\u001e\u0010\u0002\u0087\u008d\u0003\u0002\u0002\u0002",
+    "\u0088\u008a\u0005,\u0017\u0002\u0089\u008b\u0005\u001e\u0010\u0002",
+    "\u008a\u0089\u0003\u0002\u0002\u0002\u008a\u008b\u0003\u0002\u0002\u0002",
+    "\u008b\u008d\u0003\u0002\u0002\u0002\u008c\u0085\u0003\u0002\u0002\u0002",
+    "\u008c\u0088\u0003\u0002\u0002\u0002\u008d\u001d\u0003\u0002\u0002\u0002",
+    "\u008e\u008f\u0005\"\u0012\u0002\u008f\u0098\u0005 \u0011\u0002\u0090",
+    "\u0094\u0007\u000b\u0002\u0002\u0091\u0092\u0005\"\u0012\u0002\u0092",
+    "\u0093\u0005 \u0011\u0002\u0093\u0095\u0003\u0002\u0002\u0002\u0094",
+    "\u0091\u0003\u0002\u0002\u0002\u0094\u0095\u0003\u0002\u0002\u0002\u0095",
+    "\u0097\u0003\u0002\u0002\u0002\u0096\u0090\u0003\u0002\u0002\u0002\u0097",
+    "\u009a\u0003\u0002\u0002\u0002\u0098\u0096\u0003\u0002\u0002\u0002\u0098",
+    "\u0099\u0003\u0002\u0002\u0002\u0099\u001f\u0003\u0002\u0002\u0002\u009a",
+    "\u0098\u0003\u0002\u0002\u0002\u009b\u00a0\u0005(\u0015\u0002\u009c",
+    "\u009d\u0007\f\u0002\u0002\u009d\u009f\u0005(\u0015\u0002\u009e\u009c",
+    "\u0003\u0002\u0002\u0002\u009f\u00a2\u0003\u0002\u0002\u0002\u00a0\u009e",
+    "\u0003\u0002\u0002\u0002\u00a0\u00a1\u0003\u0002\u0002\u0002\u00a1!",
+    "\u0003\u0002\u0002\u0002\u00a2\u00a0\u0003\u0002\u0002\u0002\u00a3\u00a6",
+    "\u0005&\u0014\u0002\u00a4\u00a6\u0007\r\u0002\u0002\u00a5\u00a3\u0003",
+    "\u0002\u0002\u0002\u00a5\u00a4\u0003\u0002\u0002\u0002\u00a6#\u0003",
+    "\u0002\u0002\u0002\u00a7\u00ab\u00052\u001a\u0002\u00a8\u00ab\u0007",
+    "\u0018\u0002\u0002\u00a9\u00ab\u0005.\u0018\u0002\u00aa\u00a7\u0003",
+    "\u0002\u0002\u0002\u00aa\u00a8\u0003\u0002\u0002\u0002\u00aa\u00a9\u0003",
+    "\u0002\u0002\u0002\u00ab%\u0003\u0002\u0002\u0002\u00ac\u00ad\u0005",
+    "2\u001a\u0002\u00ad\'\u0003\u0002\u0002\u0002\u00ae\u00b4\u00052\u001a",
+    "\u0002\u00af\u00b4\u0007\u0018\u0002\u0002\u00b0\u00b4\u0005.\u0018",
+    "\u0002\u00b1\u00b4\u0005,\u0017\u0002\u00b2\u00b4\u0005*\u0016\u0002",
+    "\u00b3\u00ae\u0003\u0002\u0002\u0002\u00b3\u00af\u0003\u0002\u0002\u0002",
+    "\u00b3\u00b0\u0003\u0002\u0002\u0002\u00b3\u00b1\u0003\u0002\u0002\u0002",
+    "\u00b3\u00b2\u0003\u0002\u0002\u0002\u00b4)\u0003\u0002\u0002\u0002",
+    "\u00b5\u00b9\u00050\u0019\u0002\u00b6\u00b9\u0007\u0014\u0002\u0002",
+    "\u00b7\u00b9\u0007\u0016\u0002\u0002\u00b8\u00b5\u0003\u0002\u0002\u0002",
+    "\u00b8\u00b6\u0003\u0002\u0002\u0002\u00b8\u00b7\u0003\u0002\u0002\u0002",
+    "\u00b9+\u0003\u0002\u0002\u0002\u00ba\u00bb\u0007\u000e\u0002\u0002",
+    "\u00bb\u00bc\u0005\u001e\u0010\u0002\u00bc\u00bd\u0007\u000f\u0002\u0002",
+    "\u00bd-\u0003\u0002\u0002\u0002\u00be\u00c2\u0007\u0010\u0002\u0002",
+    "\u00bf\u00c1\u0005(\u0015\u0002\u00c0\u00bf\u0003\u0002\u0002\u0002",
+    "\u00c1\u00c4\u0003\u0002\u0002\u0002\u00c2\u00c0\u0003\u0002\u0002\u0002",
+    "\u00c2\u00c3\u0003\u0002\u0002\u0002\u00c3\u00c5\u0003\u0002\u0002\u0002",
+    "\u00c4\u00c2\u0003\u0002\u0002\u0002\u00c5\u00c6\u0007\u0011\u0002\u0002",
+    "\u00c6/\u0003\u0002\u0002\u0002\u00c7\u00cb\u0007\u0017\u0002\u0002",
+    "\u00c8\u00cc\u0007 \u0002\u0002\u00c9\u00ca\u0007\u0012\u0002\u0002",
+    "\u00ca\u00cc\u00052\u001a\u0002\u00cb\u00c8\u0003\u0002\u0002\u0002",
+    "\u00cb\u00c9\u0003\u0002\u0002\u0002\u00cb\u00cc\u0003\u0002\u0002\u0002",
+    "\u00cc1\u0003\u0002\u0002\u0002\u00cd\u00d0\u0007\u001b\u0002\u0002",
+    "\u00ce\u00d0\u00054\u001b\u0002\u00cf\u00cd\u0003\u0002\u0002\u0002",
+    "\u00cf\u00ce\u0003\u0002\u0002\u0002\u00d03\u0003\u0002\u0002\u0002",
+    "\u00d1\u00d2\t\u0002\u0002\u0002\u00d25\u0003\u0002\u0002\u0002\u0019",
+    "9;GNRX_aems\u008a\u008c\u0094\u0098\u00a0\u00a5\u00aa\u00b3\u00b8\u00c2",
+    "\u00cb\u00cf"].join("");
 
 
 var atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
@@ -278,6 +280,10 @@ function TrigDocContext(parser, parent, invokingState) {
 TrigDocContext.prototype = Object.create(antlr4.ParserRuleContext.prototype);
 TrigDocContext.prototype.constructor = TrigDocContext;
 
+TrigDocContext.prototype.EOF = function() {
+    return this.getToken(TRIGParser.EOF, 0);
+};
+
 TrigDocContext.prototype.directive = function(i) {
     if(i===undefined) {
         i = null;
@@ -340,6 +346,7 @@ TRIGParser.prototype.trigDoc = function() {
         _la = this._input.LA(1);
         while((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << TRIGParser.T__0) | (1 << TRIGParser.T__2) | (1 << TRIGParser.T__4) | (1 << TRIGParser.T__5) | (1 << TRIGParser.T__6) | (1 << TRIGParser.T__7) | (1 << TRIGParser.T__11) | (1 << TRIGParser.T__13) | (1 << TRIGParser.Macro) | (1 << TRIGParser.BlankNode) | (1 << TRIGParser.IRIREF) | (1 << TRIGParser.PNAME_NS) | (1 << TRIGParser.PNAME_LN))) !== 0)) {
             this.state = 55;
+            this._errHandler.sync(this);
             switch(this._input.LA(1)) {
             case TRIGParser.T__4:
             case TRIGParser.T__5:
@@ -370,6 +377,8 @@ TRIGParser.prototype.trigDoc = function() {
             this._errHandler.sync(this);
             _la = this._input.LA(1);
         }
+        this.state = 60;
+        this.match(TRIGParser.EOF);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
 	        localctx.exception = re;
@@ -438,34 +447,35 @@ TRIGParser.prototype.block = function() {
     var localctx = new BlockContext(this, this._ctx, this.state);
     this.enterRule(localctx, 2, TRIGParser.RULE_block);
     try {
-        this.state = 67;
+        this.state = 69;
+        this._errHandler.sync(this);
         switch(this._input.LA(1)) {
         case TRIGParser.BlankNode:
         case TRIGParser.IRIREF:
         case TRIGParser.PNAME_NS:
         case TRIGParser.PNAME_LN:
             this.enterOuterAlt(localctx, 1);
-            this.state = 60;
+            this.state = 62;
             this.triplesOrGraph();
             break;
         case TRIGParser.T__2:
             this.enterOuterAlt(localctx, 2);
-            this.state = 61;
+            this.state = 63;
             this.wrappedGraph();
             break;
         case TRIGParser.T__11:
         case TRIGParser.T__13:
             this.enterOuterAlt(localctx, 3);
-            this.state = 62;
+            this.state = 64;
             this.triples2();
             break;
         case TRIGParser.T__0:
             this.enterOuterAlt(localctx, 4);
-            this.state = 63;
-            this.match(TRIGParser.T__0);
-            this.state = 64;
-            this.labelOrSubject();
             this.state = 65;
+            this.match(TRIGParser.T__0);
+            this.state = 66;
+            this.labelOrSubject();
+            this.state = 67;
             this.wrappedGraph();
             break;
         default:
@@ -536,21 +546,22 @@ TRIGParser.prototype.triplesOrGraph = function() {
     this.enterRule(localctx, 4, TRIGParser.RULE_triplesOrGraph);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 69;
+        this.state = 71;
         this.labelOrSubject();
-        this.state = 74;
+        this.state = 76;
+        this._errHandler.sync(this);
         switch(this._input.LA(1)) {
         case TRIGParser.T__2:
-            this.state = 70;
+            this.state = 72;
             this.wrappedGraph();
             break;
         case TRIGParser.T__10:
         case TRIGParser.IRIREF:
         case TRIGParser.PNAME_NS:
         case TRIGParser.PNAME_LN:
-            this.state = 71;
+            this.state = 73;
             this.predicateObjectList();
-            this.state = 72;
+            this.state = 74;
             this.match(TRIGParser.T__1);
             break;
         default:
@@ -616,18 +627,19 @@ TRIGParser.prototype.labelOrSubject = function() {
     var localctx = new LabelOrSubjectContext(this, this._ctx, this.state);
     this.enterRule(localctx, 6, TRIGParser.RULE_labelOrSubject);
     try {
-        this.state = 78;
+        this.state = 80;
+        this._errHandler.sync(this);
         switch(this._input.LA(1)) {
         case TRIGParser.IRIREF:
         case TRIGParser.PNAME_NS:
         case TRIGParser.PNAME_LN:
             this.enterOuterAlt(localctx, 1);
-            this.state = 76;
+            this.state = 78;
             this.iri();
             break;
         case TRIGParser.BlankNode:
             this.enterOuterAlt(localctx, 2);
-            this.state = 77;
+            this.state = 79;
             this.match(TRIGParser.BlankNode);
             break;
         default:
@@ -690,7 +702,7 @@ TRIGParser.prototype.macro = function() {
     this.enterRule(localctx, 8, TRIGParser.RULE_macro);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 80;
+        this.state = 82;
         this.match(TRIGParser.Macro);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -750,16 +762,17 @@ TRIGParser.prototype.wrappedGraph = function() {
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 82;
-        this.match(TRIGParser.T__2);
         this.state = 84;
+        this.match(TRIGParser.T__2);
+        this.state = 86;
+        this._errHandler.sync(this);
         _la = this._input.LA(1);
         if((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << TRIGParser.T__11) | (1 << TRIGParser.T__13) | (1 << TRIGParser.BlankNode) | (1 << TRIGParser.IRIREF) | (1 << TRIGParser.PNAME_NS) | (1 << TRIGParser.PNAME_LN))) !== 0)) {
-            this.state = 83;
+            this.state = 85;
             this.triplesBlock();
         }
 
-        this.state = 86;
+        this.state = 88;
         this.match(TRIGParser.T__3);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -823,17 +836,19 @@ TRIGParser.prototype.triplesBlock = function() {
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 88;
+        this.state = 90;
         this.triples();
-        this.state = 93;
+        this.state = 95;
+        this._errHandler.sync(this);
         _la = this._input.LA(1);
         if(_la===TRIGParser.T__1) {
-            this.state = 89;
-            this.match(TRIGParser.T__1);
             this.state = 91;
+            this.match(TRIGParser.T__1);
+            this.state = 93;
+            this._errHandler.sync(this);
             _la = this._input.LA(1);
             if((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << TRIGParser.T__11) | (1 << TRIGParser.T__13) | (1 << TRIGParser.BlankNode) | (1 << TRIGParser.IRIREF) | (1 << TRIGParser.PNAME_NS) | (1 << TRIGParser.PNAME_LN))) !== 0)) {
-                this.state = 90;
+                this.state = 92;
                 this.triplesBlock();
             }
 
@@ -904,29 +919,31 @@ TRIGParser.prototype.triples2 = function() {
     this.enterRule(localctx, 14, TRIGParser.RULE_triples2);
     var _la = 0; // Token type
     try {
-        this.state = 105;
+        this.state = 107;
+        this._errHandler.sync(this);
         switch(this._input.LA(1)) {
         case TRIGParser.T__11:
             this.enterOuterAlt(localctx, 1);
-            this.state = 95;
-            this.blankNodePropertyList();
             this.state = 97;
+            this.blankNodePropertyList();
+            this.state = 99;
+            this._errHandler.sync(this);
             _la = this._input.LA(1);
             if((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << TRIGParser.T__10) | (1 << TRIGParser.IRIREF) | (1 << TRIGParser.PNAME_NS) | (1 << TRIGParser.PNAME_LN))) !== 0)) {
-                this.state = 96;
+                this.state = 98;
                 this.predicateObjectList();
             }
 
-            this.state = 99;
+            this.state = 101;
             this.match(TRIGParser.T__1);
             break;
         case TRIGParser.T__13:
             this.enterOuterAlt(localctx, 2);
-            this.state = 101;
-            this.collection();
-            this.state = 102;
-            this.predicateObjectList();
             this.state = 103;
+            this.collection();
+            this.state = 104;
+            this.predicateObjectList();
+            this.state = 105;
             this.match(TRIGParser.T__1);
             break;
         default:
@@ -1000,26 +1017,27 @@ TRIGParser.prototype.directive = function() {
     var localctx = new DirectiveContext(this, this._ctx, this.state);
     this.enterRule(localctx, 16, TRIGParser.RULE_directive);
     try {
-        this.state = 111;
+        this.state = 113;
+        this._errHandler.sync(this);
         switch(this._input.LA(1)) {
         case TRIGParser.T__4:
             this.enterOuterAlt(localctx, 1);
-            this.state = 107;
+            this.state = 109;
             this.prefixID();
             break;
         case TRIGParser.T__5:
             this.enterOuterAlt(localctx, 2);
-            this.state = 108;
+            this.state = 110;
             this.base();
             break;
         case TRIGParser.T__7:
             this.enterOuterAlt(localctx, 3);
-            this.state = 109;
+            this.state = 111;
             this.sparqlPrefix();
             break;
         case TRIGParser.T__6:
             this.enterOuterAlt(localctx, 4);
-            this.state = 110;
+            this.state = 112;
             this.sparqlBase();
             break;
         default:
@@ -1086,13 +1104,13 @@ TRIGParser.prototype.prefixID = function() {
     this.enterRule(localctx, 18, TRIGParser.RULE_prefixID);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 113;
-        this.match(TRIGParser.T__4);
-        this.state = 114;
-        this.match(TRIGParser.PNAME_NS);
         this.state = 115;
-        this.match(TRIGParser.IRIREF);
+        this.match(TRIGParser.T__4);
         this.state = 116;
+        this.match(TRIGParser.PNAME_NS);
+        this.state = 117;
+        this.match(TRIGParser.IRIREF);
+        this.state = 118;
         this.match(TRIGParser.T__1);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -1151,11 +1169,11 @@ TRIGParser.prototype.base = function() {
     this.enterRule(localctx, 20, TRIGParser.RULE_base);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 118;
-        this.match(TRIGParser.T__5);
-        this.state = 119;
-        this.match(TRIGParser.IRIREF);
         this.state = 120;
+        this.match(TRIGParser.T__5);
+        this.state = 121;
+        this.match(TRIGParser.IRIREF);
+        this.state = 122;
         this.match(TRIGParser.T__1);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -1214,9 +1232,9 @@ TRIGParser.prototype.sparqlBase = function() {
     this.enterRule(localctx, 22, TRIGParser.RULE_sparqlBase);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 122;
+        this.state = 124;
         this.match(TRIGParser.T__6);
-        this.state = 123;
+        this.state = 125;
         this.match(TRIGParser.IRIREF);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -1279,11 +1297,11 @@ TRIGParser.prototype.sparqlPrefix = function() {
     this.enterRule(localctx, 24, TRIGParser.RULE_sparqlPrefix);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 125;
-        this.match(TRIGParser.T__7);
-        this.state = 126;
-        this.match(TRIGParser.PNAME_NS);
         this.state = 127;
+        this.match(TRIGParser.T__7);
+        this.state = 128;
+        this.match(TRIGParser.PNAME_NS);
+        this.state = 129;
         this.match(TRIGParser.IRIREF);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -1350,7 +1368,8 @@ TRIGParser.prototype.triples = function() {
     this.enterRule(localctx, 26, TRIGParser.RULE_triples);
     var _la = 0; // Token type
     try {
-        this.state = 136;
+        this.state = 138;
+        this._errHandler.sync(this);
         switch(this._input.LA(1)) {
         case TRIGParser.T__13:
         case TRIGParser.BlankNode:
@@ -1358,19 +1377,20 @@ TRIGParser.prototype.triples = function() {
         case TRIGParser.PNAME_NS:
         case TRIGParser.PNAME_LN:
             this.enterOuterAlt(localctx, 1);
-            this.state = 129;
+            this.state = 131;
             this.subject();
-            this.state = 130;
+            this.state = 132;
             this.predicateObjectList();
             break;
         case TRIGParser.T__11:
             this.enterOuterAlt(localctx, 2);
-            this.state = 132;
-            this.blankNodePropertyList();
             this.state = 134;
+            this.blankNodePropertyList();
+            this.state = 136;
+            this._errHandler.sync(this);
             _la = this._input.LA(1);
             if((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << TRIGParser.T__10) | (1 << TRIGParser.IRIREF) | (1 << TRIGParser.PNAME_NS) | (1 << TRIGParser.PNAME_LN))) !== 0)) {
-                this.state = 133;
+                this.state = 135;
                 this.predicateObjectList();
             }
 
@@ -1454,26 +1474,27 @@ TRIGParser.prototype.predicateObjectList = function() {
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 138;
+        this.state = 140;
         this.verb();
-        this.state = 139;
+        this.state = 141;
         this.objectList();
-        this.state = 148;
+        this.state = 150;
         this._errHandler.sync(this);
         _la = this._input.LA(1);
         while(_la===TRIGParser.T__8) {
-            this.state = 140;
+            this.state = 142;
             this.match(TRIGParser.T__8);
-            this.state = 144;
+            this.state = 146;
+            this._errHandler.sync(this);
             _la = this._input.LA(1);
             if((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << TRIGParser.T__10) | (1 << TRIGParser.IRIREF) | (1 << TRIGParser.PNAME_NS) | (1 << TRIGParser.PNAME_LN))) !== 0)) {
-                this.state = 141;
+                this.state = 143;
                 this.verb();
-                this.state = 142;
+                this.state = 144;
                 this.objectList();
             }
 
-            this.state = 150;
+            this.state = 152;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
         }
@@ -1542,17 +1563,17 @@ TRIGParser.prototype.objectList = function() {
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 151;
+        this.state = 153;
         this.object();
-        this.state = 156;
+        this.state = 158;
         this._errHandler.sync(this);
         _la = this._input.LA(1);
         while(_la===TRIGParser.T__9) {
-            this.state = 152;
+            this.state = 154;
             this.match(TRIGParser.T__9);
-            this.state = 153;
+            this.state = 155;
             this.object();
-            this.state = 158;
+            this.state = 160;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
         }
@@ -1612,18 +1633,19 @@ TRIGParser.prototype.verb = function() {
     var localctx = new VerbContext(this, this._ctx, this.state);
     this.enterRule(localctx, 32, TRIGParser.RULE_verb);
     try {
-        this.state = 161;
+        this.state = 163;
+        this._errHandler.sync(this);
         switch(this._input.LA(1)) {
         case TRIGParser.IRIREF:
         case TRIGParser.PNAME_NS:
         case TRIGParser.PNAME_LN:
             this.enterOuterAlt(localctx, 1);
-            this.state = 159;
+            this.state = 161;
             this.predicate();
             break;
         case TRIGParser.T__10:
             this.enterOuterAlt(localctx, 2);
-            this.state = 160;
+            this.state = 162;
             this.match(TRIGParser.T__10);
             break;
         default:
@@ -1693,23 +1715,24 @@ TRIGParser.prototype.subject = function() {
     var localctx = new SubjectContext(this, this._ctx, this.state);
     this.enterRule(localctx, 34, TRIGParser.RULE_subject);
     try {
-        this.state = 166;
+        this.state = 168;
+        this._errHandler.sync(this);
         switch(this._input.LA(1)) {
         case TRIGParser.IRIREF:
         case TRIGParser.PNAME_NS:
         case TRIGParser.PNAME_LN:
             this.enterOuterAlt(localctx, 1);
-            this.state = 163;
+            this.state = 165;
             this.iri();
             break;
         case TRIGParser.BlankNode:
             this.enterOuterAlt(localctx, 2);
-            this.state = 164;
+            this.state = 166;
             this.match(TRIGParser.BlankNode);
             break;
         case TRIGParser.T__13:
             this.enterOuterAlt(localctx, 3);
-            this.state = 165;
+            this.state = 167;
             this.collection();
             break;
         default:
@@ -1772,7 +1795,7 @@ TRIGParser.prototype.predicate = function() {
     this.enterRule(localctx, 36, TRIGParser.RULE_predicate);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 168;
+        this.state = 170;
         this.iri();
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -1846,35 +1869,36 @@ TRIGParser.prototype.object = function() {
     var localctx = new ObjectContext(this, this._ctx, this.state);
     this.enterRule(localctx, 38, TRIGParser.RULE_object);
     try {
-        this.state = 175;
+        this.state = 177;
+        this._errHandler.sync(this);
         switch(this._input.LA(1)) {
         case TRIGParser.IRIREF:
         case TRIGParser.PNAME_NS:
         case TRIGParser.PNAME_LN:
             this.enterOuterAlt(localctx, 1);
-            this.state = 170;
+            this.state = 172;
             this.iri();
             break;
         case TRIGParser.BlankNode:
             this.enterOuterAlt(localctx, 2);
-            this.state = 171;
+            this.state = 173;
             this.match(TRIGParser.BlankNode);
             break;
         case TRIGParser.T__13:
             this.enterOuterAlt(localctx, 3);
-            this.state = 172;
+            this.state = 174;
             this.collection();
             break;
         case TRIGParser.T__11:
             this.enterOuterAlt(localctx, 4);
-            this.state = 173;
+            this.state = 175;
             this.blankNodePropertyList();
             break;
         case TRIGParser.NumericLiteral:
         case TRIGParser.BooleanLiteral:
         case TRIGParser.String:
             this.enterOuterAlt(localctx, 5);
-            this.state = 174;
+            this.state = 176;
             this.literal();
             break;
         default:
@@ -1944,21 +1968,22 @@ TRIGParser.prototype.literal = function() {
     var localctx = new LiteralContext(this, this._ctx, this.state);
     this.enterRule(localctx, 40, TRIGParser.RULE_literal);
     try {
-        this.state = 180;
+        this.state = 182;
+        this._errHandler.sync(this);
         switch(this._input.LA(1)) {
         case TRIGParser.String:
             this.enterOuterAlt(localctx, 1);
-            this.state = 177;
+            this.state = 179;
             this.rdfLiteral();
             break;
         case TRIGParser.NumericLiteral:
             this.enterOuterAlt(localctx, 2);
-            this.state = 178;
+            this.state = 180;
             this.match(TRIGParser.NumericLiteral);
             break;
         case TRIGParser.BooleanLiteral:
             this.enterOuterAlt(localctx, 3);
-            this.state = 179;
+            this.state = 181;
             this.match(TRIGParser.BooleanLiteral);
             break;
         default:
@@ -2021,11 +2046,11 @@ TRIGParser.prototype.blankNodePropertyList = function() {
     this.enterRule(localctx, 42, TRIGParser.RULE_blankNodePropertyList);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 182;
-        this.match(TRIGParser.T__11);
-        this.state = 183;
-        this.predicateObjectList();
         this.state = 184;
+        this.match(TRIGParser.T__11);
+        this.state = 185;
+        this.predicateObjectList();
+        this.state = 186;
         this.match(TRIGParser.T__12);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -2092,19 +2117,19 @@ TRIGParser.prototype.collection = function() {
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 186;
+        this.state = 188;
         this.match(TRIGParser.T__13);
-        this.state = 190;
+        this.state = 192;
         this._errHandler.sync(this);
         _la = this._input.LA(1);
         while((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << TRIGParser.T__11) | (1 << TRIGParser.T__13) | (1 << TRIGParser.NumericLiteral) | (1 << TRIGParser.BooleanLiteral) | (1 << TRIGParser.String) | (1 << TRIGParser.BlankNode) | (1 << TRIGParser.IRIREF) | (1 << TRIGParser.PNAME_NS) | (1 << TRIGParser.PNAME_LN))) !== 0)) {
-            this.state = 187;
+            this.state = 189;
             this.object();
-            this.state = 192;
+            this.state = 194;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
         }
-        this.state = 193;
+        this.state = 195;
         this.match(TRIGParser.T__14);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -2171,18 +2196,19 @@ TRIGParser.prototype.rdfLiteral = function() {
     this.enterRule(localctx, 46, TRIGParser.RULE_rdfLiteral);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 195;
+        this.state = 197;
         this.match(TRIGParser.String);
-        this.state = 199;
+        this.state = 201;
+        this._errHandler.sync(this);
         switch (this._input.LA(1)) {
         case TRIGParser.LANGTAG:
-        	this.state = 196;
+        	this.state = 198;
         	this.match(TRIGParser.LANGTAG);
         	break;
         case TRIGParser.T__15:
-        	this.state = 197;
+        	this.state = 199;
         	this.match(TRIGParser.T__15);
-        	this.state = 198;
+        	this.state = 200;
         	this.iri();
         	break;
         case TRIGParser.T__1:
@@ -2202,7 +2228,7 @@ TRIGParser.prototype.rdfLiteral = function() {
         case TRIGParser.PNAME_LN:
         	break;
         default:
-        	throw new antlr4.error.NoViableAltException(this);
+        	break;
         }
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -2264,17 +2290,18 @@ TRIGParser.prototype.iri = function() {
     var localctx = new IriContext(this, this._ctx, this.state);
     this.enterRule(localctx, 48, TRIGParser.RULE_iri);
     try {
-        this.state = 203;
+        this.state = 205;
+        this._errHandler.sync(this);
         switch(this._input.LA(1)) {
         case TRIGParser.IRIREF:
             this.enterOuterAlt(localctx, 1);
-            this.state = 201;
+            this.state = 203;
             this.match(TRIGParser.IRIREF);
             break;
         case TRIGParser.PNAME_NS:
         case TRIGParser.PNAME_LN:
             this.enterOuterAlt(localctx, 2);
-            this.state = 202;
+            this.state = 204;
             this.prefixedname();
             break;
         default:
@@ -2342,12 +2369,13 @@ TRIGParser.prototype.prefixedname = function() {
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 205;
+        this.state = 207;
         _la = this._input.LA(1);
         if(!(_la===TRIGParser.PNAME_NS || _la===TRIGParser.PNAME_LN)) {
         this._errHandler.recoverInline(this);
         }
         else {
+        	this._errHandler.reportMatch(this);
             this.consume();
         }
     } catch (re) {

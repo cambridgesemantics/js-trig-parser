@@ -316,7 +316,7 @@ module.exports = function (trig, parser, options) {
       if(!result.pos && result.source){
           result.pos = result.source.pos
       }
-      return result;
+      return (result);
   }
 
 
@@ -354,7 +354,7 @@ module.exports = function (trig, parser, options) {
     if(isInValidObjectType(o)){
       return null
     }
-    
+
     return {
       iriSubject: s.token, //uriUtils.tryConvertToURI(s.token),
       iriPredicate: p.token, //uriUtils.tryConvertToURI(p.token),
@@ -398,7 +398,8 @@ module.exports = function (trig, parser, options) {
 				cleanToken(this._g)
 				cleanToken(this._p)
 				cleanToken(this._s)
-
+        cleanToken(this._o)
+        
       },
       toString: function(){
         return this.iriSubject + " " + this.iriPredicate + " " + this.object;
@@ -407,7 +408,9 @@ module.exports = function (trig, parser, options) {
   }
 	
 	function cleanToken(t){
-		if(!t) return;
+    if(!t) return;
+    if(t.source)
+      delete t.source
 		if(t.stop){
 			delete t.stop['source']
 		}
@@ -707,7 +710,7 @@ module.exports = function (trig, parser, options) {
       return createExpression(stmt);
     },
     handleMacro: function(ruleMatch){
-      return createExpression(ruleMatch);
+      return createNode(ruleMatch);
     },
     createErrorFromNode: createErrorFromNode,
     createDefaultGraph: createDefaultGraph,

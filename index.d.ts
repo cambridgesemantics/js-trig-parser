@@ -48,6 +48,8 @@ export interface TrigDoc{
     analysisErrors: IAnalysisError[]
     macros: any
     getStatements(): IParsedStatement[]
+    expressions?: IBaseToken[]
+    terminals?: IBaseToken[]
 
 }
 
@@ -111,9 +113,13 @@ interface IriToken extends IBaseToken{
     type: string
 }
 
+interface TrigLoaderOptions{
+    includeTerminals: boolean
+}
 interface TrigLoader{
-    fromFile(path: string, cb: LoaderCB): void
-    fromString(trig: string): TrigDoc
+    fromFile(path: string, options: TrigLoaderOptions | LoaderCB, cb?: LoaderCB): void
+    fromString(trig: string, options?: TrigLoaderOptions): TrigDoc
+    fromStringAsync(trig, options? : TrigLoaderOptions | LoaderCB , cb?: LoaderCB): void
 }
 
 interface BaseLoader{
@@ -131,7 +137,7 @@ interface BaseLoader{
 }
 interface BaseParseResult{
     expressions: IBaseToken[],
-    terminals: IBaseToken[]
+    terminals: IBaseToken[],
 }
 
 type LoaderCB = (any, TrigDoc) => any

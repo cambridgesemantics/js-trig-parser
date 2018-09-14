@@ -34,7 +34,7 @@ function createPreprocessor(trig, parser){
           line: rule.start.line,
           column: rule.start.column
         },
-        start: rule.start,
+        start: rule.start || 0,
         stop: rule.stop,
         type: ruleNames[rule.ruleIndex],
         token: token,
