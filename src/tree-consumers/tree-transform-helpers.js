@@ -1,4 +1,4 @@
-function createPreprocessor(trig, parser){
+export default function createPreprocessor(trig, parser){
   var symbolicNames = parser.symbolicNames;
   var ruleNames = parser.ruleNames;
   var literalNames = parser.literalNames;
@@ -42,4 +42,3 @@ function createPreprocessor(trig, parser){
     createSymbol: createSymbol
   };
 }
-module.exports = createPreprocessor;

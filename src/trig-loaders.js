@@ -1,22 +1,17 @@
 
-var antlr4 = require('antlr4');
-var TRIGLexer = require('./antlr-trig/TRIGLexer.js').TRIGLexer;
-var TRIGParser = require('./antlr-trig/TRIGParser.js').TRIGParser;
-var DefaultGrammerListener = require('./listeners/DefaultGrammerListener.js');
-var TrigGrammerListener = require('./listeners/TrigGrammerListener.js');
-var createRuleHandler = require('./tree-consumers/trig-tree-consumer.js');
+import antlr4 from 'antlr4';
+import TRIGLexer from './antlr-trig/TRIGLexer.js';
+import TRIGParser from './antlr-trig/TRIGParser.js';
+import DefaultGrammerListener from './listeners/DefaultGrammerListener.js';
+import TrigGrammerListener from './listeners/TrigGrammerListener.js';
+import createRuleHandler from './tree-consumers/trig-tree-consumer.js';
+import treeTransformHelpers from './tree-consumers/tree-transform-helpers.js';
+import fs from 'fs';
 
 var selectPrefixes = new RegExp('@prefix[^\.]*\.', 'g');
 var trimPrefixNameWhitespace = new RegExp('[A-Za-z0-9 ]*\\s*:', 'g');
 var removeWhitespace = new RegExp('\\s+:');
-var treeTransformHelpers = require('./tree-consumers/tree-transform-helpers.js');
 
-var fs;
-try {
-    fs = require('fs');
-} catch(e) {
-
-}
 
 var transformTreeAndGetRules = function(docStr, trig){
     var helpers = treeTransformHelpers(docStr, trig.parser);
@@ -95,6 +90,7 @@ function parseTrig(data){
 
 
 function graphsFromFile(fn, cb){
+
     fs.readFile(fn, 'utf-8', function(err, content){
         if(err) cb(err);
         try{
@@ -155,7 +151,7 @@ if(fs){
   syntaxTreeLoader.fromFile = treeFromFile;
 }
 
-module.exports = {
+export default {
     graphLoader: graphLoader,
     baseLoader: baseLoader,
     syntaxTreeLoader: syntaxTreeLoader

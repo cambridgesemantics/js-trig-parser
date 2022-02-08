@@ -1,8 +1,16 @@
-module.exports = {
-  loaders :require('./src/trig-loaders.js'),
-  antlr: {
-    TRIGLexer: require('./src/antlr-trig/TRIGLexer.js'),
-    TRIGParser: require('./src/antlr-trig/TRIGParser.js'),
-    TRIGListener: require('./src/antlr-trig/TRIGListener.js')
-  }
+import loaders from './src/trig-loaders.js';
+import TRIGLexer from './src/antlr-trig/TRIGLexer.js';
+import TRIGParser from './src/antlr-trig/TRIGParser.js';
+import TRIGListener from  './src/antlr-trig/TRIGListener.js';
+
+
+const antlr = {
+    TRIGLexer,
+    TRIGParser,
+    TRIGListener
+  };
+
+export  {
+  loaders ,
+  antlr 
 };

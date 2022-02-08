@@ -11,7 +11,7 @@ var singleQtEnd = new RegExp("'$");
 var doubleQtStart = new RegExp('^"');
 var doubleQtEnd = new RegExp('"$');
 
-module.exports =  {
+export default {
   wrappedBySimple: function (str, seq){
     return str.indexOf(seq) === 0 && str.indexOf(seq) === str.length - 1;
   },

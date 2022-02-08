@@ -1,8 +1,6 @@
-var path = require('path');
-var routines = require('./test-routines.js');
+import path from 'path';
+import {tryLoadTrig, tryParseTrig} from './test-routines.js';
 
-var tryLoadTrig = routines.tryLoadTrig;
-var tryParseTrig = routines.tryParseTrig;
 describe('Profiling: 30K lines 72K stmts', function() {
 
     it('Performance Test parser only', function(done) {

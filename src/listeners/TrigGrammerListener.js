@@ -244,4 +244,4 @@ TrigGrammerListener.prototype.exitRule = function(){};
 TrigGrammerListener.prototype.visitErrorNode = function(ctx){
   this.errors.push(ctx);
 };
-module.exports = TrigGrammerListener;
+export default TrigGrammerListener;

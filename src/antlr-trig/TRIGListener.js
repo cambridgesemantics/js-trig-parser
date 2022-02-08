@@ -1,249 +1,243 @@
-// Generated from TRIG.g4 by ANTLR 4.5.2
+// Generated from TRIG.g4 by ANTLR 4.9.2
 // jshint ignore: start
-var antlr4 = require('antlr4/index');
+import antlr4 from 'antlr4';
 
 // This class defines a complete listener for a parse tree produced by TRIGParser.
-function TRIGListener() {
-	antlr4.tree.ParseTreeListener.call(this);
-	return this;
+export default class TRIGListener extends antlr4.tree.ParseTreeListener {
+
+	// Enter a parse tree produced by TRIGParser#trigDoc.
+	enterTrigDoc(ctx) {
+	}
+
+	// Exit a parse tree produced by TRIGParser#trigDoc.
+	exitTrigDoc(ctx) {
+	}
+
+
+	// Enter a parse tree produced by TRIGParser#block.
+	enterBlock(ctx) {
+	}
+
+	// Exit a parse tree produced by TRIGParser#block.
+	exitBlock(ctx) {
+	}
+
+
+	// Enter a parse tree produced by TRIGParser#triplesOrGraph.
+	enterTriplesOrGraph(ctx) {
+	}
+
+	// Exit a parse tree produced by TRIGParser#triplesOrGraph.
+	exitTriplesOrGraph(ctx) {
+	}
+
+
+	// Enter a parse tree produced by TRIGParser#labelOrSubject.
+	enterLabelOrSubject(ctx) {
+	}
+
+	// Exit a parse tree produced by TRIGParser#labelOrSubject.
+	exitLabelOrSubject(ctx) {
+	}
+
+
+	// Enter a parse tree produced by TRIGParser#macro.
+	enterMacro(ctx) {
+	}
+
+	// Exit a parse tree produced by TRIGParser#macro.
+	exitMacro(ctx) {
+	}
+
+
+	// Enter a parse tree produced by TRIGParser#wrappedGraph.
+	enterWrappedGraph(ctx) {
+	}
+
+	// Exit a parse tree produced by TRIGParser#wrappedGraph.
+	exitWrappedGraph(ctx) {
+	}
+
+
+	// Enter a parse tree produced by TRIGParser#triplesBlock.
+	enterTriplesBlock(ctx) {
+	}
+
+	// Exit a parse tree produced by TRIGParser#triplesBlock.
+	exitTriplesBlock(ctx) {
+	}
+
+
+	// Enter a parse tree produced by TRIGParser#triples2.
+	enterTriples2(ctx) {
+	}
+
+	// Exit a parse tree produced by TRIGParser#triples2.
+	exitTriples2(ctx) {
+	}
+
+
+	// Enter a parse tree produced by TRIGParser#directive.
+	enterDirective(ctx) {
+	}
+
+	// Exit a parse tree produced by TRIGParser#directive.
+	exitDirective(ctx) {
+	}
+
+
+	// Enter a parse tree produced by TRIGParser#prefixID.
+	enterPrefixID(ctx) {
+	}
+
+	// Exit a parse tree produced by TRIGParser#prefixID.
+	exitPrefixID(ctx) {
+	}
+
+
+	// Enter a parse tree produced by TRIGParser#base.
+	enterBase(ctx) {
+	}
+
+	// Exit a parse tree produced by TRIGParser#base.
+	exitBase(ctx) {
+	}
+
+
+	// Enter a parse tree produced by TRIGParser#sparqlBase.
+	enterSparqlBase(ctx) {
+	}
+
+	// Exit a parse tree produced by TRIGParser#sparqlBase.
+	exitSparqlBase(ctx) {
+	}
+
+
+	// Enter a parse tree produced by TRIGParser#sparqlPrefix.
+	enterSparqlPrefix(ctx) {
+	}
+
+	// Exit a parse tree produced by TRIGParser#sparqlPrefix.
+	exitSparqlPrefix(ctx) {
+	}
+
+
+	// Enter a parse tree produced by TRIGParser#triples.
+	enterTriples(ctx) {
+	}
+
+	// Exit a parse tree produced by TRIGParser#triples.
+	exitTriples(ctx) {
+	}
+
+
+	// Enter a parse tree produced by TRIGParser#predicateObjectList.
+	enterPredicateObjectList(ctx) {
+	}
+
+	// Exit a parse tree produced by TRIGParser#predicateObjectList.
+	exitPredicateObjectList(ctx) {
+	}
+
+
+	// Enter a parse tree produced by TRIGParser#objectList.
+	enterObjectList(ctx) {
+	}
+
+	// Exit a parse tree produced by TRIGParser#objectList.
+	exitObjectList(ctx) {
+	}
+
+
+	// Enter a parse tree produced by TRIGParser#verb.
+	enterVerb(ctx) {
+	}
+
+	// Exit a parse tree produced by TRIGParser#verb.
+	exitVerb(ctx) {
+	}
+
+
+	// Enter a parse tree produced by TRIGParser#subject.
+	enterSubject(ctx) {
+	}
+
+	// Exit a parse tree produced by TRIGParser#subject.
+	exitSubject(ctx) {
+	}
+
+
+	// Enter a parse tree produced by TRIGParser#predicate.
+	enterPredicate(ctx) {
+	}
+
+	// Exit a parse tree produced by TRIGParser#predicate.
+	exitPredicate(ctx) {
+	}
+
+
+	// Enter a parse tree produced by TRIGParser#object.
+	enterObject(ctx) {
+	}
+
+	// Exit a parse tree produced by TRIGParser#object.
+	exitObject(ctx) {
+	}
+
+
+	// Enter a parse tree produced by TRIGParser#literal.
+	enterLiteral(ctx) {
+	}
+
+	// Exit a parse tree produced by TRIGParser#literal.
+	exitLiteral(ctx) {
+	}
+
+
+	// Enter a parse tree produced by TRIGParser#blankNodePropertyList.
+	enterBlankNodePropertyList(ctx) {
+	}
+
+	// Exit a parse tree produced by TRIGParser#blankNodePropertyList.
+	exitBlankNodePropertyList(ctx) {
+	}
+
+
+	// Enter a parse tree produced by TRIGParser#collection.
+	enterCollection(ctx) {
+	}
+
+	// Exit a parse tree produced by TRIGParser#collection.
+	exitCollection(ctx) {
+	}
+
+
+	// Enter a parse tree produced by TRIGParser#rdfLiteral.
+	enterRdfLiteral(ctx) {
+	}
+
+	// Exit a parse tree produced by TRIGParser#rdfLiteral.
+	exitRdfLiteral(ctx) {
+	}
+
+
+	// Enter a parse tree produced by TRIGParser#iri.
+	enterIri(ctx) {
+	}
+
+	// Exit a parse tree produced by TRIGParser#iri.
+	exitIri(ctx) {
+	}
+
+
+	// Enter a parse tree produced by TRIGParser#prefixedname.
+	enterPrefixedname(ctx) {
+	}
+
+	// Exit a parse tree produced by TRIGParser#prefixedname.
+	exitPrefixedname(ctx) {
+	}
+
+
+
 }
-
-TRIGListener.prototype = Object.create(antlr4.tree.ParseTreeListener.prototype);
-TRIGListener.prototype.constructor = TRIGListener;
-
-// Enter a parse tree produced by TRIGParser#trigDoc.
-TRIGListener.prototype.enterTrigDoc = function(ctx) {
-};
-
-// Exit a parse tree produced by TRIGParser#trigDoc.
-TRIGListener.prototype.exitTrigDoc = function(ctx) {
-};
-
-
-// Enter a parse tree produced by TRIGParser#block.
-TRIGListener.prototype.enterBlock = function(ctx) {
-};
-
-// Exit a parse tree produced by TRIGParser#block.
-TRIGListener.prototype.exitBlock = function(ctx) {
-};
-
-
-// Enter a parse tree produced by TRIGParser#triplesOrGraph.
-TRIGListener.prototype.enterTriplesOrGraph = function(ctx) {
-};
-
-// Exit a parse tree produced by TRIGParser#triplesOrGraph.
-TRIGListener.prototype.exitTriplesOrGraph = function(ctx) {
-};
-
-
-// Enter a parse tree produced by TRIGParser#labelOrSubject.
-TRIGListener.prototype.enterLabelOrSubject = function(ctx) {
-};
-
-// Exit a parse tree produced by TRIGParser#labelOrSubject.
-TRIGListener.prototype.exitLabelOrSubject = function(ctx) {
-};
-
-
-// Enter a parse tree produced by TRIGParser#macro.
-TRIGListener.prototype.enterMacro = function(ctx) {
-};
-
-// Exit a parse tree produced by TRIGParser#macro.
-TRIGListener.prototype.exitMacro = function(ctx) {
-};
-
-
-// Enter a parse tree produced by TRIGParser#wrappedGraph.
-TRIGListener.prototype.enterWrappedGraph = function(ctx) {
-};
-
-// Exit a parse tree produced by TRIGParser#wrappedGraph.
-TRIGListener.prototype.exitWrappedGraph = function(ctx) {
-};
-
-
-// Enter a parse tree produced by TRIGParser#triplesBlock.
-TRIGListener.prototype.enterTriplesBlock = function(ctx) {
-};
-
-// Exit a parse tree produced by TRIGParser#triplesBlock.
-TRIGListener.prototype.exitTriplesBlock = function(ctx) {
-};
-
-
-// Enter a parse tree produced by TRIGParser#triples2.
-TRIGListener.prototype.enterTriples2 = function(ctx) {
-};
-
-// Exit a parse tree produced by TRIGParser#triples2.
-TRIGListener.prototype.exitTriples2 = function(ctx) {
-};
-
-
-// Enter a parse tree produced by TRIGParser#directive.
-TRIGListener.prototype.enterDirective = function(ctx) {
-};
-
-// Exit a parse tree produced by TRIGParser#directive.
-TRIGListener.prototype.exitDirective = function(ctx) {
-};
-
-
-// Enter a parse tree produced by TRIGParser#prefixID.
-TRIGListener.prototype.enterPrefixID = function(ctx) {
-};
-
-// Exit a parse tree produced by TRIGParser#prefixID.
-TRIGListener.prototype.exitPrefixID = function(ctx) {
-};
-
-
-// Enter a parse tree produced by TRIGParser#base.
-TRIGListener.prototype.enterBase = function(ctx) {
-};
-
-// Exit a parse tree produced by TRIGParser#base.
-TRIGListener.prototype.exitBase = function(ctx) {
-};
-
-
-// Enter a parse tree produced by TRIGParser#sparqlBase.
-TRIGListener.prototype.enterSparqlBase = function(ctx) {
-};
-
-// Exit a parse tree produced by TRIGParser#sparqlBase.
-TRIGListener.prototype.exitSparqlBase = function(ctx) {
-};
-
-
-// Enter a parse tree produced by TRIGParser#sparqlPrefix.
-TRIGListener.prototype.enterSparqlPrefix = function(ctx) {
-};
-
-// Exit a parse tree produced by TRIGParser#sparqlPrefix.
-TRIGListener.prototype.exitSparqlPrefix = function(ctx) {
-};
-
-
-// Enter a parse tree produced by TRIGParser#triples.
-TRIGListener.prototype.enterTriples = function(ctx) {
-};
-
-// Exit a parse tree produced by TRIGParser#triples.
-TRIGListener.prototype.exitTriples = function(ctx) {
-};
-
-
-// Enter a parse tree produced by TRIGParser#predicateObjectList.
-TRIGListener.prototype.enterPredicateObjectList = function(ctx) {
-};
-
-// Exit a parse tree produced by TRIGParser#predicateObjectList.
-TRIGListener.prototype.exitPredicateObjectList = function(ctx) {
-};
-
-
-// Enter a parse tree produced by TRIGParser#objectList.
-TRIGListener.prototype.enterObjectList = function(ctx) {
-};
-
-// Exit a parse tree produced by TRIGParser#objectList.
-TRIGListener.prototype.exitObjectList = function(ctx) {
-};
-
-
-// Enter a parse tree produced by TRIGParser#verb.
-TRIGListener.prototype.enterVerb = function(ctx) {
-};
-
-// Exit a parse tree produced by TRIGParser#verb.
-TRIGListener.prototype.exitVerb = function(ctx) {
-};
-
-
-// Enter a parse tree produced by TRIGParser#subject.
-TRIGListener.prototype.enterSubject = function(ctx) {
-};
-
-// Exit a parse tree produced by TRIGParser#subject.
-TRIGListener.prototype.exitSubject = function(ctx) {
-};
-
-
-// Enter a parse tree produced by TRIGParser#predicate.
-TRIGListener.prototype.enterPredicate = function(ctx) {
-};
-
-// Exit a parse tree produced by TRIGParser#predicate.
-TRIGListener.prototype.exitPredicate = function(ctx) {
-};
-
-
-// Enter a parse tree produced by TRIGParser#object.
-TRIGListener.prototype.enterObject = function(ctx) {
-};
-
-// Exit a parse tree produced by TRIGParser#object.
-TRIGListener.prototype.exitObject = function(ctx) {
-};
-
-
-// Enter a parse tree produced by TRIGParser#literal.
-TRIGListener.prototype.enterLiteral = function(ctx) {
-};
-
-// Exit a parse tree produced by TRIGParser#literal.
-TRIGListener.prototype.exitLiteral = function(ctx) {
-};
-
-
-// Enter a parse tree produced by TRIGParser#blankNodePropertyList.
-TRIGListener.prototype.enterBlankNodePropertyList = function(ctx) {
-};
-
-// Exit a parse tree produced by TRIGParser#blankNodePropertyList.
-TRIGListener.prototype.exitBlankNodePropertyList = function(ctx) {
-};
-
-
-// Enter a parse tree produced by TRIGParser#collection.
-TRIGListener.prototype.enterCollection = function(ctx) {
-};
-
-// Exit a parse tree produced by TRIGParser#collection.
-TRIGListener.prototype.exitCollection = function(ctx) {
-};
-
-
-// Enter a parse tree produced by TRIGParser#rdfLiteral.
-TRIGListener.prototype.enterRdfLiteral = function(ctx) {
-};
-
-// Exit a parse tree produced by TRIGParser#rdfLiteral.
-TRIGListener.prototype.exitRdfLiteral = function(ctx) {
-};
-
-
-// Enter a parse tree produced by TRIGParser#iri.
-TRIGListener.prototype.enterIri = function(ctx) {
-};
-
-// Exit a parse tree produced by TRIGParser#iri.
-TRIGListener.prototype.exitIri = function(ctx) {
-};
-
-
-// Enter a parse tree produced by TRIGParser#prefixedname.
-TRIGListener.prototype.enterPrefixedname = function(ctx) {
-};
-
-// Exit a parse tree produced by TRIGParser#prefixedname.
-TRIGListener.prototype.exitPrefixedname = function(ctx) {
-};
-
-
-
-exports.TRIGListener = TRIGListener;

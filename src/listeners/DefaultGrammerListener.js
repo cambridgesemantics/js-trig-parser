@@ -26,4 +26,4 @@ DefaultTrigGrammerListener.prototype.visitErrorNode = function(ctx){
 };
 
 
-module.exports = DefaultTrigGrammerListener;
+export default DefaultTrigGrammerListener;

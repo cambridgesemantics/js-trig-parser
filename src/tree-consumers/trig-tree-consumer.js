@@ -4,11 +4,11 @@ Rule handler based on following w3c specs:
   TRIG: https://www.w3.org/TR/trig/
 */
 
-var uriUtils = require('../util/uri-utils.js');
-var strUtils = require('../util/str-utils.js');
-var uuid = require('uuid');
-var moment = require('moment');
-var createTreeTransformHelpers = require('./tree-transform-helpers.js');
+import uriUtils from '../util/uri-utils.js';
+import strUtils from '../util/str-utils.js';
+import uuid from 'uuid';
+import moment from 'moment';
+import createTreeTransformHelpers from './tree-transform-helpers.js';
 
 var DEFAULT_GRAPH_URI = 'https://www.w3.org/TR/trig/defaultGraph';
 var LITERAL_STATES = {
@@ -18,7 +18,7 @@ var LITERAL_STATES = {
 
 var replaceExpandedXSD = new RegExp('^http://www.w3.org/2001/XMLSchema#');
 
-module.exports = function (trig, parser, options) {
+export default function (trig, parser, options) {
   options = options || {};
   DEFAULT_GRAPH_URI = DEFAULT_GRAPH_URI || options.defaultGraphURI;
 

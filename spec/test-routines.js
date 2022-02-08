@@ -1,6 +1,7 @@
-var fs = require('fs');
-var path = require('path');
-var trigLoaders = require('../src/trig-loaders.js');
+import fs from 'fs' ;
+import path from 'path';
+import trigLoaders from '../src/trig-loaders.js';
+
 function tryParseTrig(fn, cb) {
     trigLoaders.syntaxTreeLoader.fromFile(fn, cb);
 }
@@ -21,9 +22,9 @@ function getTestFiles(dir) {
     });
 }
 
-module.exports = {
-  tryParseTrig: tryParseTrig,
-  tryLoadTrig: tryLoadTrig,
-  tryDefaultLoad: tryDefaultLoad,
-  getTestFiles: getTestFiles
+export  {
+  tryParseTrig,
+  tryLoadTrig,
+  tryDefaultLoad,
+  getTestFiles
 };

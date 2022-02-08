@@ -1,17 +1,8 @@
 var path = require("path");
 var webpack = require('webpack');
 
-
 module.exports = {
   entry: "./index.js",
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-        warnings: false,
-        minimize: true,
-        sourceMap: false,
-        mangle: true
-    })
-  ],
   output: {
      path: path.resolve(__dirname, "umd"),
      filename: "trigParser.min.js",
@@ -21,5 +12,19 @@ module.exports = {
      // name of the global var: "Foo"
      library: "trigParser",
 
-  }
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js)$/,
+        exclude: /node_modules/,
+        use: "babel-loader",
+      },
+    ],
+  },
+  resolve: {
+        fallback: {
+            "fs": false
+        },
+    }
 };
