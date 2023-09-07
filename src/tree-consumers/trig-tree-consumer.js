@@ -6,7 +6,7 @@ Rule handler based on following w3c specs:
 
 import uriUtils from '../util/uri-utils.js';
 import strUtils from '../util/str-utils.js';
-import uuid from 'uuid';
+import {v4 as uuid} from 'uuid';
 import moment from 'moment';
 import createTreeTransformHelpers from './tree-transform-helpers.js';
 
@@ -230,7 +230,7 @@ export default function (trig, parser, options) {
 
   function createBlankNodeList(subject, tempResults, results){
     var _uri = uriUtils.ensureSlashEnd(uriUtils.toURI(subject.token));
-    var bnodeId = _uri + uuid.v4();
+    var bnodeId = _uri + uuid();
     tempResults.forEach(function(tresult){
       results.push(createTriple(bnodeId, tresult._v, tresult._o));
     });
@@ -504,7 +504,7 @@ export default function (trig, parser, options) {
           },{});
 
           var uuids = Object.keys(tripleMap).reduce(function(acc, bNode){
-            acc[bNode] = uuid.v4();
+            acc[bNode] = uuid();
             return acc;
           }, {});
 
