@@ -5,14 +5,14 @@
   "description": "antlr4 based JS trig parser",
   "main": "index.js",
   "dependencies": {
-    "antlr4": "^4.5.3",
+    "antlr4": "^4.13.0",
     "moment": "^2.14.1",
     "uuid": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
-    "antlr4": "^4.6.0",
+    "antlr4": "^4.13.0",
     "babel-loader": "^8.2.3",
     "chai": "^3.5.0",
     "mocha": "^9.2.0",
