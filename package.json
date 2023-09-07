@@ -1,6 +1,6 @@
 {
   "name": "js-trig-parser",
-  "version": "0.3.6",
+  "version": "0.3.9",
   "type": "module",
   "description": "antlr4 based JS trig parser",
   "main": "index.js",
