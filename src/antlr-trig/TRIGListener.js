@@ -3,7 +3,7 @@
 import antlr4 from 'antlr4';
 
 // This class defines a complete listener for a parse tree produced by TRIGParser.
-export default class TRIGListener extends antlr4.tree.ParseTreeListener {
+export default class TRIGListener extends antlr4.ParseTreeListener {
 
 	// Enter a parse tree produced by TRIGParser#trigDoc.
 	enterTrigDoc(ctx) {

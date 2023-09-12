@@ -68,11 +68,11 @@ const serializedATN = [4,1,50,208,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,
 134,136,144,148,156,161,166,175,180,190,199,203];
 
 
-const atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
+const atn = new antlr4.ATNDeserializer().deserialize(serializedATN);
 
-const decisionsToDFA = atn.decisionToState.map( (ds, index) => new antlr4.dfa.DFA(ds, index) );
+const decisionsToDFA = atn.decisionToState.map( (ds, index) => new antlr4.DFA(ds, index) );
 
-const sharedContextCache = new antlr4.atn.PredictionContextCache();
+const sharedContextCache = new antlr4.PredictionContextCache();
 
 export default class TRIGParser extends antlr4.Parser {
 
@@ -102,7 +102,7 @@ export default class TRIGParser extends antlr4.Parser {
 
     constructor(input) {
         super(input);
-        this._interp = new antlr4.atn.ParserATNSimulator(this, atn, decisionsToDFA, sharedContextCache);
+        this._interp = new antlr4.ParserATNSimulator(this, atn, decisionsToDFA, sharedContextCache);
         this.ruleNames = TRIGParser.ruleNames;
         this.literalNames = TRIGParser.literalNames;
         this.symbolicNames = TRIGParser.symbolicNames;
@@ -146,14 +146,14 @@ export default class TRIGParser extends antlr4.Parser {
 	                this.macro();
 	                break;
 	            default:
-	                throw new antlr4.error.NoViableAltException(this);
+	                throw new antlr4.NoViableAltException(this);
 	            }
 	            this.state = 59;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        }
 	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
+	    	if(re instanceof antlr4.RecognitionException) {
 		        localctx.exception = re;
 		        this._errHandler.reportError(this, re);
 		        this._errHandler.recover(this, re);
@@ -204,10 +204,10 @@ export default class TRIGParser extends antlr4.Parser {
 	            this.wrappedGraph();
 	            break;
 	        default:
-	            throw new antlr4.error.NoViableAltException(this);
+	            throw new antlr4.NoViableAltException(this);
 	        }
 	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
+	    	if(re instanceof antlr4.RecognitionException) {
 		        localctx.exception = re;
 		        this._errHandler.reportError(this, re);
 		        this._errHandler.recover(this, re);
@@ -246,10 +246,10 @@ export default class TRIGParser extends antlr4.Parser {
 	            this.match(TRIGParser.T__1);
 	            break;
 	        default:
-	            throw new antlr4.error.NoViableAltException(this);
+	            throw new antlr4.NoViableAltException(this);
 	        }
 	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
+	    	if(re instanceof antlr4.RecognitionException) {
 		        localctx.exception = re;
 		        this._errHandler.reportError(this, re);
 		        this._errHandler.recover(this, re);
@@ -284,10 +284,10 @@ export default class TRIGParser extends antlr4.Parser {
 	            this.match(TRIGParser.BlankNode);
 	            break;
 	        default:
-	            throw new antlr4.error.NoViableAltException(this);
+	            throw new antlr4.NoViableAltException(this);
 	        }
 	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
+	    	if(re instanceof antlr4.RecognitionException) {
 		        localctx.exception = re;
 		        this._errHandler.reportError(this, re);
 		        this._errHandler.recover(this, re);
@@ -310,7 +310,7 @@ export default class TRIGParser extends antlr4.Parser {
 	        this.state = 80;
 	        this.match(TRIGParser.Macro);
 	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
+	    	if(re instanceof antlr4.RecognitionException) {
 		        localctx.exception = re;
 		        this._errHandler.reportError(this, re);
 		        this._errHandler.recover(this, re);
@@ -344,7 +344,7 @@ export default class TRIGParser extends antlr4.Parser {
 	        this.state = 86;
 	        this.match(TRIGParser.T__3);
 	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
+	    	if(re instanceof antlr4.RecognitionException) {
 		        localctx.exception = re;
 		        this._errHandler.reportError(this, re);
 		        this._errHandler.recover(this, re);
@@ -384,7 +384,7 @@ export default class TRIGParser extends antlr4.Parser {
 	        }
 
 	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
+	    	if(re instanceof antlr4.RecognitionException) {
 		        localctx.exception = re;
 		        this._errHandler.reportError(this, re);
 		        this._errHandler.recover(this, re);
@@ -432,10 +432,10 @@ export default class TRIGParser extends antlr4.Parser {
 	            this.match(TRIGParser.T__1);
 	            break;
 	        default:
-	            throw new antlr4.error.NoViableAltException(this);
+	            throw new antlr4.NoViableAltException(this);
 	        }
 	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
+	    	if(re instanceof antlr4.RecognitionException) {
 		        localctx.exception = re;
 		        this._errHandler.reportError(this, re);
 		        this._errHandler.recover(this, re);
@@ -478,10 +478,10 @@ export default class TRIGParser extends antlr4.Parser {
 	            this.sparqlBase();
 	            break;
 	        default:
-	            throw new antlr4.error.NoViableAltException(this);
+	            throw new antlr4.NoViableAltException(this);
 	        }
 	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
+	    	if(re instanceof antlr4.RecognitionException) {
 		        localctx.exception = re;
 		        this._errHandler.reportError(this, re);
 		        this._errHandler.recover(this, re);
@@ -510,7 +510,7 @@ export default class TRIGParser extends antlr4.Parser {
 	        this.state = 116;
 	        this.match(TRIGParser.T__1);
 	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
+	    	if(re instanceof antlr4.RecognitionException) {
 		        localctx.exception = re;
 		        this._errHandler.reportError(this, re);
 		        this._errHandler.recover(this, re);
@@ -537,7 +537,7 @@ export default class TRIGParser extends antlr4.Parser {
 	        this.state = 120;
 	        this.match(TRIGParser.T__1);
 	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
+	    	if(re instanceof antlr4.RecognitionException) {
 		        localctx.exception = re;
 		        this._errHandler.reportError(this, re);
 		        this._errHandler.recover(this, re);
@@ -562,7 +562,7 @@ export default class TRIGParser extends antlr4.Parser {
 	        this.state = 123;
 	        this.match(TRIGParser.IRIREF);
 	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
+	    	if(re instanceof antlr4.RecognitionException) {
 		        localctx.exception = re;
 		        this._errHandler.reportError(this, re);
 		        this._errHandler.recover(this, re);
@@ -589,7 +589,7 @@ export default class TRIGParser extends antlr4.Parser {
 	        this.state = 127;
 	        this.match(TRIGParser.IRIREF);
 	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
+	    	if(re instanceof antlr4.RecognitionException) {
 		        localctx.exception = re;
 		        this._errHandler.reportError(this, re);
 		        this._errHandler.recover(this, re);
@@ -637,10 +637,10 @@ export default class TRIGParser extends antlr4.Parser {
 
 	            break;
 	        default:
-	            throw new antlr4.error.NoViableAltException(this);
+	            throw new antlr4.NoViableAltException(this);
 	        }
 	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
+	    	if(re instanceof antlr4.RecognitionException) {
 		        localctx.exception = re;
 		        this._errHandler.reportError(this, re);
 		        this._errHandler.recover(this, re);
@@ -686,7 +686,7 @@ export default class TRIGParser extends antlr4.Parser {
 	            _la = this._input.LA(1);
 	        }
 	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
+	    	if(re instanceof antlr4.RecognitionException) {
 		        localctx.exception = re;
 		        this._errHandler.reportError(this, re);
 		        this._errHandler.recover(this, re);
@@ -722,7 +722,7 @@ export default class TRIGParser extends antlr4.Parser {
 	            _la = this._input.LA(1);
 	        }
 	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
+	    	if(re instanceof antlr4.RecognitionException) {
 		        localctx.exception = re;
 		        this._errHandler.reportError(this, re);
 		        this._errHandler.recover(this, re);
@@ -757,10 +757,10 @@ export default class TRIGParser extends antlr4.Parser {
 	            this.match(TRIGParser.T__10);
 	            break;
 	        default:
-	            throw new antlr4.error.NoViableAltException(this);
+	            throw new antlr4.NoViableAltException(this);
 	        }
 	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
+	    	if(re instanceof antlr4.RecognitionException) {
 		        localctx.exception = re;
 		        this._errHandler.reportError(this, re);
 		        this._errHandler.recover(this, re);
@@ -800,10 +800,10 @@ export default class TRIGParser extends antlr4.Parser {
 	            this.collection();
 	            break;
 	        default:
-	            throw new antlr4.error.NoViableAltException(this);
+	            throw new antlr4.NoViableAltException(this);
 	        }
 	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
+	    	if(re instanceof antlr4.RecognitionException) {
 		        localctx.exception = re;
 		        this._errHandler.reportError(this, re);
 		        this._errHandler.recover(this, re);
@@ -826,7 +826,7 @@ export default class TRIGParser extends antlr4.Parser {
 	        this.state = 168;
 	        this.iri();
 	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
+	    	if(re instanceof antlr4.RecognitionException) {
 		        localctx.exception = re;
 		        this._errHandler.reportError(this, re);
 		        this._errHandler.recover(this, re);
@@ -878,10 +878,10 @@ export default class TRIGParser extends antlr4.Parser {
 	            this.literal();
 	            break;
 	        default:
-	            throw new antlr4.error.NoViableAltException(this);
+	            throw new antlr4.NoViableAltException(this);
 	        }
 	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
+	    	if(re instanceof antlr4.RecognitionException) {
 		        localctx.exception = re;
 		        this._errHandler.reportError(this, re);
 		        this._errHandler.recover(this, re);
@@ -919,10 +919,10 @@ export default class TRIGParser extends antlr4.Parser {
 	            this.match(TRIGParser.BooleanLiteral);
 	            break;
 	        default:
-	            throw new antlr4.error.NoViableAltException(this);
+	            throw new antlr4.NoViableAltException(this);
 	        }
 	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
+	    	if(re instanceof antlr4.RecognitionException) {
 		        localctx.exception = re;
 		        this._errHandler.reportError(this, re);
 		        this._errHandler.recover(this, re);
@@ -949,7 +949,7 @@ export default class TRIGParser extends antlr4.Parser {
 	        this.state = 184;
 	        this.match(TRIGParser.T__12);
 	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
+	    	if(re instanceof antlr4.RecognitionException) {
 		        localctx.exception = re;
 		        this._errHandler.reportError(this, re);
 		        this._errHandler.recover(this, re);
@@ -985,7 +985,7 @@ export default class TRIGParser extends antlr4.Parser {
 	        this.state = 193;
 	        this.match(TRIGParser.T__14);
 	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
+	    	if(re instanceof antlr4.RecognitionException) {
 		        localctx.exception = re;
 		        this._errHandler.reportError(this, re);
 		        this._errHandler.recover(this, re);
@@ -1040,7 +1040,7 @@ export default class TRIGParser extends antlr4.Parser {
 	        	break;
 	        }
 	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
+	    	if(re instanceof antlr4.RecognitionException) {
 		        localctx.exception = re;
 		        this._errHandler.reportError(this, re);
 		        this._errHandler.recover(this, re);
@@ -1074,10 +1074,10 @@ export default class TRIGParser extends antlr4.Parser {
 	            this.prefixedname();
 	            break;
 	        default:
-	            throw new antlr4.error.NoViableAltException(this);
+	            throw new antlr4.NoViableAltException(this);
 	        }
 	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
+	    	if(re instanceof antlr4.RecognitionException) {
 		        localctx.exception = re;
 		        this._errHandler.reportError(this, re);
 		        this._errHandler.recover(this, re);
@@ -1108,7 +1108,7 @@ export default class TRIGParser extends antlr4.Parser {
 	            this.consume();
 	        }
 	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
+	    	if(re instanceof antlr4.RecognitionException) {
 		        localctx.exception = re;
 		        this._errHandler.reportError(this, re);
 		        this._errHandler.recover(this, re);

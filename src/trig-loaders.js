@@ -21,7 +21,7 @@ var transformTreeAndGetRules = function(docStr, trig){
       return helpers.createNode(terminal);
     });
 
-    antlr4.tree.ParseTreeWalker.DEFAULT.walk(listener, trig.tree);
+    antlr4.ParseTreeWalker.DEFAULT.walk(listener, trig.tree);
     return {
       syntaxErrors: trig.syntaxErrors,
       errors: listener.errors,
@@ -108,7 +108,7 @@ function graphsFromString(data){
     var trig = parseTrig(data);
     var ruleHandler = createRuleHandler(data, trig.parser);
     var trigListener = new TrigGrammerListener(data, trig, ruleHandler);
-    antlr4.tree.ParseTreeWalker.DEFAULT.walk(trigListener, trig.tree);
+    antlr4.ParseTreeWalker.DEFAULT.walk(trigListener, trig.tree);
     return trigListener.getDocument();
 }
 
