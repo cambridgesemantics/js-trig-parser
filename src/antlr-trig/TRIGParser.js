@@ -1,139 +1,71 @@
-// Generated from TRIG.g4 by ANTLR 4.9.2
+// Generated from TRIG.g4 by ANTLR 4.13.1
 // jshint ignore: start
 import antlr4 from 'antlr4';
 import TRIGListener from './TRIGListener.js';
-
-const serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786",
-    "\u5964\u00034\u00d2\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004",
-    "\t\u0004\u0004\u0005\t\u0005\u0004\u0006\t\u0006\u0004\u0007\t\u0007",
-    "\u0004\b\t\b\u0004\t\t\t\u0004\n\t\n\u0004\u000b\t\u000b\u0004\f\t\f",
-    "\u0004\r\t\r\u0004\u000e\t\u000e\u0004\u000f\t\u000f\u0004\u0010\t\u0010",
-    "\u0004\u0011\t\u0011\u0004\u0012\t\u0012\u0004\u0013\t\u0013\u0004\u0014",
-    "\t\u0014\u0004\u0015\t\u0015\u0004\u0016\t\u0016\u0004\u0017\t\u0017",
-    "\u0004\u0018\t\u0018\u0004\u0019\t\u0019\u0004\u001a\t\u001a\u0004\u001b",
-    "\t\u001b\u0003\u0002\u0003\u0002\u0003\u0002\u0007\u0002:\n\u0002\f",
-    "\u0002\u000e\u0002=\u000b\u0002\u0003\u0003\u0003\u0003\u0003\u0003",
-    "\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0005\u0003F\n\u0003",
-    "\u0003\u0004\u0003\u0004\u0003\u0004\u0003\u0004\u0003\u0004\u0005\u0004",
-    "M\n\u0004\u0003\u0005\u0003\u0005\u0005\u0005Q\n\u0005\u0003\u0006\u0003",
-    "\u0006\u0003\u0007\u0003\u0007\u0005\u0007W\n\u0007\u0003\u0007\u0003",
-    "\u0007\u0003\b\u0003\b\u0003\b\u0005\b^\n\b\u0005\b`\n\b\u0003\t\u0003",
-    "\t\u0005\td\n\t\u0003\t\u0003\t\u0003\t\u0003\t\u0003\t\u0003\t\u0005",
-    "\tl\n\t\u0003\n\u0003\n\u0003\n\u0003\n\u0005\nr\n\n\u0003\u000b\u0003",
-    "\u000b\u0003\u000b\u0003\u000b\u0003\u000b\u0003\f\u0003\f\u0003\f\u0003",
-    "\f\u0003\r\u0003\r\u0003\r\u0003\u000e\u0003\u000e\u0003\u000e\u0003",
-    "\u000e\u0003\u000f\u0003\u000f\u0003\u000f\u0003\u000f\u0003\u000f\u0005",
-    "\u000f\u0089\n\u000f\u0005\u000f\u008b\n\u000f\u0003\u0010\u0003\u0010",
-    "\u0003\u0010\u0003\u0010\u0003\u0010\u0003\u0010\u0005\u0010\u0093\n",
-    "\u0010\u0007\u0010\u0095\n\u0010\f\u0010\u000e\u0010\u0098\u000b\u0010",
-    "\u0003\u0011\u0003\u0011\u0003\u0011\u0007\u0011\u009d\n\u0011\f\u0011",
-    "\u000e\u0011\u00a0\u000b\u0011\u0003\u0012\u0003\u0012\u0005\u0012\u00a4",
-    "\n\u0012\u0003\u0013\u0003\u0013\u0003\u0013\u0005\u0013\u00a9\n\u0013",
-    "\u0003\u0014\u0003\u0014\u0003\u0015\u0003\u0015\u0003\u0015\u0003\u0015",
-    "\u0003\u0015\u0005\u0015\u00b2\n\u0015\u0003\u0016\u0003\u0016\u0003",
-    "\u0016\u0005\u0016\u00b7\n\u0016\u0003\u0017\u0003\u0017\u0003\u0017",
-    "\u0003\u0017\u0003\u0018\u0003\u0018\u0007\u0018\u00bf\n\u0018\f\u0018",
-    "\u000e\u0018\u00c2\u000b\u0018\u0003\u0018\u0003\u0018\u0003\u0019\u0003",
-    "\u0019\u0003\u0019\u0003\u0019\u0005\u0019\u00ca\n\u0019\u0003\u001a",
-    "\u0003\u001a\u0005\u001a\u00ce\n\u001a\u0003\u001b\u0003\u001b\u0003",
-    "\u001b\u0002\u0002\u001c\u0002\u0004\u0006\b\n\f\u000e\u0010\u0012\u0014",
-    "\u0016\u0018\u001a\u001c\u001e \"$&(*,.024\u0002\u0003\u0004\u0002\u001c",
-    "\u001c\u001e\u001e\u0002\u00d9\u0002;\u0003\u0002\u0002\u0002\u0004",
-    "E\u0003\u0002\u0002\u0002\u0006G\u0003\u0002\u0002\u0002\bP\u0003\u0002",
-    "\u0002\u0002\nR\u0003\u0002\u0002\u0002\fT\u0003\u0002\u0002\u0002\u000e",
-    "Z\u0003\u0002\u0002\u0002\u0010k\u0003\u0002\u0002\u0002\u0012q\u0003",
-    "\u0002\u0002\u0002\u0014s\u0003\u0002\u0002\u0002\u0016x\u0003\u0002",
-    "\u0002\u0002\u0018|\u0003\u0002\u0002\u0002\u001a\u007f\u0003\u0002",
-    "\u0002\u0002\u001c\u008a\u0003\u0002\u0002\u0002\u001e\u008c\u0003\u0002",
-    "\u0002\u0002 \u0099\u0003\u0002\u0002\u0002\"\u00a3\u0003\u0002\u0002",
-    "\u0002$\u00a8\u0003\u0002\u0002\u0002&\u00aa\u0003\u0002\u0002\u0002",
-    "(\u00b1\u0003\u0002\u0002\u0002*\u00b6\u0003\u0002\u0002\u0002,\u00b8",
-    "\u0003\u0002\u0002\u0002.\u00bc\u0003\u0002\u0002\u00020\u00c5\u0003",
-    "\u0002\u0002\u00022\u00cd\u0003\u0002\u0002\u00024\u00cf\u0003\u0002",
-    "\u0002\u00026:\u0005\u0012\n\u00027:\u0005\u0004\u0003\u00028:\u0005",
-    "\n\u0006\u000296\u0003\u0002\u0002\u000297\u0003\u0002\u0002\u00029",
-    "8\u0003\u0002\u0002\u0002:=\u0003\u0002\u0002\u0002;9\u0003\u0002\u0002",
-    "\u0002;<\u0003\u0002\u0002\u0002<\u0003\u0003\u0002\u0002\u0002=;\u0003",
-    "\u0002\u0002\u0002>F\u0005\u0006\u0004\u0002?F\u0005\f\u0007\u0002@",
-    "F\u0005\u0010\t\u0002AB\u0007\u0003\u0002\u0002BC\u0005\b\u0005\u0002",
-    "CD\u0005\f\u0007\u0002DF\u0003\u0002\u0002\u0002E>\u0003\u0002\u0002",
-    "\u0002E?\u0003\u0002\u0002\u0002E@\u0003\u0002\u0002\u0002EA\u0003\u0002",
-    "\u0002\u0002F\u0005\u0003\u0002\u0002\u0002GL\u0005\b\u0005\u0002HM",
-    "\u0005\f\u0007\u0002IJ\u0005\u001e\u0010\u0002JK\u0007\u0004\u0002\u0002",
-    "KM\u0003\u0002\u0002\u0002LH\u0003\u0002\u0002\u0002LI\u0003\u0002\u0002",
-    "\u0002M\u0007\u0003\u0002\u0002\u0002NQ\u00052\u001a\u0002OQ\u0007\u0018",
-    "\u0002\u0002PN\u0003\u0002\u0002\u0002PO\u0003\u0002\u0002\u0002Q\t",
-    "\u0003\u0002\u0002\u0002RS\u0007\u0013\u0002\u0002S\u000b\u0003\u0002",
-    "\u0002\u0002TV\u0007\u0005\u0002\u0002UW\u0005\u000e\b\u0002VU\u0003",
-    "\u0002\u0002\u0002VW\u0003\u0002\u0002\u0002WX\u0003\u0002\u0002\u0002",
-    "XY\u0007\u0006\u0002\u0002Y\r\u0003\u0002\u0002\u0002Z_\u0005\u001c",
-    "\u000f\u0002[]\u0007\u0004\u0002\u0002\\^\u0005\u000e\b\u0002]\\\u0003",
-    "\u0002\u0002\u0002]^\u0003\u0002\u0002\u0002^`\u0003\u0002\u0002\u0002",
-    "_[\u0003\u0002\u0002\u0002_`\u0003\u0002\u0002\u0002`\u000f\u0003\u0002",
-    "\u0002\u0002ac\u0005,\u0017\u0002bd\u0005\u001e\u0010\u0002cb\u0003",
-    "\u0002\u0002\u0002cd\u0003\u0002\u0002\u0002de\u0003\u0002\u0002\u0002",
-    "ef\u0007\u0004\u0002\u0002fl\u0003\u0002\u0002\u0002gh\u0005.\u0018",
-    "\u0002hi\u0005\u001e\u0010\u0002ij\u0007\u0004\u0002\u0002jl\u0003\u0002",
-    "\u0002\u0002ka\u0003\u0002\u0002\u0002kg\u0003\u0002\u0002\u0002l\u0011",
-    "\u0003\u0002\u0002\u0002mr\u0005\u0014\u000b\u0002nr\u0005\u0016\f\u0002",
-    "or\u0005\u001a\u000e\u0002pr\u0005\u0018\r\u0002qm\u0003\u0002\u0002",
-    "\u0002qn\u0003\u0002\u0002\u0002qo\u0003\u0002\u0002\u0002qp\u0003\u0002",
-    "\u0002\u0002r\u0013\u0003\u0002\u0002\u0002st\u0007\u0007\u0002\u0002",
-    "tu\u0007\u001c\u0002\u0002uv\u0007\u001b\u0002\u0002vw\u0007\u0004\u0002",
-    "\u0002w\u0015\u0003\u0002\u0002\u0002xy\u0007\b\u0002\u0002yz\u0007",
-    "\u001b\u0002\u0002z{\u0007\u0004\u0002\u0002{\u0017\u0003\u0002\u0002",
-    "\u0002|}\u0007\t\u0002\u0002}~\u0007\u001b\u0002\u0002~\u0019\u0003",
-    "\u0002\u0002\u0002\u007f\u0080\u0007\n\u0002\u0002\u0080\u0081\u0007",
-    "\u001c\u0002\u0002\u0081\u0082\u0007\u001b\u0002\u0002\u0082\u001b\u0003",
-    "\u0002\u0002\u0002\u0083\u0084\u0005$\u0013\u0002\u0084\u0085\u0005",
-    "\u001e\u0010\u0002\u0085\u008b\u0003\u0002\u0002\u0002\u0086\u0088\u0005",
-    ",\u0017\u0002\u0087\u0089\u0005\u001e\u0010\u0002\u0088\u0087\u0003",
-    "\u0002\u0002\u0002\u0088\u0089\u0003\u0002\u0002\u0002\u0089\u008b\u0003",
-    "\u0002\u0002\u0002\u008a\u0083\u0003\u0002\u0002\u0002\u008a\u0086\u0003",
-    "\u0002\u0002\u0002\u008b\u001d\u0003\u0002\u0002\u0002\u008c\u008d\u0005",
-    "\"\u0012\u0002\u008d\u0096\u0005 \u0011\u0002\u008e\u0092\u0007\u000b",
-    "\u0002\u0002\u008f\u0090\u0005\"\u0012\u0002\u0090\u0091\u0005 \u0011",
-    "\u0002\u0091\u0093\u0003\u0002\u0002\u0002\u0092\u008f\u0003\u0002\u0002",
-    "\u0002\u0092\u0093\u0003\u0002\u0002\u0002\u0093\u0095\u0003\u0002\u0002",
-    "\u0002\u0094\u008e\u0003\u0002\u0002\u0002\u0095\u0098\u0003\u0002\u0002",
-    "\u0002\u0096\u0094\u0003\u0002\u0002\u0002\u0096\u0097\u0003\u0002\u0002",
-    "\u0002\u0097\u001f\u0003\u0002\u0002\u0002\u0098\u0096\u0003\u0002\u0002",
-    "\u0002\u0099\u009e\u0005(\u0015\u0002\u009a\u009b\u0007\f\u0002\u0002",
-    "\u009b\u009d\u0005(\u0015\u0002\u009c\u009a\u0003\u0002\u0002\u0002",
-    "\u009d\u00a0\u0003\u0002\u0002\u0002\u009e\u009c\u0003\u0002\u0002\u0002",
-    "\u009e\u009f\u0003\u0002\u0002\u0002\u009f!\u0003\u0002\u0002\u0002",
-    "\u00a0\u009e\u0003\u0002\u0002\u0002\u00a1\u00a4\u0005&\u0014\u0002",
-    "\u00a2\u00a4\u0007\r\u0002\u0002\u00a3\u00a1\u0003\u0002\u0002\u0002",
-    "\u00a3\u00a2\u0003\u0002\u0002\u0002\u00a4#\u0003\u0002\u0002\u0002",
-    "\u00a5\u00a9\u00052\u001a\u0002\u00a6\u00a9\u0007\u0018\u0002\u0002",
-    "\u00a7\u00a9\u0005.\u0018\u0002\u00a8\u00a5\u0003\u0002\u0002\u0002",
-    "\u00a8\u00a6\u0003\u0002\u0002\u0002\u00a8\u00a7\u0003\u0002\u0002\u0002",
-    "\u00a9%\u0003\u0002\u0002\u0002\u00aa\u00ab\u00052\u001a\u0002\u00ab",
-    "\'\u0003\u0002\u0002\u0002\u00ac\u00b2\u00052\u001a\u0002\u00ad\u00b2",
-    "\u0007\u0018\u0002\u0002\u00ae\u00b2\u0005.\u0018\u0002\u00af\u00b2",
-    "\u0005,\u0017\u0002\u00b0\u00b2\u0005*\u0016\u0002\u00b1\u00ac\u0003",
-    "\u0002\u0002\u0002\u00b1\u00ad\u0003\u0002\u0002\u0002\u00b1\u00ae\u0003",
-    "\u0002\u0002\u0002\u00b1\u00af\u0003\u0002\u0002\u0002\u00b1\u00b0\u0003",
-    "\u0002\u0002\u0002\u00b2)\u0003\u0002\u0002\u0002\u00b3\u00b7\u0005",
-    "0\u0019\u0002\u00b4\u00b7\u0007\u0014\u0002\u0002\u00b5\u00b7\u0007",
-    "\u0016\u0002\u0002\u00b6\u00b3\u0003\u0002\u0002\u0002\u00b6\u00b4\u0003",
-    "\u0002\u0002\u0002\u00b6\u00b5\u0003\u0002\u0002\u0002\u00b7+\u0003",
-    "\u0002\u0002\u0002\u00b8\u00b9\u0007\u000e\u0002\u0002\u00b9\u00ba\u0005",
-    "\u001e\u0010\u0002\u00ba\u00bb\u0007\u000f\u0002\u0002\u00bb-\u0003",
-    "\u0002\u0002\u0002\u00bc\u00c0\u0007\u0010\u0002\u0002\u00bd\u00bf\u0005",
-    "(\u0015\u0002\u00be\u00bd\u0003\u0002\u0002\u0002\u00bf\u00c2\u0003",
-    "\u0002\u0002\u0002\u00c0\u00be\u0003\u0002\u0002\u0002\u00c0\u00c1\u0003",
-    "\u0002\u0002\u0002\u00c1\u00c3\u0003\u0002\u0002\u0002\u00c2\u00c0\u0003",
-    "\u0002\u0002\u0002\u00c3\u00c4\u0007\u0011\u0002\u0002\u00c4/\u0003",
-    "\u0002\u0002\u0002\u00c5\u00c9\u0007\u0017\u0002\u0002\u00c6\u00ca\u0007",
-    " \u0002\u0002\u00c7\u00c8\u0007\u0012\u0002\u0002\u00c8\u00ca\u0005",
-    "2\u001a\u0002\u00c9\u00c6\u0003\u0002\u0002\u0002\u00c9\u00c7\u0003",
-    "\u0002\u0002\u0002\u00c9\u00ca\u0003\u0002\u0002\u0002\u00ca1\u0003",
-    "\u0002\u0002\u0002\u00cb\u00ce\u0007\u001b\u0002\u0002\u00cc\u00ce\u0005",
-    "4\u001b\u0002\u00cd\u00cb\u0003\u0002\u0002\u0002\u00cd\u00cc\u0003",
-    "\u0002\u0002\u0002\u00ce3\u0003\u0002\u0002\u0002\u00cf\u00d0\t\u0002",
-    "\u0002\u0002\u00d05\u0003\u0002\u0002\u0002\u00199;ELPV]_ckq\u0088\u008a",
-    "\u0092\u0096\u009e\u00a3\u00a8\u00b1\u00b6\u00c0\u00c9\u00cd"].join("");
+const serializedATN = [4,1,50,208,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,
+4,2,5,7,5,2,6,7,6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,
+2,13,7,13,2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,
+20,7,20,2,21,7,21,2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,1,0,1,0,1,0,5,
+0,56,8,0,10,0,12,0,59,9,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,1,68,8,1,1,2,1,2,
+1,2,1,2,1,2,3,2,75,8,2,1,3,1,3,3,3,79,8,3,1,4,1,4,1,5,1,5,3,5,85,8,5,1,5,
+1,5,1,6,1,6,1,6,3,6,92,8,6,3,6,94,8,6,1,7,1,7,3,7,98,8,7,1,7,1,7,1,7,1,7,
+1,7,1,7,3,7,106,8,7,1,8,1,8,1,8,1,8,3,8,112,8,8,1,9,1,9,1,9,1,9,1,9,1,10,
+1,10,1,10,1,10,1,11,1,11,1,11,1,12,1,12,1,12,1,12,1,13,1,13,1,13,1,13,1,
+13,3,13,135,8,13,3,13,137,8,13,1,14,1,14,1,14,1,14,1,14,1,14,3,14,145,8,
+14,5,14,147,8,14,10,14,12,14,150,9,14,1,15,1,15,1,15,5,15,155,8,15,10,15,
+12,15,158,9,15,1,16,1,16,3,16,162,8,16,1,17,1,17,1,17,3,17,167,8,17,1,18,
+1,18,1,19,1,19,1,19,1,19,1,19,3,19,176,8,19,1,20,1,20,1,20,3,20,181,8,20,
+1,21,1,21,1,21,1,21,1,22,1,22,5,22,189,8,22,10,22,12,22,192,9,22,1,22,1,
+22,1,23,1,23,1,23,1,23,3,23,200,8,23,1,24,1,24,3,24,204,8,24,1,25,1,25,1,
+25,0,0,26,0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,
+46,48,50,0,1,2,0,26,26,28,28,215,0,57,1,0,0,0,2,67,1,0,0,0,4,69,1,0,0,0,
+6,78,1,0,0,0,8,80,1,0,0,0,10,82,1,0,0,0,12,88,1,0,0,0,14,105,1,0,0,0,16,
+111,1,0,0,0,18,113,1,0,0,0,20,118,1,0,0,0,22,122,1,0,0,0,24,125,1,0,0,0,
+26,136,1,0,0,0,28,138,1,0,0,0,30,151,1,0,0,0,32,161,1,0,0,0,34,166,1,0,0,
+0,36,168,1,0,0,0,38,175,1,0,0,0,40,180,1,0,0,0,42,182,1,0,0,0,44,186,1,0,
+0,0,46,195,1,0,0,0,48,203,1,0,0,0,50,205,1,0,0,0,52,56,3,16,8,0,53,56,3,
+2,1,0,54,56,3,8,4,0,55,52,1,0,0,0,55,53,1,0,0,0,55,54,1,0,0,0,56,59,1,0,
+0,0,57,55,1,0,0,0,57,58,1,0,0,0,58,1,1,0,0,0,59,57,1,0,0,0,60,68,3,4,2,0,
+61,68,3,10,5,0,62,68,3,14,7,0,63,64,5,1,0,0,64,65,3,6,3,0,65,66,3,10,5,0,
+66,68,1,0,0,0,67,60,1,0,0,0,67,61,1,0,0,0,67,62,1,0,0,0,67,63,1,0,0,0,68,
+3,1,0,0,0,69,74,3,6,3,0,70,75,3,10,5,0,71,72,3,28,14,0,72,73,5,2,0,0,73,
+75,1,0,0,0,74,70,1,0,0,0,74,71,1,0,0,0,75,5,1,0,0,0,76,79,3,48,24,0,77,79,
+5,22,0,0,78,76,1,0,0,0,78,77,1,0,0,0,79,7,1,0,0,0,80,81,5,17,0,0,81,9,1,
+0,0,0,82,84,5,3,0,0,83,85,3,12,6,0,84,83,1,0,0,0,84,85,1,0,0,0,85,86,1,0,
+0,0,86,87,5,4,0,0,87,11,1,0,0,0,88,93,3,26,13,0,89,91,5,2,0,0,90,92,3,12,
+6,0,91,90,1,0,0,0,91,92,1,0,0,0,92,94,1,0,0,0,93,89,1,0,0,0,93,94,1,0,0,
+0,94,13,1,0,0,0,95,97,3,42,21,0,96,98,3,28,14,0,97,96,1,0,0,0,97,98,1,0,
+0,0,98,99,1,0,0,0,99,100,5,2,0,0,100,106,1,0,0,0,101,102,3,44,22,0,102,103,
+3,28,14,0,103,104,5,2,0,0,104,106,1,0,0,0,105,95,1,0,0,0,105,101,1,0,0,0,
+106,15,1,0,0,0,107,112,3,18,9,0,108,112,3,20,10,0,109,112,3,24,12,0,110,
+112,3,22,11,0,111,107,1,0,0,0,111,108,1,0,0,0,111,109,1,0,0,0,111,110,1,
+0,0,0,112,17,1,0,0,0,113,114,5,5,0,0,114,115,5,26,0,0,115,116,5,25,0,0,116,
+117,5,2,0,0,117,19,1,0,0,0,118,119,5,6,0,0,119,120,5,25,0,0,120,121,5,2,
+0,0,121,21,1,0,0,0,122,123,5,7,0,0,123,124,5,25,0,0,124,23,1,0,0,0,125,126,
+5,8,0,0,126,127,5,26,0,0,127,128,5,25,0,0,128,25,1,0,0,0,129,130,3,34,17,
+0,130,131,3,28,14,0,131,137,1,0,0,0,132,134,3,42,21,0,133,135,3,28,14,0,
+134,133,1,0,0,0,134,135,1,0,0,0,135,137,1,0,0,0,136,129,1,0,0,0,136,132,
+1,0,0,0,137,27,1,0,0,0,138,139,3,32,16,0,139,148,3,30,15,0,140,144,5,9,0,
+0,141,142,3,32,16,0,142,143,3,30,15,0,143,145,1,0,0,0,144,141,1,0,0,0,144,
+145,1,0,0,0,145,147,1,0,0,0,146,140,1,0,0,0,147,150,1,0,0,0,148,146,1,0,
+0,0,148,149,1,0,0,0,149,29,1,0,0,0,150,148,1,0,0,0,151,156,3,38,19,0,152,
+153,5,10,0,0,153,155,3,38,19,0,154,152,1,0,0,0,155,158,1,0,0,0,156,154,1,
+0,0,0,156,157,1,0,0,0,157,31,1,0,0,0,158,156,1,0,0,0,159,162,3,36,18,0,160,
+162,5,11,0,0,161,159,1,0,0,0,161,160,1,0,0,0,162,33,1,0,0,0,163,167,3,48,
+24,0,164,167,5,22,0,0,165,167,3,44,22,0,166,163,1,0,0,0,166,164,1,0,0,0,
+166,165,1,0,0,0,167,35,1,0,0,0,168,169,3,48,24,0,169,37,1,0,0,0,170,176,
+3,48,24,0,171,176,5,22,0,0,172,176,3,44,22,0,173,176,3,42,21,0,174,176,3,
+40,20,0,175,170,1,0,0,0,175,171,1,0,0,0,175,172,1,0,0,0,175,173,1,0,0,0,
+175,174,1,0,0,0,176,39,1,0,0,0,177,181,3,46,23,0,178,181,5,18,0,0,179,181,
+5,20,0,0,180,177,1,0,0,0,180,178,1,0,0,0,180,179,1,0,0,0,181,41,1,0,0,0,
+182,183,5,12,0,0,183,184,3,28,14,0,184,185,5,13,0,0,185,43,1,0,0,0,186,190,
+5,14,0,0,187,189,3,38,19,0,188,187,1,0,0,0,189,192,1,0,0,0,190,188,1,0,0,
+0,190,191,1,0,0,0,191,193,1,0,0,0,192,190,1,0,0,0,193,194,5,15,0,0,194,45,
+1,0,0,0,195,199,5,21,0,0,196,200,5,30,0,0,197,198,5,16,0,0,198,200,3,48,
+24,0,199,196,1,0,0,0,199,197,1,0,0,0,199,200,1,0,0,0,200,47,1,0,0,0,201,
+204,5,25,0,0,202,204,3,50,25,0,203,201,1,0,0,0,203,202,1,0,0,0,204,49,1,
+0,0,0,205,206,7,0,0,0,206,51,1,0,0,0,23,55,57,67,74,78,84,91,93,97,105,111,
+134,136,144,148,156,161,166,175,180,190,199,203];
 
 
 const atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
@@ -176,44 +108,40 @@ export default class TRIGParser extends antlr4.Parser {
         this.symbolicNames = TRIGParser.symbolicNames;
     }
 
-    get atn() {
-        return atn;
-    }
-
 
 
 	trigDoc() {
 	    let localctx = new TrigDocContext(this, this._ctx, this.state);
 	    this.enterRule(localctx, 0, TRIGParser.RULE_trigDoc);
-	    var _la = 0; // Token type
+	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
 	        this.state = 57;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        while((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << TRIGParser.T__0) | (1 << TRIGParser.T__2) | (1 << TRIGParser.T__4) | (1 << TRIGParser.T__5) | (1 << TRIGParser.T__6) | (1 << TRIGParser.T__7) | (1 << TRIGParser.T__11) | (1 << TRIGParser.T__13) | (1 << TRIGParser.Macro) | (1 << TRIGParser.BlankNode) | (1 << TRIGParser.IRIREF) | (1 << TRIGParser.PNAME_NS) | (1 << TRIGParser.PNAME_LN))) !== 0)) {
+	        while((((_la) & ~0x1f) === 0 && ((1 << _la) & 373445098) !== 0)) {
 	            this.state = 55;
 	            this._errHandler.sync(this);
 	            switch(this._input.LA(1)) {
-	            case TRIGParser.T__4:
-	            case TRIGParser.T__5:
-	            case TRIGParser.T__6:
-	            case TRIGParser.T__7:
+	            case 5:
+	            case 6:
+	            case 7:
+	            case 8:
 	                this.state = 52;
 	                this.directive();
 	                break;
-	            case TRIGParser.T__0:
-	            case TRIGParser.T__2:
-	            case TRIGParser.T__11:
-	            case TRIGParser.T__13:
-	            case TRIGParser.BlankNode:
-	            case TRIGParser.IRIREF:
-	            case TRIGParser.PNAME_NS:
-	            case TRIGParser.PNAME_LN:
+	            case 1:
+	            case 3:
+	            case 12:
+	            case 14:
+	            case 22:
+	            case 25:
+	            case 26:
+	            case 28:
 	                this.state = 53;
 	                this.block();
 	                break;
-	            case TRIGParser.Macro:
+	            case 17:
 	                this.state = 54;
 	                this.macro();
 	                break;
@@ -247,26 +175,26 @@ export default class TRIGParser extends antlr4.Parser {
 	        this.state = 67;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
-	        case TRIGParser.BlankNode:
-	        case TRIGParser.IRIREF:
-	        case TRIGParser.PNAME_NS:
-	        case TRIGParser.PNAME_LN:
+	        case 22:
+	        case 25:
+	        case 26:
+	        case 28:
 	            this.enterOuterAlt(localctx, 1);
 	            this.state = 60;
 	            this.triplesOrGraph();
 	            break;
-	        case TRIGParser.T__2:
+	        case 3:
 	            this.enterOuterAlt(localctx, 2);
 	            this.state = 61;
 	            this.wrappedGraph();
 	            break;
-	        case TRIGParser.T__11:
-	        case TRIGParser.T__13:
+	        case 12:
+	        case 14:
 	            this.enterOuterAlt(localctx, 3);
 	            this.state = 62;
 	            this.triples2();
 	            break;
-	        case TRIGParser.T__0:
+	        case 1:
 	            this.enterOuterAlt(localctx, 4);
 	            this.state = 63;
 	            this.match(TRIGParser.T__0);
@@ -304,14 +232,14 @@ export default class TRIGParser extends antlr4.Parser {
 	        this.state = 74;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
-	        case TRIGParser.T__2:
+	        case 3:
 	            this.state = 70;
 	            this.wrappedGraph();
 	            break;
-	        case TRIGParser.T__10:
-	        case TRIGParser.IRIREF:
-	        case TRIGParser.PNAME_NS:
-	        case TRIGParser.PNAME_LN:
+	        case 11:
+	        case 25:
+	        case 26:
+	        case 28:
 	            this.state = 71;
 	            this.predicateObjectList();
 	            this.state = 72;
@@ -343,14 +271,14 @@ export default class TRIGParser extends antlr4.Parser {
 	        this.state = 78;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
-	        case TRIGParser.IRIREF:
-	        case TRIGParser.PNAME_NS:
-	        case TRIGParser.PNAME_LN:
+	        case 25:
+	        case 26:
+	        case 28:
 	            this.enterOuterAlt(localctx, 1);
 	            this.state = 76;
 	            this.iri();
 	            break;
-	        case TRIGParser.BlankNode:
+	        case 22:
 	            this.enterOuterAlt(localctx, 2);
 	            this.state = 77;
 	            this.match(TRIGParser.BlankNode);
@@ -400,7 +328,7 @@ export default class TRIGParser extends antlr4.Parser {
 	wrappedGraph() {
 	    let localctx = new WrappedGraphContext(this, this._ctx, this.state);
 	    this.enterRule(localctx, 10, TRIGParser.RULE_wrappedGraph);
-	    var _la = 0; // Token type
+	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
 	        this.state = 82;
@@ -408,7 +336,7 @@ export default class TRIGParser extends antlr4.Parser {
 	        this.state = 84;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        if((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << TRIGParser.T__11) | (1 << TRIGParser.T__13) | (1 << TRIGParser.BlankNode) | (1 << TRIGParser.IRIREF) | (1 << TRIGParser.PNAME_NS) | (1 << TRIGParser.PNAME_LN))) !== 0)) {
+	        if((((_la) & ~0x1f) === 0 && ((1 << _la) & 373313536) !== 0)) {
 	            this.state = 83;
 	            this.triplesBlock();
 	        }
@@ -434,7 +362,7 @@ export default class TRIGParser extends antlr4.Parser {
 	triplesBlock() {
 	    let localctx = new TriplesBlockContext(this, this._ctx, this.state);
 	    this.enterRule(localctx, 12, TRIGParser.RULE_triplesBlock);
-	    var _la = 0; // Token type
+	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
 	        this.state = 88;
@@ -442,13 +370,13 @@ export default class TRIGParser extends antlr4.Parser {
 	        this.state = 93;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        if(_la===TRIGParser.T__1) {
+	        if(_la===2) {
 	            this.state = 89;
 	            this.match(TRIGParser.T__1);
 	            this.state = 91;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
-	            if((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << TRIGParser.T__11) | (1 << TRIGParser.T__13) | (1 << TRIGParser.BlankNode) | (1 << TRIGParser.IRIREF) | (1 << TRIGParser.PNAME_NS) | (1 << TRIGParser.PNAME_LN))) !== 0)) {
+	            if((((_la) & ~0x1f) === 0 && ((1 << _la) & 373313536) !== 0)) {
 	                this.state = 90;
 	                this.triplesBlock();
 	            }
@@ -474,19 +402,19 @@ export default class TRIGParser extends antlr4.Parser {
 	triples2() {
 	    let localctx = new Triples2Context(this, this._ctx, this.state);
 	    this.enterRule(localctx, 14, TRIGParser.RULE_triples2);
-	    var _la = 0; // Token type
+	    var _la = 0;
 	    try {
 	        this.state = 105;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
-	        case TRIGParser.T__11:
+	        case 12:
 	            this.enterOuterAlt(localctx, 1);
 	            this.state = 95;
 	            this.blankNodePropertyList();
 	            this.state = 97;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
-	            if((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << TRIGParser.T__10) | (1 << TRIGParser.IRIREF) | (1 << TRIGParser.PNAME_NS) | (1 << TRIGParser.PNAME_LN))) !== 0)) {
+	            if((((_la) & ~0x1f) === 0 && ((1 << _la) & 369100800) !== 0)) {
 	                this.state = 96;
 	                this.predicateObjectList();
 	            }
@@ -494,7 +422,7 @@ export default class TRIGParser extends antlr4.Parser {
 	            this.state = 99;
 	            this.match(TRIGParser.T__1);
 	            break;
-	        case TRIGParser.T__13:
+	        case 14:
 	            this.enterOuterAlt(localctx, 2);
 	            this.state = 101;
 	            this.collection();
@@ -529,22 +457,22 @@ export default class TRIGParser extends antlr4.Parser {
 	        this.state = 111;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
-	        case TRIGParser.T__4:
+	        case 5:
 	            this.enterOuterAlt(localctx, 1);
 	            this.state = 107;
 	            this.prefixID();
 	            break;
-	        case TRIGParser.T__5:
+	        case 6:
 	            this.enterOuterAlt(localctx, 2);
 	            this.state = 108;
 	            this.base();
 	            break;
-	        case TRIGParser.T__7:
+	        case 8:
 	            this.enterOuterAlt(localctx, 3);
 	            this.state = 109;
 	            this.sparqlPrefix();
 	            break;
-	        case TRIGParser.T__6:
+	        case 7:
 	            this.enterOuterAlt(localctx, 4);
 	            this.state = 110;
 	            this.sparqlBase();
@@ -679,30 +607,30 @@ export default class TRIGParser extends antlr4.Parser {
 	triples() {
 	    let localctx = new TriplesContext(this, this._ctx, this.state);
 	    this.enterRule(localctx, 26, TRIGParser.RULE_triples);
-	    var _la = 0; // Token type
+	    var _la = 0;
 	    try {
 	        this.state = 136;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
-	        case TRIGParser.T__13:
-	        case TRIGParser.BlankNode:
-	        case TRIGParser.IRIREF:
-	        case TRIGParser.PNAME_NS:
-	        case TRIGParser.PNAME_LN:
+	        case 14:
+	        case 22:
+	        case 25:
+	        case 26:
+	        case 28:
 	            this.enterOuterAlt(localctx, 1);
 	            this.state = 129;
 	            this.subject();
 	            this.state = 130;
 	            this.predicateObjectList();
 	            break;
-	        case TRIGParser.T__11:
+	        case 12:
 	            this.enterOuterAlt(localctx, 2);
 	            this.state = 132;
 	            this.blankNodePropertyList();
 	            this.state = 134;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
-	            if((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << TRIGParser.T__10) | (1 << TRIGParser.IRIREF) | (1 << TRIGParser.PNAME_NS) | (1 << TRIGParser.PNAME_LN))) !== 0)) {
+	            if((((_la) & ~0x1f) === 0 && ((1 << _la) & 369100800) !== 0)) {
 	                this.state = 133;
 	                this.predicateObjectList();
 	            }
@@ -730,7 +658,7 @@ export default class TRIGParser extends antlr4.Parser {
 	predicateObjectList() {
 	    let localctx = new PredicateObjectListContext(this, this._ctx, this.state);
 	    this.enterRule(localctx, 28, TRIGParser.RULE_predicateObjectList);
-	    var _la = 0; // Token type
+	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
 	        this.state = 138;
@@ -740,13 +668,13 @@ export default class TRIGParser extends antlr4.Parser {
 	        this.state = 148;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        while(_la===TRIGParser.T__8) {
+	        while(_la===9) {
 	            this.state = 140;
 	            this.match(TRIGParser.T__8);
 	            this.state = 144;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
-	            if((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << TRIGParser.T__10) | (1 << TRIGParser.IRIREF) | (1 << TRIGParser.PNAME_NS) | (1 << TRIGParser.PNAME_LN))) !== 0)) {
+	            if((((_la) & ~0x1f) === 0 && ((1 << _la) & 369100800) !== 0)) {
 	                this.state = 141;
 	                this.verb();
 	                this.state = 142;
@@ -776,7 +704,7 @@ export default class TRIGParser extends antlr4.Parser {
 	objectList() {
 	    let localctx = new ObjectListContext(this, this._ctx, this.state);
 	    this.enterRule(localctx, 30, TRIGParser.RULE_objectList);
-	    var _la = 0; // Token type
+	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
 	        this.state = 151;
@@ -784,7 +712,7 @@ export default class TRIGParser extends antlr4.Parser {
 	        this.state = 156;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        while(_la===TRIGParser.T__9) {
+	        while(_la===10) {
 	            this.state = 152;
 	            this.match(TRIGParser.T__9);
 	            this.state = 153;
@@ -816,14 +744,14 @@ export default class TRIGParser extends antlr4.Parser {
 	        this.state = 161;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
-	        case TRIGParser.IRIREF:
-	        case TRIGParser.PNAME_NS:
-	        case TRIGParser.PNAME_LN:
+	        case 25:
+	        case 26:
+	        case 28:
 	            this.enterOuterAlt(localctx, 1);
 	            this.state = 159;
 	            this.predicate();
 	            break;
-	        case TRIGParser.T__10:
+	        case 11:
 	            this.enterOuterAlt(localctx, 2);
 	            this.state = 160;
 	            this.match(TRIGParser.T__10);
@@ -854,19 +782,19 @@ export default class TRIGParser extends antlr4.Parser {
 	        this.state = 166;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
-	        case TRIGParser.IRIREF:
-	        case TRIGParser.PNAME_NS:
-	        case TRIGParser.PNAME_LN:
+	        case 25:
+	        case 26:
+	        case 28:
 	            this.enterOuterAlt(localctx, 1);
 	            this.state = 163;
 	            this.iri();
 	            break;
-	        case TRIGParser.BlankNode:
+	        case 22:
 	            this.enterOuterAlt(localctx, 2);
 	            this.state = 164;
 	            this.match(TRIGParser.BlankNode);
 	            break;
-	        case TRIGParser.T__13:
+	        case 14:
 	            this.enterOuterAlt(localctx, 3);
 	            this.state = 165;
 	            this.collection();
@@ -920,31 +848,31 @@ export default class TRIGParser extends antlr4.Parser {
 	        this.state = 175;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
-	        case TRIGParser.IRIREF:
-	        case TRIGParser.PNAME_NS:
-	        case TRIGParser.PNAME_LN:
+	        case 25:
+	        case 26:
+	        case 28:
 	            this.enterOuterAlt(localctx, 1);
 	            this.state = 170;
 	            this.iri();
 	            break;
-	        case TRIGParser.BlankNode:
+	        case 22:
 	            this.enterOuterAlt(localctx, 2);
 	            this.state = 171;
 	            this.match(TRIGParser.BlankNode);
 	            break;
-	        case TRIGParser.T__13:
+	        case 14:
 	            this.enterOuterAlt(localctx, 3);
 	            this.state = 172;
 	            this.collection();
 	            break;
-	        case TRIGParser.T__11:
+	        case 12:
 	            this.enterOuterAlt(localctx, 4);
 	            this.state = 173;
 	            this.blankNodePropertyList();
 	            break;
-	        case TRIGParser.NumericLiteral:
-	        case TRIGParser.BooleanLiteral:
-	        case TRIGParser.String:
+	        case 18:
+	        case 20:
+	        case 21:
 	            this.enterOuterAlt(localctx, 5);
 	            this.state = 174;
 	            this.literal();
@@ -975,17 +903,17 @@ export default class TRIGParser extends antlr4.Parser {
 	        this.state = 180;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
-	        case TRIGParser.String:
+	        case 21:
 	            this.enterOuterAlt(localctx, 1);
 	            this.state = 177;
 	            this.rdfLiteral();
 	            break;
-	        case TRIGParser.NumericLiteral:
+	        case 18:
 	            this.enterOuterAlt(localctx, 2);
 	            this.state = 178;
 	            this.match(TRIGParser.NumericLiteral);
 	            break;
-	        case TRIGParser.BooleanLiteral:
+	        case 20:
 	            this.enterOuterAlt(localctx, 3);
 	            this.state = 179;
 	            this.match(TRIGParser.BooleanLiteral);
@@ -1039,7 +967,7 @@ export default class TRIGParser extends antlr4.Parser {
 	collection() {
 	    let localctx = new CollectionContext(this, this._ctx, this.state);
 	    this.enterRule(localctx, 44, TRIGParser.RULE_collection);
-	    var _la = 0; // Token type
+	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
 	        this.state = 186;
@@ -1047,7 +975,7 @@ export default class TRIGParser extends antlr4.Parser {
 	        this.state = 190;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        while((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << TRIGParser.T__11) | (1 << TRIGParser.T__13) | (1 << TRIGParser.NumericLiteral) | (1 << TRIGParser.BooleanLiteral) | (1 << TRIGParser.String) | (1 << TRIGParser.BlankNode) | (1 << TRIGParser.IRIREF) | (1 << TRIGParser.PNAME_NS) | (1 << TRIGParser.PNAME_LN))) !== 0)) {
+	        while((((_la) & ~0x1f) === 0 && ((1 << _la) & 376721408) !== 0)) {
 	            this.state = 187;
 	            this.object();
 	            this.state = 192;
@@ -1082,31 +1010,31 @@ export default class TRIGParser extends antlr4.Parser {
 	        this.state = 199;
 	        this._errHandler.sync(this);
 	        switch (this._input.LA(1)) {
-	        case TRIGParser.LANGTAG:
+	        case 30:
 	        	this.state = 196;
 	        	this.match(TRIGParser.LANGTAG);
 	        	break;
-	        case TRIGParser.T__15:
+	        case 16:
 	        	this.state = 197;
 	        	this.match(TRIGParser.T__15);
 	        	this.state = 198;
 	        	this.iri();
 	        	break;
-	        case TRIGParser.T__1:
-	        case TRIGParser.T__3:
-	        case TRIGParser.T__8:
-	        case TRIGParser.T__9:
-	        case TRIGParser.T__11:
-	        case TRIGParser.T__12:
-	        case TRIGParser.T__13:
-	        case TRIGParser.T__14:
-	        case TRIGParser.NumericLiteral:
-	        case TRIGParser.BooleanLiteral:
-	        case TRIGParser.String:
-	        case TRIGParser.BlankNode:
-	        case TRIGParser.IRIREF:
-	        case TRIGParser.PNAME_NS:
-	        case TRIGParser.PNAME_LN:
+	        case 2:
+	        case 4:
+	        case 9:
+	        case 10:
+	        case 12:
+	        case 13:
+	        case 14:
+	        case 15:
+	        case 18:
+	        case 20:
+	        case 21:
+	        case 22:
+	        case 25:
+	        case 26:
+	        case 28:
 	        	break;
 	        default:
 	        	break;
@@ -1134,13 +1062,13 @@ export default class TRIGParser extends antlr4.Parser {
 	        this.state = 203;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
-	        case TRIGParser.IRIREF:
+	        case 25:
 	            this.enterOuterAlt(localctx, 1);
 	            this.state = 201;
 	            this.match(TRIGParser.IRIREF);
 	            break;
-	        case TRIGParser.PNAME_NS:
-	        case TRIGParser.PNAME_LN:
+	        case 26:
+	        case 28:
 	            this.enterOuterAlt(localctx, 2);
 	            this.state = 202;
 	            this.prefixedname();
@@ -1167,12 +1095,12 @@ export default class TRIGParser extends antlr4.Parser {
 	prefixedname() {
 	    let localctx = new PrefixednameContext(this, this._ctx, this.state);
 	    this.enterRule(localctx, 50, TRIGParser.RULE_prefixedname);
-	    var _la = 0; // Token type
+	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
 	        this.state = 205;
 	        _la = this._input.LA(1);
-	        if(!(_la===TRIGParser.PNAME_NS || _la===TRIGParser.PNAME_LN)) {
+	        if(!(_la===26 || _la===28)) {
 	        this._errHandler.recoverInline(this);
 	        }
 	        else {
